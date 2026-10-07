@@ -4,7 +4,10 @@ import App from "./App";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import "./explorer.css";
-createRoot(document.getElementById("root")!).render(
+import { canonicalDestination } from "./services/canonical";
+const destination = canonicalDestination(window.location.href);
+if (destination) window.location.replace(destination);
+else createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
