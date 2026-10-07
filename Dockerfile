@@ -17,4 +17,4 @@ COPY data ./data
 COPY scripts ./scripts
 USER node
 EXPOSE 3001
-CMD ["node", "backend/src/server.mjs"]
+CMD ["sh", "-c", "node scripts/setup-db.mjs && exec node backend/src/server.mjs"]

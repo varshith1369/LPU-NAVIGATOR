@@ -2,15 +2,25 @@ services:
   - type: web
     name: lpu-campus-api
     runtime: docker
+    plan: free
+    region: singapore
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
-    preDeployCommand: node scripts/setup-db.mjs
     envVars:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: lpu-campus-db
+          property: connectionString
       - key: APP_ORIGIN
         sync: false
       - key: JWT_SECRET
         generateValue: true
+databases:
+  - name: lpu-campus-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "17"
+    databaseName: lpu_campus
+    ipAllowList: []

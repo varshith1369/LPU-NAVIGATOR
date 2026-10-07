@@ -4,7 +4,9 @@ The app is locally runnable. No cloud deployment has been verified and no hosted
 
 ## Single-service deployment
 
-`Dockerfile` builds the frontend and serves it alongside the Express API. `render.yaml` describes a web service with a database migration pre-deploy command. Supply a managed PostgreSQL database with PostGIS and pg_trgm available, a cryptographically random JWT secret and the exact HTTPS application origin. Production refuses embedded storage and missing secrets. The database needs permission to enable extensions during initial setup; use a separate migration owner and restricted runtime role before opening the service publicly.
+`Dockerfile` builds the frontend and serves it alongside the Express API. `render.yaml` provisions a free web service and PostgreSQL 17 database in Singapore. The container initializes the schema and source data before starting the API; free Render services do not support a separate pre-deploy command. Startup exits if initialization fails. Supply a cryptographically random JWT secret and the exact HTTPS application origin. Production refuses embedded storage and missing secrets. The database needs permission to enable PostGIS and pg_trgm during initial setup. A separate migration owner and restricted runtime role remain production hardening work.
+
+Render's free API can sleep when idle, and its free database expires 30 days after creation. Upgrade the database for ongoing use. The deployed database's external connections are restricted; the API uses its private internal connection.
 
 The historical source image stays private in `.local` and is excluded from builds. Production historical mode displays a source-unavailable notice until an appropriately licensed map is added through a reviewed publication workflow; the historical directory remains usable. Current GPS data and path data are still required for real navigation.
 

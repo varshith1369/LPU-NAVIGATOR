@@ -3,6 +3,9 @@ node_modules
 .env
 .env.*
 .git
+.vercel
+*.zip
+.venv
 dist
 legend-inspection.png
 test-results
