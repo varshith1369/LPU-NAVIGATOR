@@ -1,0 +1,24 @@
+[
+  {
+    "id": "historical-map-001",
+    "type": "OLD_LPU_MAP",
+    "title": "User-supplied historical LPU campus map",
+    "local_reference": ".local/historical-map.png (not distributed)",
+    "sha256": "5a156ab4eb4dd03e5e4e40a8451efb52960cbd66e8478f58b1548324709a8149",
+    "received_date": "2026-10-07",
+    "publication_date": null,
+    "width_px": 559,
+    "height_px": 787,
+    "scale": "NOT_TO_SCALE",
+    "georeferenced": false,
+    "license": null,
+    "visible_legend_entries": 51,
+    "missing_legend_ids": [
+      44,
+      48,
+      49,
+      50
+    ],
+    "notes": "Do not redistribute the image or treat the map as current without further review."
+  }
+]

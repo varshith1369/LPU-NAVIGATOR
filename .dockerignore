@@ -1,0 +1,9 @@
+node_modules
+.local
+.env
+.env.*
+.git
+dist
+legend-inspection.png
+test-results
+__pycache__
