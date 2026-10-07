@@ -77,7 +77,15 @@ AI API tests require `ai-service/requirements.txt` and `httpx`. Python service s
 
 Requested repository: [varshith1369/LPU-NAVIGATOR](https://github.com/varshith1369/LPU-NAVIGATOR). Requested frontend project: `lpu-campus-navigator` on Vercel. Requested API service: `lpu-campus-api` on Render, with Render Postgres/PostGIS.
 
-No cloud deployment has been performed. GitHub currently reports read-only connector access, and Vercel/Render browser sessions need sign-in. After authenticating and confirming the actual API URL, run `node scripts/configure-vercel.mjs <actual-https-api-origin>` to write the proxy configuration. Do not infer the URL from a service name. Follow [deployment instructions](docs/deployment.md).
+The frontend is deployed at [LPU Campus Navigator](https://lpu-campus-navigator-beryl.vercel.app), with the [Render API](https://lpu-campus-api.onrender.com/api/health). GitHub main triggers provider deployments. Follow [deployment instructions](docs/deployment.md).
+
+## Live location and missing GPS positions
+
+On the map, choose **Start live location** and grant your browser permission. The device may combine GPS, Wi-Fi and mobile signals. A blue position marker and accuracy circle update as you move; **Follow me** keeps your position and a selected mapped destination in view, zooming closer as their separation decreases. Distances are straight-line estimates, not verified walking directions. Drag the map to pause following, or choose **Stop location** to clear the watch and position. Tracking pauses in hidden tabs and stops when leaving the map section. Movement is not uploaded to the campus API or stored persistently.
+
+Live pins use **B** for sourced building numbers and **M** for other mapped places, matching the “On the map” directory. These are distinct from historical plan references 01–55. Missing GPS coordinates are not inferred from a visitor merely walking past a building.
+
+Select a historical entry, choose **I’m at this place · add GPS**, and capture a position at its public entrance. The purple numbered preview is local and unverified. Signed-in visitors can explicitly consent to share the coordinate, accuracy, capture time and entrance description with reviewers. The API requires a recent fix (five minutes), accuracy within 100 metres and coordinates within the campus vicinity; these checks do not establish authenticity. Suggestions remain pending until independently verified and entered through the administrative source/location workflow. Indoor GPS and device spoofing remain limitations.
 
 ## Project layout
 

@@ -238,6 +238,50 @@ test("suggestions remain pending and cannot self-publish", async () => {
     .expect(201);
   assert.equal(r.body.status, "PENDING");
 });
+test("GPS suggestions require consent and a recent accurate campus fix, and never publish", async () => {
+  const before = (await request(app).get("/api/locations")).body.items;
+  const valid = {
+    description: "Synthetic entrance location for moderation test",
+    historical_id: "history-55",
+    suggested_latitude: 31.2533,
+    suggested_longitude: 75.7041,
+    accuracy_m: 12,
+    captured_at: new Date().toISOString(),
+    location_consent: true,
+  };
+  for (const override of [
+    { location_consent: false },
+    { accuracy_m: 101 },
+    { accuracy_m: undefined },
+    { captured_at: new Date(Date.now() - 360000).toISOString() },
+    { captured_at: new Date(Date.now() + 60000).toISOString() },
+    { suggested_longitude: undefined },
+    { suggested_latitude: 28.61 },
+  ]) {
+    await student
+      .post("/api/submissions")
+      .set("X-CSRF-Token", csrfStudent)
+      .send({ ...valid, ...override })
+      .expect(400);
+  }
+  const result = await student
+    .post("/api/submissions")
+    .set("X-CSRF-Token", csrfStudent)
+    .send(valid)
+    .expect(201);
+  assert.equal(result.body.status, "PENDING");
+  const stored = (
+    await db.query("SELECT payload FROM submissions WHERE id=$1", [
+      result.body.id,
+    ])
+  ).rows[0].payload;
+  assert.equal(stored.location_consent, true);
+  assert.equal(stored.accuracy_m, 12);
+  assert.deepEqual(
+    (await request(app).get("/api/locations")).body.items,
+    before,
+  );
+});
 test("routing does not manufacture an edge for disconnected locations", async () => {
   const r = await student
     .post("/api/routes")

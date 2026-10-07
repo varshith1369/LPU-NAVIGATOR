@@ -524,3 +524,140 @@ a:focus-visible {
     transition: none !important;
   }
 }
+.leaflet-tooltip.map-number {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: white;
+  font:
+    800 11px/1 system-ui,
+    sans-serif;
+  padding: 0;
+  pointer-events: none;
+}
+.leaflet-tooltip.suggestion-number {
+  color: #7e22ce;
+}
+.gps-panel {
+  position: absolute;
+  z-index: 740;
+  top: 78px;
+  left: 72px;
+  width: min(305px, calc(100% - 90px));
+  padding: 13px 15px;
+  background: #ffffffed;
+  border: 1px solid #dce7ed;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px #17344815;
+  display: grid;
+  gap: 7px;
+  color: #173448;
+  font-size: 12px;
+}
+.gps-panel span {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #526b7d;
+}
+.gps-panel div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.gps-panel button {
+  text-align: left;
+  color: #1e5e95;
+  font-weight: 700;
+  min-height: 30px;
+}
+.gps-panel button:disabled {
+  opacity: 0.45;
+}
+.gps-panel + .service-status {
+  top: 252px;
+}
+.map-area .tile-status {
+  top: 312px;
+}
+.gps-place-action {
+  display: grid;
+  gap: 8px;
+  margin-block: 13px;
+}
+.gps-place-action small {
+  color: #526b7d;
+  line-height: 1.5;
+}
+.gps-dialog {
+  position: fixed;
+  margin: auto;
+  border: 1px solid #d7e2e8;
+  border-radius: 18px;
+  padding: 28px;
+  width: min(480px, calc(100% - 24px));
+  max-height: 90dvh;
+  overflow-y: auto;
+  color: #173448;
+  box-shadow: 0 20px 90px #11263840;
+}
+.gps-dialog::backdrop {
+  background: #142a3db3;
+}
+.gps-dialog h2 {
+  margin: 12px 20px 12px 0;
+}
+.gps-dialog p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.gps-dialog form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+.gps-dialog textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px;
+  border: 1px solid #acbdc9;
+  border-radius: 8px;
+  font: inherit;
+}
+.gps-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.gps-consent input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin-top: 3px;
+}
+.gps-preview {
+  padding: 14px;
+  background: #f4f0fa;
+  border-radius: 10px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+.detail-card {
+  max-height: 53%;
+  overflow-y: auto;
+}
+@media (max-width: 720px) {
+  .gps-panel {
+    top: 72px;
+    left: 54px;
+    width: calc(100% - 66px);
+    padding: 10px 12px;
+  }
+  .directory.mobile-open + .map-area .gps-panel {
+    visibility: hidden;
+  }
+  .detail-card {
+    max-height: 44%;
+  }
+}

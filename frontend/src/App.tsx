@@ -33,6 +33,13 @@ import {
 import CampusMap from "./components/CampusMap";
 import { api, post, type Place, type User } from "./services/api";
 import campus from "./data/campus.json";
+import LocationSuggestion from "./components/LocationSuggestion";
+import { useLiveLocation } from "./services/useLiveLocation";
+import {
+  distanceMeters,
+  mapLabel,
+  type LocationFix,
+} from "./services/location";
 
 const icons: Record<string, typeof Building2> = {
   Academic: GraduationCap,
@@ -75,7 +82,27 @@ export default function App() {
   const error = "";
   const [notice, setNotice] = useState("");
   const [user, setUser] = useState<User | null>(null);
-  const [position, setPosition] = useState<[number, number] | null>(null);
+  const live = useLiveLocation();
+  const position = useMemo<[number, number] | null>(
+    () => (live.fix ? [live.fix.latitude, live.fix.longitude] : null),
+    [live.fix],
+  );
+  const [follow, setFollow] = useState(false);
+  const [suggestPlace, setSuggestPlace] = useState<Place | null>(null);
+  const [draft, setDraft] = useState<{ place: Place; fix: LocationFix } | null>(
+    null,
+  );
+  const draftPlace = useMemo(
+    () =>
+      draft
+        ? {
+            ...draft.place,
+            latitude: draft.fix.latitude,
+            longitude: draft.fix.longitude,
+          }
+        : null,
+    [draft],
+  );
   const [route, setRoute] = useState<[number, number][]>([]);
   const [mobileList, setMobileList] = useState(true);
   const [nearby, setNearby] = useState(false);
@@ -99,6 +126,7 @@ export default function App() {
         (!search ||
           p.name.toLowerCase().includes(search) ||
           p.category.toLowerCase().includes(search) ||
+          mapLabel(p, mappedPlaces).toLowerCase() === search ||
           String(p.old_map_id) === search),
     );
     if (nearby && origin) {
@@ -130,6 +158,10 @@ export default function App() {
   ]);
   useEffect(() => {
     if (view === "directions") setMobileList(true);
+    if (view !== "explore" && view !== "directions") {
+      live.stop();
+      setFollow(false);
+    }
   }, [view]);
   useEffect(() => {
     api("/profile")
@@ -160,27 +192,10 @@ export default function App() {
     return () => clearTimeout(t);
   }, [notice]);
   const locate = () => {
-    if (!navigator.geolocation) {
-      setNotice(
-        "Your browser does not support location. Choose a starting location instead.",
-      );
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      (p) => {
-        setPosition([p.coords.latitude, p.coords.longitude]);
-        setNearbyOrigin(null);
-        setNearby(true);
-        setHistorical(false);
-        setSelected(null);
-        setNotice("Your location is shown only in this session.");
-      },
-      () =>
-        setNotice(
-          "Location is unavailable. You can still browse and select a starting point.",
-        ),
-      { enableHighAccuracy: true, timeout: 10000 },
-    );
+    live.start();
+    setFollow(true);
+    setHistorical(false);
+    setMobileList(false);
   };
   const choose = (p: Place) => {
     setSelected(p);
@@ -461,7 +476,6 @@ export default function App() {
                         </div>
                       ) : (
                         places.map((p) => {
-                          const Icon = categoryIcon(p.category);
                           return (
                             <button
                               key={p.id}
@@ -474,7 +488,9 @@ export default function App() {
                                     {String(p.old_map_id).padStart(2, "0")}
                                   </span>
                                 ) : (
-                                  <Icon size={20} />
+                                  <span className="entry-number">
+                                    {mapLabel(p, mappedPlaces)}
+                                  </span>
                                 )}
                               </div>
                               <div className="place-copy">
@@ -495,7 +511,7 @@ export default function App() {
                                         .replaceAll("_", " ")
                                         .toLowerCase()}
                                   {p.distance_m != null
-                                    ? ` · ${Math.round(p.distance_m)} m away`
+                                    ? ` · ${Math.round(p.distance_m)} m straight-line`
                                     : ""}
                                 </small>
                               </div>
@@ -510,7 +526,7 @@ export default function App() {
                       <span>
                         {directoryScope === "all"
                           ? "51 named entries · 4 numbers missing from the source legend. GPS positions need verification."
-                          : "OpenStreetMap records. Current campus access may differ."}
+                          : "B = building number · M = mapped place. These differ from the historical plan numbers."}
                       </span>
                     </div>
                   </>
@@ -524,6 +540,7 @@ export default function App() {
                       onClick={() => {
                         setHistorical(false);
                         setSelected(null);
+                        setFollow(false);
                         setMapReset((n) => n + 1);
                       }}
                     >
@@ -532,8 +549,8 @@ export default function App() {
                   </div>
                   <button
                     className="map-locate"
-                    aria-label="Use my location"
-                    title="Use my location"
+                    aria-label="Start live location and follow me"
+                    title="Start live location and follow me"
                     onClick={locate}
                   >
                     <LocateFixed size={19} />
@@ -547,7 +564,71 @@ export default function App() {
                   onSelect={choose}
                   position={position}
                   route={route}
+                  accuracy={live.fix?.accuracy}
+                  fresh={live.fresh}
+                  follow={follow}
+                  pauseFollow={() => setFollow(false)}
+                  suggestion={draftPlace}
                 />
+                <div className="gps-panel">
+                  {live.enabled ? (
+                    <>
+                      <strong>
+                        {live.fresh
+                          ? follow
+                            ? "Following your location"
+                            : "Live location · free browsing"
+                          : "Waiting for a fresh GPS fix…"}
+                      </strong>
+                      <span>
+                        {live.fix
+                          ? `Accuracy ±${Math.round(live.fix.accuracy)} m`
+                          : "Allow location in your browser when asked."}{" "}
+                        · Stays on this device
+                      </span>
+                      {live.fresh &&
+                        position &&
+                        selected?.latitude != null &&
+                        selected.longitude != null && (
+                          <b>
+                            {Math.round(
+                              distanceMeters(position, [
+                                selected.latitude,
+                                selected.longitude,
+                              ]),
+                            )}{" "}
+                            m straight-line to {selected.name}
+                          </b>
+                        )}
+                      <div>
+                        <button
+                          onClick={() => setFollow(true)}
+                          disabled={follow}
+                        >
+                          Follow me
+                        </button>
+                        <button
+                          onClick={() => {
+                            live.stop();
+                            setFollow(false);
+                          }}
+                        >
+                          Stop location
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <strong>On campus? Find your position.</strong>
+                      <span>
+                        Use device GPS with your permission. Pan to pause
+                        following.
+                      </span>
+                      <button onClick={locate}>Start live location</button>
+                    </>
+                  )}
+                  {live.error && <span role="alert">{live.error}</span>}
+                </div>
                 {apiUnavailable && (
                   <div className="service-status" role="status">
                     <span>
@@ -578,123 +659,155 @@ export default function App() {
                   <Menu size={18} />
                   {mobileList ? "Show map" : "Show places"}
                 </button>
-                {selected && (
-                  <div className="detail-card">
-                    <button
-                      className="close"
-                      aria-label="Close place details"
-                      onClick={() => setSelected(null)}
-                    >
-                      <X size={18} />
-                    </button>
-                    <span className="eyebrow">
-                      {selected.category}
-                      {selected.old_map_id
-                        ? ` / MAP ${selected.old_map_id}`
-                        : ""}
-                    </span>
-                    <h2>{selected.name}</h2>
-                    <p>
-                      {selected.description ??
-                        (selected.historical
-                          ? "This place appears on the supplied historical campus map. Its current name, use, and location need verification."
-                          : "Campus location information submitted for review.")}
-                    </p>
-                    <div className="status-note">
-                      <Info size={16} />
-                      {selected.historical
-                        ? "Historical reference. GPS position unavailable."
-                        : selected.verification_status.replaceAll("_", " ")}
-                    </div>
-                    {selected.source_url && (
-                      <a
-                        className="source-link"
-                        href={selected.source_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        View source
-                        <ArrowUpRight size={12} />
-                      </a>
-                    )}
-                    {selected.facilities?.map((f) => (
-                      <p key={f.name}>
-                        {f.name} · {f.verification_status.replaceAll("_", " ")}
-                      </p>
-                    ))}
-                    {selected.announcements?.map((a) => (
-                      <p key={a.id}>
-                        <strong>{a.title}</strong>
-                        <br />
-                        {a.description}
-                      </p>
-                    ))}
-                    {selected.phone && <p>{selected.phone}</p>}
-                    {Boolean(selected.opening_hours) && (
-                      <p>Hours: {JSON.stringify(selected.opening_hours)}</p>
-                    )}
-                    <div className="detail-actions">
+                {selected &&
+                  !(follow && live.enabled && selected.latitude != null) && (
+                    <div className="detail-card">
                       <button
-                        className="primary-button"
+                        className="close"
+                        aria-label="Close place details"
+                        onClick={() => setSelected(null)}
+                      >
+                        <X size={18} />
+                      </button>
+                      <span className="eyebrow">
+                        {selected.category}
+                        {selected.old_map_id
+                          ? ` / MAP ${selected.old_map_id}`
+                          : ""}
+                      </span>
+                      <h2>{selected.name}</h2>
+                      <p>
+                        {selected.description ??
+                          (selected.historical
+                            ? "This place appears on the supplied historical campus map. Its current name, use, and location need verification."
+                            : "Campus location information submitted for review.")}
+                      </p>
+                      <div className="status-note">
+                        <Info size={16} />
+                        {selected.historical
+                          ? draft?.place.id === selected.id &&
+                            selected.latitude != null
+                            ? "Your unverified preview. Not a published campus location."
+                            : "Historical reference. GPS position unavailable."
+                          : selected.verification_status.replaceAll("_", " ")}
+                      </div>
+                      {selected.historical && (
+                        <div className="gps-place-action">
+                          <button
+                            className="outline-button"
+                            onClick={() => setSuggestPlace(selected)}
+                          >
+                            I’m at this place · add GPS
+                          </button>
+                          <small>
+                            Capture its entrance for review. No public pin is
+                            added automatically.
+                          </small>
+                        </div>
+                      )}
+                      {draft?.place.id === selected.id && (
+                        <button
+                          className="subtle-link"
+                          onClick={() => {
+                            setDraft(null);
+                            setSelected(draft.place);
+                          }}
+                        >
+                          Clear my unverified pin
+                        </button>
+                      )}
+                      {selected.source_url && (
+                        <a
+                          className="source-link"
+                          href={selected.source_url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          View source
+                          <ArrowUpRight size={12} />
+                        </a>
+                      )}
+                      {selected.facilities?.map((f) => (
+                        <p key={f.name}>
+                          {f.name} ·{" "}
+                          {f.verification_status.replaceAll("_", " ")}
+                        </p>
+                      ))}
+                      {selected.announcements?.map((a) => (
+                        <p key={a.id}>
+                          <strong>{a.title}</strong>
+                          <br />
+                          {a.description}
+                        </p>
+                      ))}
+                      {selected.phone && <p>{selected.phone}</p>}
+                      {Boolean(selected.opening_hours) && (
+                        <p>Hours: {JSON.stringify(selected.opening_hours)}</p>
+                      )}
+                      <div className="detail-actions">
+                        <button
+                          className="primary-button"
+                          disabled={
+                            selected.historical ||
+                            selected.snapshot ||
+                            selected.latitude == null
+                          }
+                          onClick={() => {
+                            setView("directions");
+                            setHistorical(false);
+                          }}
+                        >
+                          <Navigation size={16} />
+                          Directions
+                        </button>
+                        <button
+                          className="icon-button"
+                          title="Save favorite"
+                          aria-label="Save favorite"
+                          disabled={selected.historical || selected.snapshot}
+                          onClick={() =>
+                            user
+                              ? post("/favorites", { location_id: selected.id })
+                                  .then(() =>
+                                    setNotice("Saved to your places."),
+                                  )
+                                  .catch((e) => setNotice(e.message))
+                              : setView("profile")
+                          }
+                        >
+                          <Bookmark size={18} />
+                        </button>
+                        <button
+                          className="icon-button"
+                          title="Report information"
+                          aria-label="Report information"
+                          onClick={() =>
+                            user ? setReport(selected) : setView("profile")
+                          }
+                        >
+                          <Flag size={18} />
+                        </button>
+                      </div>
+                      <button
+                        className="subtle-link"
                         disabled={
-                          selected.historical ||
-                          selected.snapshot ||
-                          selected.latitude == null
+                          selected.historical || selected.latitude == null
                         }
                         onClick={() => {
-                          setView("directions");
+                          setNearbyOrigin([
+                            selected.latitude!,
+                            selected.longitude!,
+                          ]);
+                          setNearby(true);
                           setHistorical(false);
+                          setSelected(null);
                         }}
                       >
-                        <Navigation size={16} />
-                        Directions
-                      </button>
-                      <button
-                        className="icon-button"
-                        title="Save favorite"
-                        aria-label="Save favorite"
-                        disabled={selected.historical || selected.snapshot}
-                        onClick={() =>
-                          user
-                            ? post("/favorites", { location_id: selected.id })
-                                .then(() => setNotice("Saved to your places."))
-                                .catch((e) => setNotice(e.message))
-                            : setView("profile")
-                        }
-                      >
-                        <Bookmark size={18} />
-                      </button>
-                      <button
-                        className="icon-button"
-                        title="Report information"
-                        aria-label="Report information"
-                        onClick={() =>
-                          user ? setReport(selected) : setView("profile")
-                        }
-                      >
-                        <Flag size={18} />
+                        Find nearby facilities
+                        <ArrowRight size={15} />
                       </button>
                     </div>
-                    <button
-                      className="subtle-link"
-                      disabled={
-                        selected.historical || selected.latitude == null
-                      }
-                      onClick={() => {
-                        setNearbyOrigin([
-                          selected.latitude!,
-                          selected.longitude!,
-                        ]);
-                        setNearby(true);
-                        setHistorical(false);
-                        setSelected(null);
-                      }}
-                    >
-                      Find nearby facilities
-                      <ArrowRight size={15} />
-                    </button>
-                  </div>
-                )}
+                  )}
               </section>
             </div>
           ) : view === "assistant" ? (
@@ -732,6 +845,32 @@ export default function App() {
           place={report}
           close={() => setReport(null)}
           notify={setNotice}
+        />
+      )}
+      {suggestPlace && (
+        <LocationSuggestion
+          place={suggestPlace}
+          user={user}
+          initialFix={draft?.place.id === suggestPlace.id ? draft.fix : null}
+          close={() => setSuggestPlace(null)}
+          signIn={() => {
+            setSuggestPlace(null);
+            setView("profile");
+          }}
+          notify={setNotice}
+          preview={(fix) => {
+            setDraft({
+              place: { ...suggestPlace, latitude: null, longitude: null },
+              fix,
+            });
+            setSelected({
+              ...suggestPlace,
+              latitude: fix.latitude,
+              longitude: fix.longitude,
+            });
+            setFollow(false);
+            setMobileList(false);
+          }}
         />
       )}
     </div>
@@ -1544,7 +1683,25 @@ function Admin({
                 })),
               ].map((r: any) => (
                 <div className="admin-record" key={`${r.kind}${r.id}`}>
-                  <p>{r.description ?? JSON.stringify(r.payload)}</p>
+                  <p>{r.description ?? r.payload?.description}</p>
+                  {r.payload?.suggested_latitude != null && (
+                    <p>
+                      <strong>
+                        GPS suggestion · {r.payload.historical_id}
+                      </strong>
+                      <br />
+                      {r.payload.suggested_latitude},{" "}
+                      {r.payload.suggested_longitude} · accuracy ±
+                      {r.payload.accuracy_m} m<br />
+                      Captured {r.payload.captured_at} ·{" "}
+                      {r.payload.location_consent
+                        ? "Sharing consent recorded"
+                        : "No recorded consent"}
+                      <br />
+                      Resolve only after independently verifying and recording
+                      the location with its source.
+                    </p>
+                  )}
                   <button
                     onClick={() =>
                       action(

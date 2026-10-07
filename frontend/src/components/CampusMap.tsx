@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
   ImageOverlay,
   TileLayer,
   CircleMarker,
+  Circle,
   Popup,
   Polyline,
   GeoJSON,
   Tooltip,
   useMap,
+  useMapEvents,
 } from "react-leaflet";
 import L from "leaflet";
 import type { Place } from "../services/api";
 import campus from "../data/campus.json";
 import { api } from "../services/api";
+import { mapLabel } from "../services/location";
 const bounds: L.LatLngBoundsExpression = [
   [0, 0],
   [787, 559],
@@ -22,13 +25,32 @@ function Focus({
   selected,
   historical,
   position,
+  follow,
+  pauseFollow,
 }: {
   selected: Place | null;
   historical: boolean;
   position: [number, number] | null;
+  follow: boolean;
+  pauseFollow: () => void;
 }) {
   const map = useMap();
+  useMapEvents({ dragstart: pauseFollow });
   useEffect(() => {
+    if (follow && position && !historical) {
+      if (selected?.latitude != null && selected.longitude != null)
+        map.fitBounds([position, [selected.latitude, selected.longitude]], {
+          paddingTopLeft: [50, 230],
+          paddingBottomRight: [50, 65],
+          maxZoom: 18,
+          animate: false,
+        });
+      else map.setView(position, 18, { animate: false });
+      return;
+    }
+  }, [map, position, follow, historical, selected]);
+  useEffect(() => {
+    if (follow) return;
     if (selected) {
       if (
         historical &&
@@ -42,8 +64,8 @@ function Focus({
         selected.longitude != null
       )
         map.flyTo([selected.latitude, selected.longitude], 18);
-    } else if (position && !historical) map.flyTo(position, 17);
-  }, [map, selected, historical, position]);
+    }
+  }, [map, selected, historical]);
   return null;
 }
 function Resize() {
@@ -57,11 +79,14 @@ function Resize() {
 }
 function CampusBounds({ context }: { context: any }) {
   const map = useMap();
+  const fitted = useRef(false);
   useEffect(() => {
-    if (context?.boundary)
+    if (context?.boundary && !fitted.current) {
+      fitted.current = true;
       map.fitBounds(L.geoJSON(context.boundary).getBounds(), {
         padding: [35, 35],
       });
+    }
   }, [map, context]);
   return null;
 }
@@ -72,6 +97,11 @@ export default function CampusMap({
   onSelect,
   position,
   route,
+  accuracy = null,
+  follow = false,
+  pauseFollow = () => {},
+  fresh = false,
+  suggestion = null,
 }: {
   historical: boolean;
   places: Place[];
@@ -79,6 +109,11 @@ export default function CampusMap({
   onSelect: (p: Place) => void;
   position: [number, number] | null;
   route: [number, number][];
+  accuracy?: number | null;
+  follow?: boolean;
+  pauseFollow?: () => void;
+  fresh?: boolean;
+  suggestion?: Place | null;
 }) {
   const [imageAvailable, setImageAvailable] = useState<boolean | null>(null);
   const [context, setContext] = useState<any>({ boundary: campus.boundary });
@@ -136,6 +171,8 @@ export default function CampusMap({
           selected={selected}
           historical={historical}
           position={position}
+          follow={follow && fresh}
+          pauseFollow={pauseFollow}
         />
         {historical ? (
           imageAvailable && (
@@ -173,7 +210,7 @@ export default function CampusMap({
               <CircleMarker
                 key={p.id}
                 center={point}
-                radius={selected?.id === p.id ? 10 : 7}
+                radius={selected?.id === p.id ? 19 : 17}
                 pathOptions={{
                   color: "#ffffff",
                   fillColor:
@@ -189,7 +226,14 @@ export default function CampusMap({
                 }}
                 eventHandlers={{ click: () => onSelect(p) }}
               >
-                <Tooltip>{p.name}</Tooltip>
+                <Tooltip
+                  permanent
+                  direction="center"
+                  className="map-number"
+                  opacity={1}
+                >
+                  {mapLabel(p, places)}
+                </Tooltip>
                 <Popup>
                   {p.name}
                   {p.historical ? " · historical" : ""}
@@ -199,18 +243,66 @@ export default function CampusMap({
           );
         })}
         {!historical && position && (
-          <CircleMarker
-            center={position}
-            radius={8}
-            pathOptions={{
-              color: "#fff",
-              fillColor: "#2563eb",
-              fillOpacity: 1,
-            }}
-          >
-            <Popup>You are here</Popup>
-          </CircleMarker>
+          <>
+            {accuracy != null && (
+              <Circle
+                center={position}
+                radius={accuracy}
+                pathOptions={{
+                  color: fresh ? "#2563eb" : "#64748b",
+                  fillOpacity: 0.1,
+                  weight: 1,
+                }}
+              />
+            )}
+            <CircleMarker
+              center={position}
+              radius={8}
+              pathOptions={{
+                color: "#fff",
+                fillColor: fresh ? "#2563eb" : "#64748b",
+                fillOpacity: 1,
+              }}
+            >
+              <Popup>
+                {fresh
+                  ? "Your current location"
+                  : "Last known position · waiting for GPS"}
+                {accuracy != null
+                  ? ` · accuracy ±${Math.round(accuracy)} m`
+                  : ""}
+              </Popup>
+            </CircleMarker>
+          </>
         )}
+        {!historical &&
+          suggestion?.latitude != null &&
+          suggestion.longitude != null && (
+            <CircleMarker
+              center={[suggestion.latitude, suggestion.longitude]}
+              radius={20}
+              pathOptions={{
+                color: "#a855f7",
+                fillColor: "#faf5ff",
+                fillOpacity: 1,
+                dashArray: "4 3",
+                weight: 3,
+              }}
+              eventHandlers={{ click: () => onSelect(suggestion) }}
+            >
+              <Tooltip
+                permanent
+                direction="center"
+                className="map-number suggestion-number"
+                opacity={1}
+              >
+                {mapLabel(suggestion, places)}
+              </Tooltip>
+              <Popup>
+                {suggestion.name} · Your unverified location suggestion
+              </Popup>
+            </CircleMarker>
+          )}
         {!historical && route.length > 0 && (
           <Polyline
             positions={route}

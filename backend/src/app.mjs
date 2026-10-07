@@ -225,12 +225,10 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     );
     const route = await campusRoute(db, body);
     if (!route)
-      return res
-        .status(422)
-        .json({
-          error:
-            "No sourced connected route is available for these locations and access requirements.",
-        });
+      return res.status(422).json({
+        error:
+          "No sourced connected route is available for these locations and access requirements.",
+      });
     res.json(route);
   });
   app.get("/api/routes", async (req, res) => {
@@ -488,12 +486,39 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
           historical_id: z.string().max(80).optional(),
           suggested_latitude: z.number().min(-90).max(90).optional(),
           suggested_longitude: z.number().min(-180).max(180).optional(),
+          accuracy_m: z.number().min(0).max(100).optional(),
+          captured_at: z.iso.datetime().optional(),
+          location_consent: z.boolean().optional(),
         })
         .refine(
           (o) =>
             (o.suggested_latitude === undefined) ===
             (o.suggested_longitude === undefined),
           "Both coordinates are required",
+        )
+        .refine(
+          (o) =>
+            o.suggested_latitude === undefined ||
+            (o.location_consent === true &&
+              o.accuracy_m !== undefined &&
+              o.captured_at !== undefined),
+          "GPS suggestions require consent, accuracy and capture time",
+        )
+        .refine(
+          (o) =>
+            o.suggested_latitude === undefined ||
+            (o.suggested_latitude >= 31.24 &&
+              o.suggested_latitude <= 31.27 &&
+              o.suggested_longitude >= 75.69 &&
+              o.suggested_longitude <= 75.72),
+          "Capture the position while at the place on campus",
+        )
+        .refine(
+          (o) =>
+            o.suggested_latitude === undefined ||
+            (Date.now() - Date.parse(o.captured_at) <= 300000 &&
+              Date.parse(o.captured_at) <= Date.now() + 5000),
+          "Capture a fresh position within five minutes before sharing",
         ),
       req.body,
     );
@@ -547,24 +572,20 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
   }
   app.use((error, req, res, next) => {
     if (error instanceof z.ZodError)
-      return res
-        .status(400)
-        .json({
-          error: error.issues
-            .map((i) => `${i.path.join(".")}: ${i.message}`)
-            .join("; "),
-        });
+      return res.status(400).json({
+        error: error.issues
+          .map((i) => `${i.path.join(".")}: ${i.message}`)
+          .join("; "),
+      });
     if (error.type === "entity.parse.failed")
       return res.status(400).json({ error: "Invalid JSON." });
     if (error.code === "23505")
       return res.status(409).json({ error: "That record already exists." });
     if (["23503", "23514", "P0001", "22P02"].includes(error.code))
-      return res
-        .status(400)
-        .json({
-          error:
-            "The data violates a relationship, geometry, or validation constraint.",
-        });
+      return res.status(400).json({
+        error:
+          "The data violates a relationship, geometry, or validation constraint.",
+      });
     console.error("Request failed:", error.code ?? error.name);
     res.status(500).json({ error: "The request could not be completed." });
   });
