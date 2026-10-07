@@ -12,6 +12,8 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import type { Place } from "../services/api";
+import campus from "../data/campus.json";
+import { api } from "../services/api";
 const bounds: L.LatLngBoundsExpression = [
   [0, 0],
   [787, 559],
@@ -79,17 +81,18 @@ export default function CampusMap({
   route: [number, number][];
 }) {
   const [imageAvailable, setImageAvailable] = useState<boolean | null>(null);
-  const [context, setContext] = useState<any>(null);
+  const [context, setContext] = useState<any>({ boundary: campus.boundary });
+  const [tileError, setTileError] = useState(false);
   useEffect(() => {
-    fetch("/api/map-status")
-      .then((r) => r.json())
+    api("/map-status")
       .then((d) => setImageAvailable(d.available))
       .catch(() => setImageAvailable(false));
   }, []);
   useEffect(() => {
-    fetch("/api/map-context")
-      .then((r) => r.json())
-      .then(setContext)
+    api("/map-context")
+      .then((data) => {
+        if (data?.boundary) setContext(data);
+      })
       .catch(() => {});
   }, []);
   const geographic = places.filter(
@@ -97,7 +100,7 @@ export default function CampusMap({
   );
   const center: [number, number] = geographic.length
     ? [geographic[0].latitude!, geographic[0].longitude!]
-    : (position ?? [20, 0]);
+    : [31.25336, 75.7041];
   return (
     <div className="map-surface">
       <MapContainer
@@ -110,7 +113,7 @@ export default function CampusMap({
               maxZoom: 3,
               zoomSnap: 0.25,
             }
-          : { center, zoom: geographic.length || position ? 16 : 2 })}
+          : { center, zoom: 16 })}
         zoomControl={true}
         scrollWheelZoom
       >
@@ -145,7 +148,16 @@ export default function CampusMap({
         ) : (
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            eventHandlers={{ tileerror: () => setTileError(true) }}
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+        )}
+        {!historical && (
+          <Polyline
+            positions={campus.paths.map((path) =>
+              path.map(([lng, lat]) => [lat, lng] as [number, number]),
+            )}
+            pathOptions={{ color: "#77858c", weight: 2, opacity: 0.45 }}
           />
         )}
         {places.map((p) => {
@@ -166,12 +178,12 @@ export default function CampusMap({
                   color: "#ffffff",
                   fillColor:
                     selected?.id === p.id
-                      ? "#be5a2b"
+                      ? "#f36e2c"
                       : p.category === "Library"
                         ? "#866548"
                         : p.category === "Shopping"
                           ? "#977445"
-                          : "#285b47",
+                          : "#24394a",
                   fillOpacity: 1,
                   weight: 2,
                 }}
@@ -206,6 +218,12 @@ export default function CampusMap({
           />
         )}
       </MapContainer>
+      {!historical && tileError && (
+        <div className="tile-status" role="status">
+          Background tiles are unavailable. Campus outline, mapped paths and
+          places are still shown.
+        </div>
+      )}
       {historical && imageAvailable === false && (
         <div className="map-empty">
           <strong>Historical image is private</strong>

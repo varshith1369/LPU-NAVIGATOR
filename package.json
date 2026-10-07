@@ -9,7 +9,7 @@
     "dev": "node scripts/dev.mjs",
     "dev:api": "node --env-file-if-exists=.env backend/src/server.mjs",
     "dev:web": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
+    "build": "node scripts/build-directory.mjs && tsc --noEmit && vite build",
     "start": "node --env-file-if-exists=.env backend/src/server.mjs",
     "db:setup": "node --env-file-if-exists=.env scripts/setup-db.mjs",
     "db:admin": "node --env-file-if-exists=.env scripts/create-admin.mjs",

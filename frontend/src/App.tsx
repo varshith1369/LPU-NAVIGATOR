@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import {
   MapPin,
   Search,
@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import CampusMap from "./components/CampusMap";
 import { api, post, type Place, type User } from "./services/api";
+import campus from "./data/campus.json";
 
 const icons: Record<string, typeof Building2> = {
   Academic: GraduationCap,
@@ -55,13 +56,23 @@ export default function App() {
   const [historical, setHistorical] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
-  const [places, setPlaces] = useState<Place[]>([]);
-  const [categories, setCategories] = useState<{ id: number; name: string }[]>(
-    [],
+  const [directoryScope, setDirectoryScope] = useState<"all" | "mapped">("all");
+  const [mappedPlaces, setMappedPlaces] = useState<Place[]>(campus.mapped);
+  const [apiUnavailable, setApiUnavailable] = useState(false);
+  const categories = useMemo(
+    () =>
+      [
+        ...new Set(
+          [...campus.directory, ...mappedPlaces].map((p) => p.category),
+        ),
+      ]
+        .sort()
+        .map((name, id) => ({ name, id })),
+    [mappedPlaces],
   );
   const [selected, setSelected] = useState<Place | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const loading = false;
+  const error = "";
   const [notice, setNotice] = useState("");
   const [user, setUser] = useState<User | null>(null);
   const [position, setPosition] = useState<[number, number] | null>(null);
@@ -73,43 +84,76 @@ export default function App() {
     null,
   );
   const [report, setReport] = useState<Place | null>(null);
+  const [mapReset, setMapReset] = useState(0);
+  const places = useMemo(() => {
+    const origin = nearbyOrigin ?? position;
+    let items: Place[] =
+      directoryScope === "all" && !nearby ? campus.directory : mappedPlaces;
+    const search = query
+      .trim()
+      .toLowerCase()
+      .replace(/^(block|map|entry)\s+/, "");
+    items = items.filter(
+      (p) =>
+        (!category || p.category === category) &&
+        (!search ||
+          p.name.toLowerCase().includes(search) ||
+          p.category.toLowerCase().includes(search) ||
+          String(p.old_map_id) === search),
+    );
+    if (nearby && origin) {
+      const rad = Math.PI / 180;
+      items = items
+        .filter((p) => p.latitude != null && p.longitude != null)
+        .map((p) => {
+          const a =
+            Math.sin(((p.latitude! - origin[0]) * rad) / 2) ** 2 +
+            Math.cos(origin[0] * rad) *
+              Math.cos(p.latitude! * rad) *
+              Math.sin(((p.longitude! - origin[1]) * rad) / 2) ** 2;
+          return {
+            ...p,
+            distance_m: 6371000 * 2 * Math.asin(Math.min(1, Math.sqrt(a))),
+          };
+        })
+        .sort((a, b) => a.distance_m - b.distance_m);
+    }
+    return items;
+  }, [
+    query,
+    category,
+    directoryScope,
+    nearby,
+    position,
+    nearbyOrigin,
+    mappedPlaces,
+  ]);
   useEffect(() => {
     if (view === "directions") setMobileList(true);
   }, [view]);
   useEffect(() => {
-    api("/categories")
-      .then(setCategories)
-      .catch((e) => setError(e.message));
     api("/profile")
       .then(setUser)
       .catch(() => {});
   }, []);
   useEffect(() => {
     let active = true;
-    setLoading(true);
-    setError("");
-    const timer = setTimeout(() => {
-      const origin = nearbyOrigin ?? position;
-      const url =
-        nearby && origin
-          ? `/locations/nearby?latitude=${origin![0]}&longitude=${origin![1]}&category=${encodeURIComponent(category)}`
-          : `/locations/search?q=${encodeURIComponent(query)}&category=${encodeURIComponent(category)}&historical=${historical}`;
-      api(url)
-        .then((data) => {
-          if (active) setPlaces(data.items);
-        })
-        .catch((e) => {
-          if (active) setError(e.message);
-        })
-        .finally(() => {
-          if (active) setLoading(false);
-        });
-    }, 180);
+    api("/locations")
+      .then((data) => {
+        if (!Array.isArray(data.items) || !data.items.length)
+          throw new Error("No mapped records available");
+        if (active) {
+          setMappedPlaces(data.items);
+          setApiUnavailable(false);
+        }
+      })
+      .catch(() => {
+        if (active) setApiUnavailable(true);
+      });
     return () => {
       active = false;
-      clearTimeout(timer);
     };
-  }, [query, category, historical, refresh, nearby, position, nearbyOrigin]);
+  }, [refresh]);
   useEffect(() => {
     if (!notice) return;
     const t = setTimeout(() => setNotice(""), 6500);
@@ -141,7 +185,7 @@ export default function App() {
   const choose = (p: Place) => {
     setSelected(p);
     setMobileList(false);
-    if (!p.historical)
+    if (!p.historical && !p.snapshot)
       api<Place>("/locations/" + p.id)
         .then((detail) =>
           setSelected((previous) =>
@@ -213,7 +257,7 @@ export default function App() {
               LPU<span className="wordmark-dot">.</span>
             </span>
             <div>
-              Campus Navigator<small>Find your place.</small>
+              Campus Navigator<small>Lovely Professional University</small>
             </div>
           </div>
           <div className="topbar-right">
@@ -230,10 +274,10 @@ export default function App() {
         <main>
           <div className="page-heading">
             <div>
-              <div className="eyebrow">YOUR CAMPUS, A LITTLE CLOSER</div>
+              <div className="eyebrow">PHAGWARA, PUNJAB · CAMPUS EXPLORER</div>
               <h1>
                 {view === "explore"
-                  ? "Find your way around."
+                  ? "A whole campus. One clear view."
                   : view === "directions"
                     ? "Your next step, simplified."
                     : view === "assistant"
@@ -246,7 +290,7 @@ export default function App() {
               </h1>
               <p>
                 {view === "explore"
-                  ? "Explore places, discover facilities, and get to know LPU."
+                  ? "Find a block, discover a place, and make yourself at home."
                   : "Useful campus information, with its sources kept in view."}
               </p>
             </div>
@@ -269,7 +313,7 @@ export default function App() {
               >
                 {view === "directions" ? (
                   <Directions
-                    places={places.filter((p) => !p.historical)}
+                    places={mappedPlaces.filter((p) => !p.snapshot)}
                     selected={selected}
                     onRoute={setRoute}
                     onHistorical={() => {
@@ -280,14 +324,51 @@ export default function App() {
                 ) : (
                   <>
                     <div className="directory-head">
-                      <h2>Explore campus</h2>
-                      <span className="count">{places.length}</span>
+                      <div>
+                        <span className="eyebrow">FIND YOUR DESTINATION</span>
+                        <h2>Campus directory</h2>
+                      </div>
+                      <span className="count">55</span>
+                    </div>
+                    <div className="directory-tabs" aria-label="Directory view">
+                      <button
+                        aria-pressed={directoryScope === "all" && !nearby}
+                        className={
+                          directoryScope === "all" && !nearby ? "selected" : ""
+                        }
+                        onClick={() => {
+                          setDirectoryScope("all");
+                          setNearby(false);
+                          setQuery("");
+                          setCategory("");
+                          setSelected(null);
+                        }}
+                      >
+                        All entries <span>55</span>
+                      </button>
+                      <button
+                        aria-pressed={directoryScope === "mapped" || nearby}
+                        className={
+                          directoryScope === "mapped" || nearby
+                            ? "selected"
+                            : ""
+                        }
+                        onClick={() => {
+                          setDirectoryScope("mapped");
+                          setNearby(false);
+                          setQuery("");
+                          setCategory("");
+                          setSelected(null);
+                        }}
+                      >
+                        On the map <span>{mappedPlaces.length}</span>
+                      </button>
                     </div>
                     <label className="search-box">
                       <Search size={19} />
                       <input
                         aria-label="Search campus"
-                        placeholder="Search buildings, hostels, places…"
+                        placeholder="Search a name or number, e.g. 55"
                         value={query}
                         onChange={(e) => {
                           setQuery(e.target.value);
@@ -340,9 +421,9 @@ export default function App() {
                       <h3>
                         {nearby
                           ? "Nearest mapped places"
-                          : historical
-                            ? "From the historical map"
-                            : "Current directory"}
+                          : directoryScope === "all"
+                            ? "Numbered campus entries"
+                            : "Geographically mapped places"}
                       </h3>
                       <span>
                         {loading ? "Loading…" : `${places.length} places`}
@@ -365,26 +446,18 @@ export default function App() {
                       ) : places.length === 0 ? (
                         <div className="empty">
                           <MapPin />
-                          <h3>
-                            {historical
-                              ? "No matching places"
-                              : "Current locations need verification"}
-                          </h3>
-                          <p>
-                            {historical
-                              ? "Try a different name or category."
-                              : "The old map is available to explore. Verified current records will appear here after review."}
-                          </p>
-                          {!historical && (
-                            <button
-                              onClick={() => {
-                                setHistorical(true);
-                                setNearby(false);
-                              }}
-                            >
-                              Explore historical map
-                            </button>
-                          )}
+                          <h3>No matching places</h3>
+                          <p>Try another name, entry number, or category.</p>
+                          <button
+                            className="outline-button"
+                            onClick={() => {
+                              setQuery("");
+                              setCategory("");
+                              setNearby(false);
+                            }}
+                          >
+                            Clear filters
+                          </button>
                         </div>
                       ) : (
                         places.map((p) => {
@@ -396,7 +469,13 @@ export default function App() {
                               onClick={() => choose(p)}
                             >
                               <div className="place-icon">
-                                <Icon size={20} />
+                                {p.old_map_id ? (
+                                  <span className="entry-number">
+                                    {String(p.old_map_id).padStart(2, "0")}
+                                  </span>
+                                ) : (
+                                  <Icon size={20} />
+                                )}
                               </div>
                               <div className="place-copy">
                                 <strong>{p.name}</strong>
@@ -409,7 +488,9 @@ export default function App() {
                                 <small>
                                   <i />
                                   {p.historical
-                                    ? "Historical · needs verification"
+                                    ? p.category === "Unidentified"
+                                      ? "Name missing from source"
+                                      : "Campus plan reference"
                                     : p.verification_status
                                         .replaceAll("_", " ")
                                         .toLowerCase()}
@@ -425,8 +506,12 @@ export default function App() {
                       )}
                     </div>
                     <div className="directory-footer">
-                      <ShieldCheck size={17} />
-                      <span>Know the source. Find your way.</span>
+                      <Info size={17} />
+                      <span>
+                        {directoryScope === "all"
+                          ? "51 named entries · 4 numbers missing from the source legend. GPS positions need verification."
+                          : "OpenStreetMap records. Current campus access may differ."}
+                      </span>
                     </div>
                   </>
                 )}
@@ -435,23 +520,14 @@ export default function App() {
                 <div className="map-toolbar">
                   <div className="mode-toggle">
                     <button
-                      className={historical ? "selected" : ""}
-                      onClick={() => {
-                        setHistorical(true);
-                        setNearby(false);
-                        setSelected(null);
-                      }}
-                    >
-                      Historical plan
-                    </button>
-                    <button
                       className={!historical ? "selected" : ""}
                       onClick={() => {
                         setHistorical(false);
                         setSelected(null);
+                        setMapReset((n) => n + 1);
                       }}
                     >
-                      Live map
+                      <MapPin size={14} /> Recenter campus
                     </button>
                   </div>
                   <button
@@ -464,13 +540,25 @@ export default function App() {
                   </button>
                 </div>
                 <CampusMap
+                  key={mapReset}
                   historical={historical}
-                  places={places}
+                  places={mappedPlaces}
                   selected={selected}
                   onSelect={choose}
                   position={position}
                   route={route}
                 />
+                {apiUnavailable && (
+                  <div className="service-status" role="status">
+                    <span>
+                      Showing saved campus data. Account services are
+                      reconnecting.
+                    </span>
+                    <button onClick={() => setRefresh((n) => n + 1)}>
+                      Retry
+                    </button>
+                  </div>
+                )}
                 <div className="map-caption">
                   <span className="live-dot" />
                   <span>
@@ -480,7 +568,7 @@ export default function App() {
                   <span>
                     {historical
                       ? "Reference only · not to scale"
-                      : "Current mapped records only"}
+                      : "LPU · Phagwara"}
                   </span>
                 </div>
                 <button
@@ -549,7 +637,9 @@ export default function App() {
                       <button
                         className="primary-button"
                         disabled={
-                          selected.historical || selected.latitude == null
+                          selected.historical ||
+                          selected.snapshot ||
+                          selected.latitude == null
                         }
                         onClick={() => {
                           setView("directions");
@@ -563,7 +653,7 @@ export default function App() {
                         className="icon-button"
                         title="Save favorite"
                         aria-label="Save favorite"
-                        disabled={selected.historical}
+                        disabled={selected.historical || selected.snapshot}
                         onClick={() =>
                           user
                             ? post("/favorites", { location_id: selected.id })

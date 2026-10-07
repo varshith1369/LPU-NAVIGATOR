@@ -1,0 +1,3851 @@
+{
+  "directory": [
+    {
+      "id": "history-1",
+      "old_map_id": 1,
+      "name": "HM",
+      "category": "Other",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-2",
+      "old_map_id": 2,
+      "name": "Campus Cafe",
+      "category": "Food",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-3",
+      "old_map_id": 3,
+      "name": "Auditorium",
+      "category": "Entertainment",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-4",
+      "old_map_id": 4,
+      "name": "LIT Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-5",
+      "old_map_id": 5,
+      "name": "LIT Pharmacy",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-6",
+      "old_map_id": 6,
+      "name": "LIT Architecture",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-7",
+      "old_map_id": 7,
+      "name": "LIT Pharmacy",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-8",
+      "old_map_id": 8,
+      "name": "Shri Baldev Raj Mittal Hospital",
+      "category": "Healthcare",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-9",
+      "old_map_id": 9,
+      "name": "Girls Hostel 1",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-10",
+      "old_map_id": 10,
+      "name": "Girls Hostel 2",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-11",
+      "old_map_id": 11,
+      "name": "Girls Hostel 3",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-12",
+      "old_map_id": 12,
+      "name": "Girls Hostel 4",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-13",
+      "old_map_id": 13,
+      "name": "LIT Polytechnic",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-14",
+      "old_map_id": 14,
+      "name": "Business Block",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-15",
+      "old_map_id": 15,
+      "name": "Lovely Mall",
+      "category": "Shopping",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-16",
+      "old_map_id": 16,
+      "name": "Hotel Mgt",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-17",
+      "old_map_id": 17,
+      "name": "Mall - II",
+      "category": "Shopping",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-18",
+      "old_map_id": 18,
+      "name": "Education",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-19",
+      "old_map_id": 19,
+      "name": "Auditorium",
+      "category": "Entertainment",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-20",
+      "old_map_id": 20,
+      "name": "LSB",
+      "category": "Other",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-21",
+      "old_map_id": 21,
+      "name": "Girl Hostel 5",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-22",
+      "old_map_id": 22,
+      "name": "Girl Hostel 6",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-23",
+      "old_map_id": 23,
+      "name": "Auditorium",
+      "category": "Entertainment",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-24",
+      "old_map_id": 24,
+      "name": "Auditorium",
+      "category": "Entertainment",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-25",
+      "old_map_id": 25,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-26",
+      "old_map_id": 26,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-27",
+      "old_map_id": 27,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-28",
+      "old_map_id": 28,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-29",
+      "old_map_id": 29,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-30",
+      "old_map_id": 30,
+      "name": "Chancellor Office",
+      "category": "Administrative",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-31",
+      "old_map_id": 31,
+      "name": "Administrative Block",
+      "category": "Administrative",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-32",
+      "old_map_id": 32,
+      "name": "Administrative Block",
+      "category": "Administrative",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-33",
+      "old_map_id": 33,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-34",
+      "old_map_id": 34,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-35",
+      "old_map_id": 35,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-36",
+      "old_map_id": 36,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-37",
+      "old_map_id": 37,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-38",
+      "old_map_id": 38,
+      "name": "Engineering",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-39",
+      "old_map_id": 39,
+      "name": "STP",
+      "category": "Utility",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-40",
+      "old_map_id": 40,
+      "name": "Store",
+      "category": "Other",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-41",
+      "old_map_id": 41,
+      "name": "Staff Residence",
+      "category": "Other",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-42",
+      "old_map_id": 42,
+      "name": "Staff Residence",
+      "category": "Other",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-43",
+      "old_map_id": 43,
+      "name": "Boys Hostel 1",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-44",
+      "old_map_id": 44,
+      "name": "Entry 44 · name unavailable",
+      "category": "Unidentified",
+      "historical": true,
+      "verification_status": "UNVERIFIED",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Number 44 is missing from the supplied map legend. Its name and location are unknown."
+    },
+    {
+      "id": "history-45",
+      "old_map_id": 45,
+      "name": "Boys Hostel 2",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-46",
+      "old_map_id": 46,
+      "name": "Boys Hostel 3",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-47",
+      "old_map_id": 47,
+      "name": "Boys Hostel 4",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-48",
+      "old_map_id": 48,
+      "name": "Entry 48 · name unavailable",
+      "category": "Unidentified",
+      "historical": true,
+      "verification_status": "UNVERIFIED",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Number 48 is missing from the supplied map legend. Its name and location are unknown."
+    },
+    {
+      "id": "history-49",
+      "old_map_id": 49,
+      "name": "Entry 49 · name unavailable",
+      "category": "Unidentified",
+      "historical": true,
+      "verification_status": "UNVERIFIED",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Number 49 is missing from the supplied map legend. Its name and location are unknown."
+    },
+    {
+      "id": "history-50",
+      "old_map_id": 50,
+      "name": "Entry 50 · name unavailable",
+      "category": "Unidentified",
+      "historical": true,
+      "verification_status": "UNVERIFIED",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Number 50 is missing from the supplied map legend. Its name and location are unknown."
+    },
+    {
+      "id": "history-51",
+      "old_map_id": 51,
+      "name": "Boys Hostel 5",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-52",
+      "old_map_id": 52,
+      "name": "Boys Hostel 6",
+      "category": "Hostel",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-53",
+      "old_map_id": 53,
+      "name": "Academic Block 1",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-54",
+      "old_map_id": 54,
+      "name": "Academic Block 2",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    },
+    {
+      "id": "history-55",
+      "old_map_id": 55,
+      "name": "Academic Block 3",
+      "category": "Academic",
+      "historical": true,
+      "verification_status": "HISTORICAL_REFERENCE",
+      "latitude": null,
+      "longitude": null,
+      "source_id": "historical-map-001",
+      "description": "Listed on the supplied campus plan. Current name and GPS position have not been verified."
+    }
+  ],
+  "mapped": [
+    {
+      "id": "snapshot-osm-node-6325106324",
+      "name": "Block 18, LPU",
+      "category": "Academic",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.2552593,
+      "longitude": 75.703346,
+      "source_id": "osm-node-6325106324",
+      "source_url": "https://www.openstreetmap.org/node/6325106324",
+      "source_title": "OpenStreetMap node 6325106324",
+      "description": "Public OpenStreetMap record, last edited 2019-03-08. Point copied from the mapped feature. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-354743583",
+      "name": "Lovely Institute Of Management",
+      "category": "Academic",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.25867795,
+      "longitude": 75.70885881317236,
+      "source_id": "osm-way-354743583",
+      "source_url": "https://www.openstreetmap.org/way/354743583",
+      "source_title": "OpenStreetMap way 354743583",
+      "description": "Public OpenStreetMap record, last edited 2016-06-03. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-354755644",
+      "name": "Lovely Institute of Technology",
+      "category": "Academic",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.257936450000003,
+      "longitude": 75.70684138490748,
+      "source_id": "osm-way-354755644",
+      "source_url": "https://www.openstreetmap.org/way/354755644",
+      "source_title": "OpenStreetMap way 354755644",
+      "description": "Public OpenStreetMap record, last edited 2026-08-20. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-354830243",
+      "name": "Lovely Institute of Pharmacy",
+      "category": "Academic",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.2576228,
+      "longitude": 75.70722350932269,
+      "source_id": "osm-way-354830243",
+      "source_url": "https://www.openstreetmap.org/way/354830243",
+      "source_title": "OpenStreetMap way 354830243",
+      "description": "Public OpenStreetMap record, last edited 2016-06-03. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-422437885",
+      "name": "LPU Mall",
+      "category": "Shopping",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.25567615,
+      "longitude": 75.70518690561389,
+      "source_id": "osm-way-422437885",
+      "source_url": "https://www.openstreetmap.org/way/422437885",
+      "source_title": "OpenStreetMap way 422437885",
+      "description": "Public OpenStreetMap record, last edited 2016-07-13. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-422551917",
+      "name": "voll",
+      "category": "Sports",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.24820845,
+      "longitude": 75.70211774878868,
+      "source_id": "osm-way-422551917",
+      "source_url": "https://www.openstreetmap.org/way/422551917",
+      "source_title": "OpenStreetMap way 422551917",
+      "description": "Public OpenStreetMap record, last edited 2016-06-05. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-422556249",
+      "name": "Central Library",
+      "category": "Library",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.2518313,
+      "longitude": 75.70356422207865,
+      "source_id": "osm-way-422556249",
+      "source_url": "https://www.openstreetmap.org/way/422556249",
+      "source_title": "OpenStreetMap way 422556249",
+      "description": "Public OpenStreetMap record, last edited 2016-06-22. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    },
+    {
+      "id": "snapshot-osm-way-425717552",
+      "name": "School of Design",
+      "category": "Academic",
+      "historical": false,
+      "snapshot": true,
+      "verification_status": "VERIFIED_PUBLIC",
+      "latitude": 31.256641199999997,
+      "longitude": 75.70708133868544,
+      "source_id": "osm-way-425717552",
+      "source_url": "https://www.openstreetmap.org/way/425717552",
+      "source_title": "OpenStreetMap way 425717552",
+      "description": "Public OpenStreetMap record, last edited 2025-03-13. Marker derived with PostGIS PointOnSurface from the mapped footprint; it is not an entrance. Current campus use and access have not been officially verified."
+    }
+  ],
+  "boundary": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          75.7067134,
+          31.2609695
+        ],
+        [
+          75.7067119,
+          31.2607585
+        ],
+        [
+          75.7067112,
+          31.2607
+        ],
+        [
+          75.7067103,
+          31.2606675
+        ],
+        [
+          75.7067081,
+          31.2604605
+        ],
+        [
+          75.7063326,
+          31.2604559
+        ],
+        [
+          75.7063486,
+          31.2599332
+        ],
+        [
+          75.7059731,
+          31.2599515
+        ],
+        [
+          75.7059686,
+          31.2594219
+        ],
+        [
+          75.7059678,
+          31.2593233
+        ],
+        [
+          75.705957,
+          31.2589564
+        ],
+        [
+          75.7059256,
+          31.2582788
+        ],
+        [
+          75.7056513,
+          31.2582732
+        ],
+        [
+          75.7045891,
+          31.2582686
+        ],
+        [
+          75.7045838,
+          31.2583374
+        ],
+        [
+          75.7038703,
+          31.2583419
+        ],
+        [
+          75.7038488,
+          31.2572093
+        ],
+        [
+          75.7045221,
+          31.2572069
+        ],
+        [
+          75.7045086,
+          31.2564205
+        ],
+        [
+          75.7038059,
+          31.2564343
+        ],
+        [
+          75.7038113,
+          31.2556088
+        ],
+        [
+          75.7007312,
+          31.255601
+        ],
+        [
+          75.6998377,
+          31.2543221
+        ],
+        [
+          75.6999847,
+          31.2542185
+        ],
+        [
+          75.7000954,
+          31.254058
+        ],
+        [
+          75.7001523,
+          31.2538483
+        ],
+        [
+          75.7000984,
+          31.2537288
+        ],
+        [
+          75.700192,
+          31.253609
+        ],
+        [
+          75.7002047,
+          31.2535247
+        ],
+        [
+          75.7001613,
+          31.2533665
+        ],
+        [
+          75.6999974,
+          31.2532601
+        ],
+        [
+          75.7000516,
+          31.2531872
+        ],
+        [
+          75.7001152,
+          31.2531554
+        ],
+        [
+          75.7001796,
+          31.2531095
+        ],
+        [
+          75.7002976,
+          31.2530912
+        ],
+        [
+          75.7004746,
+          31.2530224
+        ],
+        [
+          75.7006248,
+          31.2530086
+        ],
+        [
+          75.7008287,
+          31.2530316
+        ],
+        [
+          75.7010432,
+          31.2530545
+        ],
+        [
+          75.701172,
+          31.2530316
+        ],
+        [
+          75.7013168,
+          31.2529903
+        ],
+        [
+          75.7014938,
+          31.2529582
+        ],
+        [
+          75.7017299,
+          31.2529398
+        ],
+        [
+          75.7018908,
+          31.2529215
+        ],
+        [
+          75.702041,
+          31.2527381
+        ],
+        [
+          75.7020971,
+          31.2525079
+        ],
+        [
+          75.7020999,
+          31.252451
+        ],
+        [
+          75.7019667,
+          31.2524487
+        ],
+        [
+          75.7016665,
+          31.2524434
+        ],
+        [
+          75.7015449,
+          31.2524413
+        ],
+        [
+          75.7006785,
+          31.2524262
+        ],
+        [
+          75.6999679,
+          31.2524101
+        ],
+        [
+          75.6999182,
+          31.2522153
+        ],
+        [
+          75.6998792,
+          31.2520318
+        ],
+        [
+          75.6991348,
+          31.251942
+        ],
+        [
+          75.6983235,
+          31.2519128
+        ],
+        [
+          75.6983983,
+          31.2506747
+        ],
+        [
+          75.6978055,
+          31.2506221
+        ],
+        [
+          75.6980445,
+          31.2487298
+        ],
+        [
+          75.6982162,
+          31.2487436
+        ],
+        [
+          75.6982871,
+          31.2482897
+        ],
+        [
+          75.6987234,
+          31.2483081
+        ],
+        [
+          75.6988713,
+          31.247107
+        ],
+        [
+          75.6991603,
+          31.2468266
+        ],
+        [
+          75.6999596,
+          31.2465697
+        ],
+        [
+          75.7000294,
+          31.2466064
+        ],
+        [
+          75.7002976,
+          31.2466248
+        ],
+        [
+          75.7003029,
+          31.2457534
+        ],
+        [
+          75.70475,
+          31.245813
+        ],
+        [
+          75.7047232,
+          31.2467027
+        ],
+        [
+          75.7048734,
+          31.2467073
+        ],
+        [
+          75.7048681,
+          31.2471522
+        ],
+        [
+          75.7059946,
+          31.2471797
+        ],
+        [
+          75.7059892,
+          31.2480511
+        ],
+        [
+          75.7042887,
+          31.248019
+        ],
+        [
+          75.7042458,
+          31.2493902
+        ],
+        [
+          75.7040849,
+          31.2493902
+        ],
+        [
+          75.7040795,
+          31.2498259
+        ],
+        [
+          75.7048091,
+          31.2498351
+        ],
+        [
+          75.7048091,
+          31.2502524
+        ],
+        [
+          75.7049968,
+          31.2502937
+        ],
+        [
+          75.7051953,
+          31.2502937
+        ],
+        [
+          75.7053723,
+          31.2502524
+        ],
+        [
+          75.7054367,
+          31.2503579
+        ],
+        [
+          75.7052382,
+          31.2505092
+        ],
+        [
+          75.7052972,
+          31.2505551
+        ],
+        [
+          75.7054635,
+          31.2504542
+        ],
+        [
+          75.7055773,
+          31.2504248
+        ],
+        [
+          75.7057103,
+          31.2504129
+        ],
+        [
+          75.7059141,
+          31.2504542
+        ],
+        [
+          75.7060804,
+          31.2505001
+        ],
+        [
+          75.7062038,
+          31.2505047
+        ],
+        [
+          75.7063272,
+          31.2504863
+        ],
+        [
+          75.7063969,
+          31.2504726
+        ],
+        [
+          75.7064828,
+          31.2504588
+        ],
+        [
+          75.7065418,
+          31.2504634
+        ],
+        [
+          75.7064345,
+          31.2552741
+        ],
+        [
+          75.7061233,
+          31.2556546
+        ],
+        [
+          75.7064452,
+          31.2560903
+        ],
+        [
+          75.7071962,
+          31.2561087
+        ],
+        [
+          75.7072123,
+          31.2565627
+        ],
+        [
+          75.7077863,
+          31.2565719
+        ],
+        [
+          75.7077488,
+          31.2570442
+        ],
+        [
+          75.7081243,
+          31.2570304
+        ],
+        [
+          75.7081082,
+          31.2575257
+        ],
+        [
+          75.7086607,
+          31.2576587
+        ],
+        [
+          75.7086553,
+          31.2579246
+        ],
+        [
+          75.707856,
+          31.2579292
+        ],
+        [
+          75.7083764,
+          31.2583419
+        ],
+        [
+          75.7092374,
+          31.2583741
+        ],
+        [
+          75.7092159,
+          31.2593095
+        ],
+        [
+          75.7090828,
+          31.2594944
+        ],
+        [
+          75.7067134,
+          31.2609695
+        ]
+      ]
+    ]
+  },
+  "paths": [
+    [
+      [
+        75.7072102,
+        31.2585868
+      ],
+      [
+        75.7072106,
+        31.2586356
+      ]
+    ],
+    [
+      [
+        75.7072106,
+        31.2586356
+      ],
+      [
+        75.7072173,
+        31.2594516
+      ]
+    ],
+    [
+      [
+        75.7072173,
+        31.2594516
+      ],
+      [
+        75.7072176,
+        31.2594736
+      ]
+    ],
+    [
+      [
+        75.7072176,
+        31.2594736
+      ],
+      [
+        75.707224,
+        31.2598006
+      ]
+    ],
+    [
+      [
+        75.707224,
+        31.2598006
+      ],
+      [
+        75.7072316,
+        31.259863
+      ]
+    ],
+    [
+      [
+        75.7072316,
+        31.259863
+      ],
+      [
+        75.7072434,
+        31.2600581
+      ]
+    ],
+    [
+      [
+        75.7072434,
+        31.2600581
+      ],
+      [
+        75.7073922,
+        31.2602285
+      ]
+    ],
+    [
+      [
+        75.7073922,
+        31.2602285
+      ],
+      [
+        75.7074361,
+        31.2604004
+      ]
+    ],
+    [
+      [
+        75.7074361,
+        31.2604004
+      ],
+      [
+        75.7074629,
+        31.2604686
+      ]
+    ],
+    [
+      [
+        75.7043667,
+        31.2511053
+      ],
+      [
+        75.7043635,
+        31.2511768
+      ]
+    ],
+    [
+      [
+        75.7043635,
+        31.2511768
+      ],
+      [
+        75.704359,
+        31.2512795
+      ]
+    ],
+    [
+      [
+        75.704359,
+        31.2512795
+      ],
+      [
+        75.7043712,
+        31.2522564
+      ]
+    ],
+    [
+      [
+        75.7043712,
+        31.2522564
+      ],
+      [
+        75.7043649,
+        31.2522872
+      ]
+    ],
+    [
+      [
+        75.7043649,
+        31.2522872
+      ],
+      [
+        75.7043515,
+        31.2523119
+      ]
+    ],
+    [
+      [
+        75.7043515,
+        31.2523119
+      ],
+      [
+        75.7043174,
+        31.2523251
+      ]
+    ],
+    [
+      [
+        75.7043174,
+        31.2523251
+      ],
+      [
+        75.7042478,
+        31.2523267
+      ]
+    ],
+    [
+      [
+        75.7042478,
+        31.2523267
+      ],
+      [
+        75.7038974,
+        31.2523366
+      ]
+    ],
+    [
+      [
+        75.7038974,
+        31.2523366
+      ],
+      [
+        75.7036753,
+        31.2523462
+      ]
+    ],
+    [
+      [
+        75.7036753,
+        31.2523462
+      ],
+      [
+        75.703467,
+        31.2523552
+      ]
+    ],
+    [
+      [
+        75.703467,
+        31.2523552
+      ],
+      [
+        75.70326,
+        31.2523575
+      ]
+    ],
+    [
+      [
+        75.70326,
+        31.2523575
+      ],
+      [
+        75.703038,
+        31.2523644
+      ]
+    ],
+    [
+      [
+        75.703038,
+        31.2523644
+      ],
+      [
+        75.7028335,
+        31.2523654
+      ]
+    ],
+    [
+      [
+        75.7028335,
+        31.2523654
+      ],
+      [
+        75.7026333,
+        31.2523675
+      ]
+    ],
+    [
+      [
+        75.7026333,
+        31.2523675
+      ],
+      [
+        75.7025081,
+        31.2523659
+      ]
+    ],
+    [
+      [
+        75.7025081,
+        31.2523659
+      ],
+      [
+        75.7024101,
+        31.2523681
+      ]
+    ],
+    [
+      [
+        75.7030143,
+        31.2487661
+      ],
+      [
+        75.7030813,
+        31.2487707
+      ]
+    ],
+    [
+      [
+        75.7030813,
+        31.2487707
+      ],
+      [
+        75.7031537,
+        31.2459273
+      ]
+    ],
+    [
+      [
+        75.7031537,
+        31.2459273
+      ],
+      [
+        75.7030813,
+        31.2459341
+      ]
+    ],
+    [
+      [
+        75.7030813,
+        31.2459341
+      ],
+      [
+        75.7030143,
+        31.2487661
+      ]
+    ],
+    [
+      [
+        75.7014163,
+        31.2489628
+      ],
+      [
+        75.7014137,
+        31.2490316
+      ]
+    ],
+    [
+      [
+        75.7014137,
+        31.2490316
+      ],
+      [
+        75.7028889,
+        31.249066
+      ]
+    ],
+    [
+      [
+        75.7028889,
+        31.249066
+      ],
+      [
+        75.7028915,
+        31.2489972
+      ]
+    ],
+    [
+      [
+        75.7028915,
+        31.2489972
+      ],
+      [
+        75.7014163,
+        31.2489628
+      ]
+    ],
+    [
+      [
+        75.7012534,
+        31.2513744
+      ],
+      [
+        75.701255,
+        31.2513219
+      ]
+    ],
+    [
+      [
+        75.701255,
+        31.2513219
+      ],
+      [
+        75.7020782,
+        31.2513411
+      ]
+    ],
+    [
+      [
+        75.7020782,
+        31.2513411
+      ],
+      [
+        75.7020765,
+        31.2513936
+      ]
+    ],
+    [
+      [
+        75.7020765,
+        31.2513936
+      ],
+      [
+        75.7012534,
+        31.2513744
+      ]
+    ],
+    [
+      [
+        75.7020151,
+        31.2529932
+      ],
+      [
+        75.7021484,
+        31.252992
+      ]
+    ],
+    [
+      [
+        75.7021484,
+        31.252992
+      ],
+      [
+        75.7022666,
+        31.2529909
+      ]
+    ],
+    [
+      [
+        75.7022666,
+        31.2529909
+      ],
+      [
+        75.7026412,
+        31.2529934
+      ]
+    ],
+    [
+      [
+        75.7026412,
+        31.2529934
+      ],
+      [
+        75.7028604,
+        31.2529946
+      ]
+    ],
+    [
+      [
+        75.7028604,
+        31.2529946
+      ],
+      [
+        75.7030563,
+        31.2529839
+      ]
+    ],
+    [
+      [
+        75.7030563,
+        31.2529839
+      ],
+      [
+        75.7032687,
+        31.2529843
+      ]
+    ],
+    [
+      [
+        75.7032687,
+        31.2529843
+      ],
+      [
+        75.703481,
+        31.2529791
+      ]
+    ],
+    [
+      [
+        75.703481,
+        31.2529791
+      ],
+      [
+        75.7036877,
+        31.2529788
+      ]
+    ],
+    [
+      [
+        75.7036877,
+        31.2529788
+      ],
+      [
+        75.7039103,
+        31.2529786
+      ]
+    ],
+    [
+      [
+        75.7039103,
+        31.2529786
+      ],
+      [
+        75.7040155,
+        31.252975
+      ]
+    ],
+    [
+      [
+        75.7040155,
+        31.252975
+      ],
+      [
+        75.7045414,
+        31.252951
+      ]
+    ],
+    [
+      [
+        75.7045414,
+        31.252951
+      ],
+      [
+        75.7046063,
+        31.2529481
+      ]
+    ],
+    [
+      [
+        75.7015602,
+        31.253402
+      ],
+      [
+        75.7016299,
+        31.2533997
+      ]
+    ],
+    [
+      [
+        75.7016299,
+        31.2533997
+      ],
+      [
+        75.7016836,
+        31.2551584
+      ]
+    ],
+    [
+      [
+        75.7016836,
+        31.2551584
+      ],
+      [
+        75.7016138,
+        31.2551607
+      ]
+    ],
+    [
+      [
+        75.7016138,
+        31.2551607
+      ],
+      [
+        75.701587,
+        31.254498
+      ]
+    ],
+    [
+      [
+        75.701587,
+        31.254498
+      ],
+      [
+        75.7010667,
+        31.2545026
+      ]
+    ],
+    [
+      [
+        75.7010667,
+        31.2545026
+      ],
+      [
+        75.7010613,
+        31.2544338
+      ]
+    ],
+    [
+      [
+        75.7010613,
+        31.2544338
+      ],
+      [
+        75.7015816,
+        31.2544292
+      ]
+    ],
+    [
+      [
+        75.7015816,
+        31.2544292
+      ],
+      [
+        75.7015602,
+        31.253402
+      ]
+    ],
+    [
+      [
+        75.7023598,
+        31.2520806
+      ],
+      [
+        75.7022865,
+        31.2520876
+      ]
+    ],
+    [
+      [
+        75.7022865,
+        31.2520876
+      ],
+      [
+        75.7020937,
+        31.2521046
+      ]
+    ],
+    [
+      [
+        75.7020937,
+        31.2521046
+      ],
+      [
+        75.7019358,
+        31.252096
+      ]
+    ],
+    [
+      [
+        75.7019358,
+        31.252096
+      ],
+      [
+        75.7019353,
+        31.2523477
+      ]
+    ],
+    [
+      [
+        75.7019353,
+        31.2523477
+      ],
+      [
+        75.7017441,
+        31.2523459
+      ]
+    ],
+    [
+      [
+        75.7019358,
+        31.252096
+      ],
+      [
+        75.7015155,
+        31.2520667
+      ]
+    ],
+    [
+      [
+        75.7015155,
+        31.2520667
+      ],
+      [
+        75.70149,
+        31.2523076
+      ]
+    ],
+    [
+      [
+        75.70149,
+        31.2523076
+      ],
+      [
+        75.7011994,
+        31.2522906
+      ]
+    ],
+    [
+      [
+        75.7011994,
+        31.2522906
+      ],
+      [
+        75.7011942,
+        31.2520415
+      ]
+    ],
+    [
+      [
+        75.7011942,
+        31.2520415
+      ],
+      [
+        75.7007175,
+        31.2520187
+      ]
+    ],
+    [
+      [
+        75.7007175,
+        31.2520187
+      ],
+      [
+        75.7006157,
+        31.2519919
+      ]
+    ],
+    [
+      [
+        75.7007175,
+        31.2520187
+      ],
+      [
+        75.7007333,
+        31.2516489
+      ]
+    ],
+    [
+      [
+        75.7007333,
+        31.2516489
+      ],
+      [
+        75.7007542,
+        31.2515928
+      ]
+    ],
+    [
+      [
+        75.7007542,
+        31.2515928
+      ],
+      [
+        75.7008093,
+        31.2515435
+      ]
+    ],
+    [
+      [
+        75.7008093,
+        31.2515435
+      ],
+      [
+        75.7009168,
+        31.2515256
+      ]
+    ],
+    [
+      [
+        75.7009168,
+        31.2515256
+      ],
+      [
+        75.7012498,
+        31.2515368
+      ]
+    ],
+    [
+      [
+        75.7012498,
+        31.2515368
+      ],
+      [
+        75.7015382,
+        31.2515525
+      ]
+    ],
+    [
+      [
+        75.7015382,
+        31.2515525
+      ],
+      [
+        75.7017113,
+        31.2515547
+      ]
+    ],
+    [
+      [
+        75.7017113,
+        31.2515547
+      ],
+      [
+        75.7020207,
+        31.2515659
+      ]
+    ],
+    [
+      [
+        75.7020207,
+        31.2515659
+      ],
+      [
+        75.7021125,
+        31.2515592
+      ]
+    ],
+    [
+      [
+        75.7021125,
+        31.2515592
+      ],
+      [
+        75.7021256,
+        31.2514897
+      ]
+    ],
+    [
+      [
+        75.7021256,
+        31.2514897
+      ],
+      [
+        75.7021467,
+        31.2514319
+      ]
+    ],
+    [
+      [
+        75.7029816,
+        31.2541512
+      ],
+      [
+        75.7029817,
+        31.2538842
+      ]
+    ],
+    [
+      [
+        75.7029817,
+        31.2538842
+      ],
+      [
+        75.7029742,
+        31.2538319
+      ]
+    ],
+    [
+      [
+        75.7029742,
+        31.2538319
+      ],
+      [
+        75.7029854,
+        31.2537292
+      ]
+    ],
+    [
+      [
+        75.7029854,
+        31.2537292
+      ],
+      [
+        75.7030524,
+        31.2536688
+      ]
+    ],
+    [
+      [
+        75.7030524,
+        31.2536688
+      ],
+      [
+        75.7030672,
+        31.2536275
+      ]
+    ],
+    [
+      [
+        75.7030672,
+        31.2536275
+      ],
+      [
+        75.7030486,
+        31.2530775
+      ]
+    ],
+    [
+      [
+        75.7030486,
+        31.2530775
+      ],
+      [
+        75.7030563,
+        31.2529839
+      ]
+    ],
+    [
+      [
+        75.7043282,
+        31.2538173
+      ],
+      [
+        75.704328,
+        31.2537102
+      ]
+    ],
+    [
+      [
+        75.704328,
+        31.2537102
+      ],
+      [
+        75.7041461,
+        31.253389
+      ]
+    ],
+    [
+      [
+        75.7041461,
+        31.253389
+      ],
+      [
+        75.7040823,
+        31.2532534
+      ]
+    ],
+    [
+      [
+        75.7040823,
+        31.2532534
+      ],
+      [
+        75.7040455,
+        31.2531407
+      ]
+    ],
+    [
+      [
+        75.7040455,
+        31.2531407
+      ],
+      [
+        75.7040305,
+        31.253065
+      ]
+    ],
+    [
+      [
+        75.7040305,
+        31.253065
+      ],
+      [
+        75.7040155,
+        31.252975
+      ]
+    ],
+    [
+      [
+        75.7043282,
+        31.2538173
+      ],
+      [
+        75.7044102,
+        31.2538877
+      ]
+    ],
+    [
+      [
+        75.7044102,
+        31.2538877
+      ],
+      [
+        75.7044829,
+        31.2539324
+      ]
+    ],
+    [
+      [
+        75.7044829,
+        31.2539324
+      ],
+      [
+        75.7045628,
+        31.2539772
+      ]
+    ],
+    [
+      [
+        75.7045628,
+        31.2539772
+      ],
+      [
+        75.7046388,
+        31.2540251
+      ]
+    ],
+    [
+      [
+        75.7046388,
+        31.2540251
+      ],
+      [
+        75.7047483,
+        31.2542157
+      ]
+    ],
+    [
+      [
+        75.7047483,
+        31.2542157
+      ],
+      [
+        75.7048613,
+        31.2543519
+      ]
+    ],
+    [
+      [
+        75.7048613,
+        31.2543519
+      ],
+      [
+        75.7052759,
+        31.2548433
+      ]
+    ],
+    [
+      [
+        75.7052759,
+        31.2548433
+      ],
+      [
+        75.7053575,
+        31.2549401
+      ]
+    ],
+    [
+      [
+        75.7053575,
+        31.2549401
+      ],
+      [
+        75.7054141,
+        31.2549502
+      ]
+    ],
+    [
+      [
+        75.7045625,
+        31.2538138
+      ],
+      [
+        75.7054141,
+        31.2549502
+      ]
+    ],
+    [
+      [
+        75.7054141,
+        31.2549502
+      ],
+      [
+        75.7056246,
+        31.2553334
+      ]
+    ],
+    [
+      [
+        75.7056246,
+        31.2553334
+      ],
+      [
+        75.7056721,
+        31.2554894
+      ]
+    ],
+    [
+      [
+        75.7056721,
+        31.2554894
+      ],
+      [
+        75.7056876,
+        31.2556118
+      ]
+    ],
+    [
+      [
+        75.7072234,
+        31.2606217
+      ],
+      [
+        75.7071763,
+        31.2605375
+      ]
+    ],
+    [
+      [
+        75.7071763,
+        31.2605375
+      ],
+      [
+        75.7071558,
+        31.2605116
+      ]
+    ],
+    [
+      [
+        75.7071558,
+        31.2605116
+      ],
+      [
+        75.7070948,
+        31.2604253
+      ]
+    ],
+    [
+      [
+        75.7070948,
+        31.2604253
+      ],
+      [
+        75.7070828,
+        31.2604122
+      ]
+    ],
+    [
+      [
+        75.7070828,
+        31.2604122
+      ],
+      [
+        75.7070691,
+        31.2603917
+      ]
+    ],
+    [
+      [
+        75.7070691,
+        31.2603917
+      ],
+      [
+        75.7070503,
+        31.2601344
+      ]
+    ],
+    [
+      [
+        75.7070503,
+        31.2601344
+      ],
+      [
+        75.7070315,
+        31.2600335
+      ]
+    ],
+    [
+      [
+        75.7070315,
+        31.2600335
+      ],
+      [
+        75.707076,
+        31.2600065
+      ]
+    ],
+    [
+      [
+        75.707076,
+        31.2600065
+      ],
+      [
+        75.7071273,
+        31.2599672
+      ]
+    ],
+    [
+      [
+        75.7071273,
+        31.2599672
+      ],
+      [
+        75.7071908,
+        31.2599106
+      ]
+    ],
+    [
+      [
+        75.7071908,
+        31.2599106
+      ],
+      [
+        75.7072316,
+        31.259863
+      ]
+    ],
+    [
+      [
+        75.7073196,
+        31.2605602
+      ],
+      [
+        75.7072401,
+        31.260494
+      ]
+    ],
+    [
+      [
+        75.7072401,
+        31.260494
+      ],
+      [
+        75.7070948,
+        31.2604253
+      ]
+    ],
+    [
+      [
+        75.7070315,
+        31.2600335
+      ],
+      [
+        75.7068779,
+        31.2599897
+      ]
+    ],
+    [
+      [
+        75.7068779,
+        31.2599897
+      ],
+      [
+        75.7067835,
+        31.259934
+      ]
+    ],
+    [
+      [
+        75.7067835,
+        31.259934
+      ],
+      [
+        75.7067681,
+        31.2598902
+      ]
+    ],
+    [
+      [
+        75.7067681,
+        31.2598902
+      ],
+      [
+        75.7067526,
+        31.2598274
+      ]
+    ],
+    [
+      [
+        75.7067526,
+        31.2598274
+      ],
+      [
+        75.7067514,
+        31.2597337
+      ]
+    ],
+    [
+      [
+        75.7067514,
+        31.2597337
+      ],
+      [
+        75.7067503,
+        31.2596547
+      ]
+    ],
+    [
+      [
+        75.7067503,
+        31.2596547
+      ],
+      [
+        75.7067494,
+        31.2595836
+      ]
+    ],
+    [
+      [
+        75.7067494,
+        31.2595836
+      ],
+      [
+        75.7067929,
+        31.2595412
+      ]
+    ],
+    [
+      [
+        75.7067929,
+        31.2595412
+      ],
+      [
+        75.7068249,
+        31.2594858
+      ]
+    ],
+    [
+      [
+        75.7068249,
+        31.2594858
+      ],
+      [
+        75.7068158,
+        31.2594716
+      ]
+    ],
+    [
+      [
+        75.7068158,
+        31.2594716
+      ],
+      [
+        75.7071401,
+        31.2594732
+      ]
+    ],
+    [
+      [
+        75.7071401,
+        31.2594732
+      ],
+      [
+        75.7072176,
+        31.2594736
+      ]
+    ],
+    [
+      [
+        75.7071401,
+        31.2594732
+      ],
+      [
+        75.7071456,
+        31.2594523
+      ]
+    ],
+    [
+      [
+        75.7071456,
+        31.2594523
+      ],
+      [
+        75.7071694,
+        31.2593618
+      ]
+    ],
+    [
+      [
+        75.7071694,
+        31.2593618
+      ],
+      [
+        75.7071587,
+        31.258679
+      ]
+    ],
+    [
+      [
+        75.7071587,
+        31.258679
+      ],
+      [
+        75.707089,
+        31.2586377
+      ]
+    ],
+    [
+      [
+        75.707089,
+        31.2586377
+      ],
+      [
+        75.707038,
+        31.2586285
+      ]
+    ],
+    [
+      [
+        75.707038,
+        31.2586285
+      ],
+      [
+        75.7069517,
+        31.2586303
+      ]
+    ],
+    [
+      [
+        75.7069517,
+        31.2586303
+      ],
+      [
+        75.7068978,
+        31.2586314
+      ]
+    ],
+    [
+      [
+        75.7068978,
+        31.2586314
+      ],
+      [
+        75.7068957,
+        31.2585915
+      ]
+    ],
+    [
+      [
+        75.7068158,
+        31.2594716
+      ],
+      [
+        75.7068052,
+        31.2594555
+      ]
+    ],
+    [
+      [
+        75.7068052,
+        31.2594555
+      ],
+      [
+        75.7067575,
+        31.2593828
+      ]
+    ],
+    [
+      [
+        75.7067575,
+        31.2593828
+      ],
+      [
+        75.7067515,
+        31.2593147
+      ]
+    ],
+    [
+      [
+        75.7067515,
+        31.2593147
+      ],
+      [
+        75.7067395,
+        31.2588688
+      ]
+    ],
+    [
+      [
+        75.7067395,
+        31.2588688
+      ],
+      [
+        75.7067336,
+        31.2587411
+      ]
+    ],
+    [
+      [
+        75.7067336,
+        31.2587411
+      ],
+      [
+        75.7067336,
+        31.2587054
+      ]
+    ],
+    [
+      [
+        75.7067336,
+        31.2587054
+      ],
+      [
+        75.7067455,
+        31.2586714
+      ]
+    ],
+    [
+      [
+        75.7067455,
+        31.2586714
+      ],
+      [
+        75.7067833,
+        31.2586629
+      ]
+    ],
+    [
+      [
+        75.7067833,
+        31.2586629
+      ],
+      [
+        75.7068291,
+        31.2586577
+      ]
+    ],
+    [
+      [
+        75.7068291,
+        31.2586577
+      ],
+      [
+        75.7068769,
+        31.2586458
+      ]
+    ],
+    [
+      [
+        75.7068769,
+        31.2586458
+      ],
+      [
+        75.7068978,
+        31.2586314
+      ]
+    ],
+    [
+      [
+        75.7064349,
+        31.259456
+      ],
+      [
+        75.7064568,
+        31.2593896
+      ]
+    ],
+    [
+      [
+        75.7064568,
+        31.2593896
+      ],
+      [
+        75.7064469,
+        31.2592875
+      ]
+    ],
+    [
+      [
+        75.7064469,
+        31.2592875
+      ],
+      [
+        75.7064488,
+        31.2592262
+      ]
+    ],
+    [
+      [
+        75.7064488,
+        31.2592262
+      ],
+      [
+        75.7064469,
+        31.2591156
+      ]
+    ],
+    [
+      [
+        75.709018,
+        31.258992
+      ],
+      [
+        75.7089778,
+        31.2589839
+      ]
+    ],
+    [
+      [
+        75.7089778,
+        31.2589839
+      ],
+      [
+        75.7089296,
+        31.2589694
+      ]
+    ],
+    [
+      [
+        75.7089296,
+        31.2589694
+      ],
+      [
+        75.7088891,
+        31.2589346
+      ]
+    ],
+    [
+      [
+        75.7088891,
+        31.2589346
+      ],
+      [
+        75.7088367,
+        31.2588932
+      ]
+    ],
+    [
+      [
+        75.7088367,
+        31.2588932
+      ],
+      [
+        75.7087777,
+        31.2588554
+      ]
+    ],
+    [
+      [
+        75.7087777,
+        31.2588554
+      ],
+      [
+        75.7086944,
+        31.2587853
+      ]
+    ],
+    [
+      [
+        75.7086944,
+        31.2587853
+      ],
+      [
+        75.7086017,
+        31.2587027
+      ]
+    ],
+    [
+      [
+        75.7086017,
+        31.2587027
+      ],
+      [
+        75.7085359,
+        31.2586499
+      ]
+    ],
+    [
+      [
+        75.7085359,
+        31.2586499
+      ],
+      [
+        75.7081283,
+        31.2586012
+      ]
+    ],
+    [
+      [
+        75.7081283,
+        31.2586012
+      ],
+      [
+        75.7080476,
+        31.2586104
+      ]
+    ],
+    [
+      [
+        75.7080476,
+        31.2586104
+      ],
+      [
+        75.7079568,
+        31.2586207
+      ]
+    ],
+    [
+      [
+        75.7079568,
+        31.2586207
+      ],
+      [
+        75.7073531,
+        31.2586087
+      ]
+    ],
+    [
+      [
+        75.7073531,
+        31.2586087
+      ],
+      [
+        75.7072106,
+        31.2586356
+      ]
+    ],
+    [
+      [
+        75.7072102,
+        31.2585868
+      ],
+      [
+        75.7072218,
+        31.2585115
+      ]
+    ],
+    [
+      [
+        75.7072218,
+        31.2585115
+      ],
+      [
+        75.7072376,
+        31.2584397
+      ]
+    ],
+    [
+      [
+        75.7072376,
+        31.2584397
+      ],
+      [
+        75.7072533,
+        31.2583559
+      ]
+    ],
+    [
+      [
+        75.7072533,
+        31.2583559
+      ],
+      [
+        75.7072621,
+        31.2582871
+      ]
+    ],
+    [
+      [
+        75.7072621,
+        31.2582871
+      ],
+      [
+        75.7072638,
+        31.2582527
+      ]
+    ],
+    [
+      [
+        75.7072638,
+        31.2582527
+      ],
+      [
+        75.7072078,
+        31.2582108
+      ]
+    ],
+    [
+      [
+        75.7072078,
+        31.2582108
+      ],
+      [
+        75.7071903,
+        31.258142
+      ]
+    ],
+    [
+      [
+        75.7071903,
+        31.258142
+      ],
+      [
+        75.7071798,
+        31.2580672
+      ]
+    ],
+    [
+      [
+        75.7071798,
+        31.2580672
+      ],
+      [
+        75.7071798,
+        31.2579655
+      ]
+    ],
+    [
+      [
+        75.7071798,
+        31.2579655
+      ],
+      [
+        75.7071798,
+        31.2579221
+      ]
+    ],
+    [
+      [
+        75.7071798,
+        31.2579221
+      ],
+      [
+        75.7071816,
+        31.2578563
+      ]
+    ],
+    [
+      [
+        75.7071816,
+        31.2578563
+      ],
+      [
+        75.7071816,
+        31.2578279
+      ]
+    ],
+    [
+      [
+        75.7072102,
+        31.2585868
+      ],
+      [
+        75.7076081,
+        31.2581719
+      ]
+    ],
+    [
+      [
+        75.7068957,
+        31.2585915
+      ],
+      [
+        75.7068525,
+        31.2584909
+      ]
+    ],
+    [
+      [
+        75.7068525,
+        31.2584909
+      ],
+      [
+        75.7068465,
+        31.2584291
+      ]
+    ],
+    [
+      [
+        75.7068465,
+        31.2584291
+      ],
+      [
+        75.7067903,
+        31.258424
+      ]
+    ],
+    [
+      [
+        75.7067903,
+        31.258424
+      ],
+      [
+        75.7067822,
+        31.2583587
+      ]
+    ],
+    [
+      [
+        75.7067822,
+        31.2583587
+      ],
+      [
+        75.7067802,
+        31.2583021
+      ]
+    ],
+    [
+      [
+        75.7067802,
+        31.2583021
+      ],
+      [
+        75.7067461,
+        31.2582643
+      ]
+    ],
+    [
+      [
+        75.7067461,
+        31.2582643
+      ],
+      [
+        75.7066838,
+        31.2582437
+      ]
+    ],
+    [
+      [
+        75.7066838,
+        31.2582437
+      ],
+      [
+        75.7065935,
+        31.2581854
+      ]
+    ],
+    [
+      [
+        75.7065935,
+        31.2581854
+      ],
+      [
+        75.7065955,
+        31.257976
+      ]
+    ],
+    [
+      [
+        75.7081283,
+        31.2586012
+      ],
+      [
+        75.7079428,
+        31.2585444
+      ]
+    ],
+    [
+      [
+        75.7079428,
+        31.2585444
+      ],
+      [
+        75.7078273,
+        31.2585145
+      ]
+    ],
+    [
+      [
+        75.7078273,
+        31.2585145
+      ],
+      [
+        75.7077153,
+        31.2584636
+      ]
+    ],
+    [
+      [
+        75.7077153,
+        31.2584636
+      ],
+      [
+        75.7076243,
+        31.2583185
+      ]
+    ],
+    [
+      [
+        75.7076243,
+        31.2583185
+      ],
+      [
+        75.7076121,
+        31.2582452
+      ]
+    ],
+    [
+      [
+        75.7076121,
+        31.2582452
+      ],
+      [
+        75.7076081,
+        31.2581719
+      ]
+    ],
+    [
+      [
+        75.7076081,
+        31.2581719
+      ],
+      [
+        75.7076051,
+        31.2581166
+      ]
+    ],
+    [
+      [
+        75.7076051,
+        31.2581166
+      ],
+      [
+        75.7076106,
+        31.2580674
+      ]
+    ],
+    [
+      [
+        75.7076106,
+        31.2580674
+      ],
+      [
+        75.7076156,
+        31.2580223
+      ]
+    ],
+    [
+      [
+        75.7076156,
+        31.2580223
+      ],
+      [
+        75.7076663,
+        31.2579341
+      ]
+    ],
+    [
+      [
+        75.7076663,
+        31.2579341
+      ],
+      [
+        75.7076838,
+        31.2578728
+      ]
+    ],
+    [
+      [
+        75.7076838,
+        31.2578728
+      ],
+      [
+        75.7077039,
+        31.2577768
+      ]
+    ],
+    [
+      [
+        75.7077039,
+        31.2577768
+      ],
+      [
+        75.7076882,
+        31.2572638
+      ]
+    ],
+    [
+      [
+        75.7076882,
+        31.2572638
+      ],
+      [
+        75.7076853,
+        31.2571681
+      ]
+    ],
+    [
+      [
+        75.7065955,
+        31.257976
+      ],
+      [
+        75.7066018,
+        31.2576643
+      ]
+    ],
+    [
+      [
+        75.7066018,
+        31.2576643
+      ],
+      [
+        75.7066717,
+        31.2575677
+      ]
+    ],
+    [
+      [
+        75.7066717,
+        31.2575677
+      ],
+      [
+        75.7066939,
+        31.2572747
+      ]
+    ],
+    [
+      [
+        75.7066939,
+        31.2572747
+      ],
+      [
+        75.7067336,
+        31.2572297
+      ]
+    ],
+    [
+      [
+        75.7067336,
+        31.2572297
+      ],
+      [
+        75.7068089,
+        31.2571814
+      ]
+    ],
+    [
+      [
+        75.7068089,
+        31.2571814
+      ],
+      [
+        75.7075837,
+        31.2571814
+      ]
+    ],
+    [
+      [
+        75.7075837,
+        31.2571814
+      ],
+      [
+        75.7076882,
+        31.2572638
+      ]
+    ],
+    [
+      [
+        75.7022666,
+        31.2529909
+      ],
+      [
+        75.7022667,
+        31.2526233
+      ]
+    ],
+    [
+      [
+        75.7022667,
+        31.2526233
+      ],
+      [
+        75.7025081,
+        31.2523659
+      ]
+    ],
+    [
+      [
+        75.7025081,
+        31.2523659
+      ],
+      [
+        75.7026444,
+        31.2522095
+      ]
+    ],
+    [
+      [
+        75.7026444,
+        31.2522095
+      ],
+      [
+        75.7028961,
+        31.2520172
+      ]
+    ],
+    [
+      [
+        75.7028961,
+        31.2520172
+      ],
+      [
+        75.7041283,
+        31.2512964
+      ]
+    ],
+    [
+      [
+        75.7041283,
+        31.2512964
+      ],
+      [
+        75.7043635,
+        31.2511768
+      ]
+    ],
+    [
+      [
+        75.7026412,
+        31.2529934
+      ],
+      [
+        75.7026333,
+        31.2523675
+      ]
+    ],
+    [
+      [
+        75.7030563,
+        31.2529839
+      ],
+      [
+        75.703038,
+        31.2523644
+      ]
+    ],
+    [
+      [
+        75.703481,
+        31.2529791
+      ],
+      [
+        75.703467,
+        31.2523552
+      ]
+    ],
+    [
+      [
+        75.7039103,
+        31.2529786
+      ],
+      [
+        75.7038974,
+        31.2523366
+      ]
+    ],
+    [
+      [
+        75.7029817,
+        31.2538842
+      ],
+      [
+        75.7037522,
+        31.253892
+      ]
+    ],
+    [
+      [
+        75.7037522,
+        31.253892
+      ],
+      [
+        75.7037535,
+        31.2549679
+      ]
+    ],
+    [
+      [
+        75.7037535,
+        31.2549679
+      ],
+      [
+        75.7038379,
+        31.2550012
+      ]
+    ],
+    [
+      [
+        75.7068089,
+        31.2571814
+      ],
+      [
+        75.7068017,
+        31.257106
+      ]
+    ],
+    [
+      [
+        75.7068017,
+        31.257106
+      ],
+      [
+        75.7067956,
+        31.2570425
+      ]
+    ],
+    [
+      [
+        75.7067956,
+        31.2570425
+      ],
+      [
+        75.7075367,
+        31.2570277
+      ]
+    ],
+    [
+      [
+        75.7075367,
+        31.2570277
+      ],
+      [
+        75.7075602,
+        31.2571047
+      ]
+    ],
+    [
+      [
+        75.7075602,
+        31.2571047
+      ],
+      [
+        75.7075837,
+        31.2571814
+      ]
+    ],
+    [
+      [
+        75.7067956,
+        31.2570425
+      ],
+      [
+        75.706722,
+        31.2570351
+      ]
+    ],
+    [
+      [
+        75.706722,
+        31.2570351
+      ],
+      [
+        75.7066396,
+        31.2569906
+      ]
+    ],
+    [
+      [
+        75.7066396,
+        31.2569906
+      ],
+      [
+        75.7065963,
+        31.2569166
+      ]
+    ],
+    [
+      [
+        75.7065963,
+        31.2569166
+      ],
+      [
+        75.7065485,
+        31.2568205
+      ]
+    ],
+    [
+      [
+        75.7065485,
+        31.2568205
+      ],
+      [
+        75.7063363,
+        31.2563942
+      ]
+    ],
+    [
+      [
+        75.7063363,
+        31.2563942
+      ],
+      [
+        75.7063152,
+        31.2562167
+      ]
+    ],
+    [
+      [
+        75.7063152,
+        31.2562167
+      ],
+      [
+        75.7062655,
+        31.2560817
+      ]
+    ],
+    [
+      [
+        75.7062655,
+        31.2560817
+      ],
+      [
+        75.705987,
+        31.2555909
+      ]
+    ],
+    [
+      [
+        75.7056876,
+        31.2556118
+      ],
+      [
+        75.7058027,
+        31.2555355
+      ]
+    ],
+    [
+      [
+        75.7058027,
+        31.2555355
+      ],
+      [
+        75.7059127,
+        31.2554864
+      ]
+    ],
+    [
+      [
+        75.7059127,
+        31.2554864
+      ],
+      [
+        75.705987,
+        31.2555909
+      ]
+    ],
+    [
+      [
+        75.7028604,
+        31.2529946
+      ],
+      [
+        75.7028335,
+        31.2523654
+      ]
+    ],
+    [
+      [
+        75.7032687,
+        31.2529843
+      ],
+      [
+        75.70326,
+        31.2523575
+      ]
+    ],
+    [
+      [
+        75.7038402,
+        31.2553774
+      ],
+      [
+        75.7039363,
+        31.2554015
+      ]
+    ],
+    [
+      [
+        75.7039363,
+        31.2554015
+      ],
+      [
+        75.7039849,
+        31.2555087
+      ]
+    ],
+    [
+      [
+        75.7039849,
+        31.2555087
+      ],
+      [
+        75.7039705,
+        31.2556227
+      ]
+    ],
+    [
+      [
+        75.7039705,
+        31.2556227
+      ],
+      [
+        75.7039771,
+        31.2556707
+      ]
+    ],
+    [
+      [
+        75.7039771,
+        31.2556707
+      ],
+      [
+        75.7040253,
+        31.2557126
+      ]
+    ],
+    [
+      [
+        75.7040253,
+        31.2557126
+      ],
+      [
+        75.70409,
+        31.2557298
+      ]
+    ],
+    [
+      [
+        75.70409,
+        31.2557298
+      ],
+      [
+        75.7042476,
+        31.2557507
+      ]
+    ],
+    [
+      [
+        75.7042476,
+        31.2557507
+      ],
+      [
+        75.7056502,
+        31.2559361
+      ]
+    ],
+    [
+      [
+        75.7056502,
+        31.2559361
+      ],
+      [
+        75.705736,
+        31.2558947
+      ]
+    ],
+    [
+      [
+        75.705736,
+        31.2558947
+      ],
+      [
+        75.7057232,
+        31.2557343
+      ]
+    ],
+    [
+      [
+        75.7057232,
+        31.2557343
+      ],
+      [
+        75.7056876,
+        31.2556118
+      ]
+    ],
+    [
+      [
+        75.7036877,
+        31.2529788
+      ],
+      [
+        75.7036753,
+        31.2523462
+      ]
+    ],
+    [
+      [
+        75.7039723,
+        31.2558904
+      ],
+      [
+        75.704221,
+        31.2559251
+      ]
+    ],
+    [
+      [
+        75.704221,
+        31.2559251
+      ],
+      [
+        75.7058168,
+        31.2561473
+      ]
+    ],
+    [
+      [
+        75.7058168,
+        31.2561473
+      ],
+      [
+        75.7059843,
+        31.2562071
+      ]
+    ],
+    [
+      [
+        75.7059843,
+        31.2562071
+      ],
+      [
+        75.7060452,
+        31.2562591
+      ]
+    ],
+    [
+      [
+        75.7060452,
+        31.2562591
+      ],
+      [
+        75.7063146,
+        31.2568983
+      ]
+    ],
+    [
+      [
+        75.7063146,
+        31.2568983
+      ],
+      [
+        75.7064358,
+        31.256858
+      ]
+    ],
+    [
+      [
+        75.7064358,
+        31.256858
+      ],
+      [
+        75.7065485,
+        31.2568205
+      ]
+    ],
+    [
+      [
+        75.7042476,
+        31.2557507
+      ],
+      [
+        75.7042311,
+        31.2558588
+      ]
+    ],
+    [
+      [
+        75.7042311,
+        31.2558588
+      ],
+      [
+        75.704221,
+        31.2559251
+      ]
+    ]
+  ],
+  "attribution": "© OpenStreetMap contributors",
+  "date": "2026-10-07"
+}
