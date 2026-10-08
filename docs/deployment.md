@@ -1,6 +1,6 @@
 # Deployment
 
-Deployment targets: repository `varshith1369/LPU-NAVIGATOR`, Vercel project `lpu-campus-navigator` at `https://lpu-campus-navigator-beryl.vercel.app`, and Render API `lpu-campus-api` at `https://lpu-campus-api.onrender.com`. The API uses managed PostgreSQL 17 in Singapore. `vercel.json` must be included in every frontend deployment so `/api/*` reaches Render rather than returning Vercel 404 pages.
+Deployment targets: repository `varshith1369/LPU-NAVIGATOR`, Vercel project `lpu-campus-navigator` at `https://lpu-campus-navigator-lpu.vercel.app`, and Render API `lpu-campus-api` at `https://lpu-campus-api.onrender.com`. The API uses managed PostgreSQL 17 in Singapore. `vercel.json` must be included in every frontend deployment so `/api/*` reaches Render rather than returning Vercel 404 pages.
 
 The frontend bundles the numbered campus directory (1–55), public map boundary, mapped paths, and eight sourced map features. All 55 directory numbers remain searchable without the API: 51 have names in the supplied legend and 44, 48, 49, 50 are explicitly unidentified. Reference entries have no invented GPS coordinates. The API refreshes mapped place details; a failed refresh keeps the bundled map and directory visible and displays a reconnect notice. Background map tiles still require an internet connection.
 

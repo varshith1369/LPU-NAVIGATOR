@@ -77,7 +77,7 @@ AI API tests require `ai-service/requirements.txt` and `httpx`. Python service s
 
 Requested repository: [varshith1369/LPU-NAVIGATOR](https://github.com/varshith1369/LPU-NAVIGATOR). Requested frontend project: `lpu-campus-navigator` on Vercel. Requested API service: `lpu-campus-api` on Render, with Render Postgres/PostGIS.
 
-The frontend is deployed at [LPU Campus Navigator](https://lpu-campus-navigator-beryl.vercel.app), with the [Render API](https://lpu-campus-api.onrender.com/api/health). GitHub main triggers provider deployments. Follow [deployment instructions](docs/deployment.md).
+The frontend is deployed at [LPU Campus Navigator](https://lpu-campus-navigator-lpu.vercel.app), with the [Render API](https://lpu-campus-api.onrender.com/api/health). GitHub main triggers provider deployments. Follow [deployment instructions](docs/deployment.md).
 
 ## Live location and missing GPS positions
 
