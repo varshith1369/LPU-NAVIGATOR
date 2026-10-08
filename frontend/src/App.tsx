@@ -60,7 +60,7 @@ export default function App() {
   const [view, setView] = useState<View>(
     new URLSearchParams(location.search).has("reset") ? "profile" : "explore",
   );
-  const [historical, setHistorical] = useState(true);
+  const [historical, setHistorical] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [directoryScope, setDirectoryScope] = useState<"all" | "mapped">("all");
@@ -198,12 +198,12 @@ export default function App() {
     setMobileList(false);
   };
   const choose = (p: Place) => {
-    setHistorical(p.historical && p.latitude == null);
+    setHistorical(false);
     if (p.historical) {
       setFollow(false);
-      if (p.image_x_px == null)
+      if (p.latitude == null)
         setNotice(
-          "This entry remains in the directory, but its pin cannot be placed confidently from this image. Check the plan legend.",
+          "This reference has no verified GPS position yet. Its number will appear on the live map after the position is verified.",
         );
     }
     setSelected(p);
@@ -540,8 +540,8 @@ export default function App() {
                       <Info size={17} />
                       <span>
                         {directoryScope === "all"
-                          ? "55 references · 43 plan pins. Pins 01–08 need a clearer image; 44, 48, 49, 50 are absent from the legend. GPS is unverified."
-                          : "Live records use current names. For the original building numbers, open Numbered plan."}
+                          ? "55 reference entries. Only buildings with sourced GPS positions and numbers can be numbered on the live map."
+                          : "Live GPS map · numbers come from geographic source records. Unnumbered places retain their names."}
                       </span>
                     </div>
                   </>
@@ -550,19 +550,6 @@ export default function App() {
               <section className="map-area" aria-label="Interactive campus map">
                 <div className="map-toolbar">
                   <div className="mode-toggle">
-                    <button
-                      className={historical ? "selected" : ""}
-                      onClick={() => {
-                        setHistorical(true);
-                        setSelected(null);
-                        setFollow(false);
-                        setDirectoryScope("all");
-                        setNearby(false);
-                        setMapReset((n) => n + 1);
-                      }}
-                    >
-                      Numbered plan
-                    </button>
                     <button
                       className={!historical ? "selected" : ""}
                       onClick={() => {
@@ -587,7 +574,7 @@ export default function App() {
                 <CampusMap
                   key={mapReset}
                   historical={historical}
-                  places={historical ? campus.directory : mappedPlaces}
+                  places={mappedPlaces}
                   selected={selected}
                   onSelect={choose}
                   position={position}
@@ -721,7 +708,7 @@ export default function App() {
                           ? draft?.place.id === selected.id &&
                             selected.latitude != null
                             ? "Your unverified preview. Not a published campus location."
-                            : "Historical reference number · approximate position on the plan, not GPS."
+                            : "Reference number only. GPS position needs verification before placing it on the live map."
                           : selected.verification_status.replaceAll("_", " ")}
                       </div>
                       {selected.historical && (

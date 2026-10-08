@@ -9,12 +9,6 @@ const rows = parse(
 const publicMap = JSON.parse(
   readFileSync(new URL("../data/public-map.json", import.meta.url), "utf8"),
 );
-const plan = JSON.parse(
-  readFileSync(
-    new URL("../data/historical-pins.json", import.meta.url),
-    "utf8",
-  ),
-);
 const directory = Array.from({ length: 55 }, (_, index) => {
   const number = index + 1;
   const row = rows.find((row) => Number(row.old_map_id) === number);
@@ -27,8 +21,6 @@ const directory = Array.from({ length: 55 }, (_, index) => {
     verification_status: row ? "HISTORICAL_REFERENCE" : "UNVERIFIED",
     latitude: null,
     longitude: null,
-    image_x_px: plan.pins[number]?.[0] ?? null,
-    image_y_px: plan.pins[number]?.[1] ?? null,
     source_id: "historical-map-001",
     description: row
       ? "Listed on the supplied campus plan. Current name and GPS position have not been verified."

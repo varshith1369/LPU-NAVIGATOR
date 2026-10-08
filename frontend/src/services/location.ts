@@ -64,7 +64,7 @@ export function distanceMeters(a: [number, number], b: [number, number]) {
 export function mapLabel(place: Place, places: Place[]) {
   if (place.old_map_id) return String(place.old_map_id).padStart(2, "0");
   const block = place.name.match(/^Block\s+(\d+)/i);
-  if (block) return `B${block[1]}`;
+  if (block) return block[1];
   const names: Record<string, string> = {
     "Lovely Institute Of Management": "LIM",
     "Lovely Institute of Technology": "LIT",

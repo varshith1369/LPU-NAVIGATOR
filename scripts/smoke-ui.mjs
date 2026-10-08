@@ -33,6 +33,28 @@ w.fetch = async (path) => {
 w.eval(js);
 await new Promise((resolve) => setTimeout(resolve, 1500));
 const text = w.document.body.textContent;
+assert.ok(!text.includes("Numbered plan"));
+assert.ok(
+  w.document.querySelector('img.leaflet-tile[src*="tile.openstreetmap.org"]'),
+);
+assert.ok(
+  [...w.document.querySelectorAll(".map-number")].some(
+    (n) => n.textContent === "18",
+  ),
+);
+assert.equal(
+  w.document.querySelector('img[src*="historical-campus-plan"]'),
+  null,
+);
+w.document.querySelector(".place-row").click();
+await new Promise((resolve) => setTimeout(resolve, 100));
+assert.equal(
+  w.document.querySelector('img[src*="historical-campus-plan"]'),
+  null,
+);
+assert.ok(
+  w.document.querySelector('img.leaflet-tile[src*="tile.openstreetmap.org"]'),
+);
 process.stdout.write(
   JSON.stringify({
     errors,

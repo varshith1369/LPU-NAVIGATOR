@@ -33,7 +33,7 @@ test("directory contains every number and never invents missing names or GPS pos
   );
   assert.equal(campus.boundary.type, "Polygon");
   const pinned = campus.directory.filter((p) => p.image_x_px != null);
-  assert.equal(pinned.length, 43);
+  assert.equal(pinned.length, 0);
   assert.ok(
     pinned.every(
       (p) =>

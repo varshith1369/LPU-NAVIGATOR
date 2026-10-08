@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
-  ImageOverlay,
   TileLayer,
   CircleMarker,
   Circle,
@@ -17,10 +16,6 @@ import type { Place } from "../services/api";
 import campus from "../data/campus.json";
 import { api } from "../services/api";
 import { mapLabel } from "../services/location";
-const bounds: L.LatLngBoundsExpression = [
-  [0, 0],
-  [787, 559],
-];
 function Focus({
   selected,
   historical,
@@ -142,15 +137,8 @@ export default function CampusMap({
     <div className="map-surface">
       <MapContainer
         key={historical ? "historical" : "geographic"}
-        {...(historical
-          ? {
-              crs: L.CRS.Simple,
-              bounds,
-              minZoom: -2,
-              maxZoom: 3,
-              zoomSnap: 0.25,
-            }
-          : { center, zoom: 16 })}
+        center={center}
+        zoom={16}
         zoomControl={true}
         scrollWheelZoom
       >
@@ -177,19 +165,11 @@ export default function CampusMap({
           follow={follow && fresh}
           pauseFollow={pauseFollow}
         />
-        {historical ? (
-          <ImageOverlay
-            url="/historical-campus-plan.png"
-            bounds={bounds}
-            attribution="User-supplied historical LPU map · not to scale"
-          />
-        ) : (
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            eventHandlers={{ tileerror: () => setTileError(true) }}
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-        )}
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          eventHandlers={{ tileerror: () => setTileError(true) }}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
         {!historical && (
           <Polyline
             positions={campus.paths.map((path) =>
