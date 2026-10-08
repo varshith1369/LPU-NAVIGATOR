@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from "node:fs";
+import { seedNumberedBuildings } from "./numbered-buildings.mjs";
 const path = new URL("../../data/public-map.json", import.meta.url);
 export const publicMap = () =>
   existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : null;
@@ -109,4 +110,5 @@ export async function seedPublicMap(db) {
       ],
     );
   });
+  await seedNumberedBuildings(db);
 }

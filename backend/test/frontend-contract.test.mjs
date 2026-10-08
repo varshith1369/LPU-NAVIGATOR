@@ -2,6 +2,31 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { api } from "../../frontend/src/services/api.ts";
+import { mapLabel } from "../../frontend/src/services/location.ts";
+
+test("live block labels preserve suffixes and stay separate from historical legend numbers", () => {
+  const campus = JSON.parse(
+    readFileSync(
+      new URL("../../frontend/src/data/campus.json", import.meta.url),
+    ),
+  );
+  const blocks = campus.mapped.filter((p) => p.building_code);
+  assert.equal(blocks.length, 12);
+  assert.equal(new Set(blocks.map((p) => p.building_code)).size, 12);
+  for (const block of blocks) {
+    assert.equal(mapLabel(block, campus.mapped), block.building_code);
+    assert.equal(block.old_map_id, undefined);
+  }
+  assert.match(blocks.find((p) => p.building_code === "55").name, /Mechanical/);
+  assert.equal(
+    blocks.find((p) => p.building_code === "55A").building_code,
+    "55A",
+  );
+  assert.equal(
+    campus.directory.find((p) => p.old_map_id === 55).latitude,
+    null,
+  );
+});
 
 test("directory contains every number and never invents missing names or GPS positions", () => {
   const campus = JSON.parse(

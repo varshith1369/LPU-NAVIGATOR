@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { parse } from "csv-parse/sync";
+import { withNumberedBuildings } from "../backend/src/numbered-buildings.mjs";
 
 // Keep reference numbering separate from geographically sourced map features.
 const rows = parse(
@@ -27,9 +28,11 @@ const directory = Array.from({ length: 55 }, (_, index) => {
       : `Number ${number} is missing from the supplied map legend. Its name and location are unknown.`,
   };
 });
-const mapped = publicMap.places.map((place) => ({
+const mapped = withNumberedBuildings(publicMap.places).map((place) => ({
   id: `snapshot-${place.source.id}`,
   name: place.name,
+  building_code: place.building_code,
+  building_source_url: place.building_source_url,
   category: place.category,
   historical: false,
   snapshot: true,

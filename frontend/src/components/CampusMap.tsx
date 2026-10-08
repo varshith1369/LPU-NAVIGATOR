@@ -16,6 +16,7 @@ import type { Place } from "../services/api";
 import campus from "../data/campus.json";
 import { api } from "../services/api";
 import { mapLabel } from "../services/location";
+import NumberedBuildings from "./NumberedBuildings";
 function Focus({
   selected,
   historical,
@@ -178,59 +179,67 @@ export default function CampusMap({
             pathOptions={{ color: "#77858c", weight: 2, opacity: 0.45 }}
           />
         )}
-        {places.map((p) => {
-          const point: L.LatLngExpression | null = historical
-            ? p.image_x_px != null && p.image_y_px != null
-              ? [787 - p.image_y_px, p.image_x_px]
-              : null
-            : p.latitude != null && p.longitude != null
-              ? [p.latitude, p.longitude]
-              : null;
-          return (
-            point && (
-              <CircleMarker
-                key={p.id}
-                center={point}
-                radius={
-                  historical
-                    ? selected?.id === p.id
-                      ? 13
-                      : 9
-                    : selected?.id === p.id
-                      ? 19
-                      : 17
-                }
-                pathOptions={{
-                  color: "#ffffff",
-                  fillColor:
-                    selected?.id === p.id
-                      ? "#f36e2c"
-                      : p.category === "Library"
-                        ? "#866548"
-                        : p.category === "Shopping"
-                          ? "#977445"
-                          : "#24394a",
-                  fillOpacity: 1,
-                  weight: 2,
-                }}
-                eventHandlers={{ click: () => onSelect(p) }}
-              >
-                <Tooltip
-                  permanent
-                  direction="center"
-                  className="map-number"
-                  opacity={1}
+        <NumberedBuildings
+          places={places}
+          selected={selected}
+          onSelect={onSelect}
+        />
+        {places
+          .filter((p) => !p.building_code)
+          .map((p) => {
+            const point: L.LatLngExpression | null = historical
+              ? p.image_x_px != null && p.image_y_px != null
+                ? [787 - p.image_y_px, p.image_x_px]
+                : null
+              : p.latitude != null && p.longitude != null
+                ? [p.latitude, p.longitude]
+                : null;
+            return (
+              point && (
+                <CircleMarker
+                  key={p.id}
+                  center={point}
+                  radius={
+                    historical
+                      ? selected?.id === p.id
+                        ? 13
+                        : 9
+                      : selected?.id === p.id
+                        ? 19
+                        : 17
+                  }
+                  pathOptions={{
+                    color: "#ffffff",
+                    fillColor:
+                      selected?.id === p.id
+                        ? "#f36e2c"
+                        : p.category === "Library"
+                          ? "#866548"
+                          : p.category === "Shopping"
+                            ? "#977445"
+                            : "#24394a",
+                    fillOpacity: 1,
+                    weight: 2,
+                  }}
+                  eventHandlers={{ click: () => onSelect(p) }}
                 >
-                  {mapLabel(p, places)}
-                </Tooltip>
-                <Popup>
-                  {p.name}
-                  {p.historical ? " · historical" : ""}
-                </Popup>
-              </CircleMarker>
-            )
-          );
-        })}
+                  <Tooltip
+                    permanent
+                    direction="center"
+                    className="map-number"
+                    opacity={1}
+                  >
+                    {mapLabel(p, places)}
+                  </Tooltip>
+                  <Popup>
+                    {p.building_code ? `Block ${p.building_code} · ` : ""}
+                    {p.name}
+                    {p.historical ? " · historical" : ""}
+                  </Popup>
+                </CircleMarker>
+              )
+            );
+          })}
         {!historical && position && (
           <>
             {accuracy != null && (

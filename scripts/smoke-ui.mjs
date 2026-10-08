@@ -42,6 +42,35 @@ assert.ok(
     (n) => n.textContent === "18",
   ),
 );
+for (const block of [
+  "14",
+  "18",
+  "30",
+  "32",
+  "34",
+  "36",
+  "37",
+  "38",
+  "55",
+  "55A",
+  "56",
+  "57",
+]) {
+  assert.equal(
+    [...w.document.querySelectorAll(".map-number")].filter(
+      (n) => n.textContent === block,
+    ).length,
+    1,
+    `One live marker for block ${block}`,
+  );
+}
+assert.equal(w.document.querySelectorAll(".place-row").length, 18);
+const historicalTab = [...w.document.querySelectorAll("button")].find((b) =>
+  b.textContent.includes("Historical entries"),
+);
+historicalTab.click();
+await new Promise((resolve) => setTimeout(resolve, 100));
+assert.equal(w.document.querySelectorAll(".place-row").length, 55);
 assert.equal(
   w.document.querySelector('img[src*="historical-campus-plan"]'),
   null,

@@ -1,0 +1,243 @@
+{
+  "notes": "Building numbers and positions from named public map records. Official LPU references corroborate blocks 14 and 37. Existing OSM positions retained for 18 and 37. Historical legend numbers are not current block numbers. These points are not verified entrances.",
+  "blocks": [
+    {
+      "building_code": "14",
+      "name": "Block 14 · Mittal School of Business",
+      "category": "Academic",
+      "latitude": 31.254501,
+      "longitude": 75.70554059999999,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-4500083466120690996",
+        "title": "Mittal School of Business",
+        "url": "https://www.google.com/maps?cid=4500083466120690996"
+      },
+      "number_source": {
+        "id": "lpu-block-14-reference",
+        "title": "LPU: Mittal School of Business, block 14",
+        "url": "https://www.lpu.in/HRD/Broucher/CCT984.pdf",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Mittal School of Business",
+        "address": "Mittal School of Business, Khajurla, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "18",
+      "name": "Block 18 · Humanities",
+      "category": "Academic",
+      "latitude": 31.2551999,
+      "longitude": 75.703739,
+      "existing_source_id": "osm-node-6325106324",
+      "source": {
+        "id": "google-place-11793478306432889635",
+        "title": "LPU 18 block Humanities Block",
+        "url": "https://www.google.com/maps?cid=11793478306432889635"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "LPU 18 block Humanities Block",
+        "address": "Humanities, LPU 18 block Humanities Block, School of Education, lovely professional University, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "30",
+      "name": "Block 30 · Division of Admissions",
+      "category": "Administrative",
+      "latitude": 31.2527142,
+      "longitude": 75.7047836,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-2667904719772660228",
+        "title": "Division of Admissions, LPU",
+        "url": "https://www.google.com/maps?cid=2667904719772660228"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "Division of Admissions, LPU",
+        "address": "Block 30 Admissions, Division of Admissions, LPU, Lovely Professional University, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "32",
+      "name": "Block 32 · Division of Career Services",
+      "category": "Administrative",
+      "latitude": 31.2520625,
+      "longitude": 75.7048125,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-11946081511885542298",
+        "title": "Block 32, Division of Career Services",
+        "url": "https://www.google.com/maps?cid=11946081511885542298"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "Block 32, Division of Career Services",
+        "address": "Block 32, Division of Career Services, Jalandhar, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "34",
+      "name": "Block 34 · School of Computer Science & Engineering",
+      "category": "Academic",
+      "latitude": 31.2512938,
+      "longitude": 75.70476029999999,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-10038059493305117466",
+        "title": "LPU School of Computer Science & Engineering",
+        "url": "https://www.google.com/maps?cid=10038059493305117466"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "LPU School of Computer Science & Engineering",
+        "address": "Block 34 - School of Computer Engineering, LPU School of Computer Science & Engineering, School of Computer Science & Engineering, Lovely Professional University, Jalandhar, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "36",
+      "name": "Block 36 · School of Electronics and Electrical Engineering",
+      "category": "Academic",
+      "latitude": 31.2515771,
+      "longitude": 75.7041227,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-564512687552076880",
+        "title": "LPU Block 36",
+        "url": "https://www.google.com/maps?cid=564512687552076880"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "LPU Block 36",
+        "address": "LPU Block 36, Lovely Professional University, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "37",
+      "name": "Block 37 · Central Library",
+      "category": "Library",
+      "latitude": 31.2519927,
+      "longitude": 75.7033787,
+      "existing_source_id": "osm-way-422556249",
+      "source": {
+        "id": "google-place-3455241597575339866",
+        "title": "Central Library Lovely Professional University",
+        "url": "https://www.google.com/maps?cid=3455241597575339866"
+      },
+      "number_source": {
+        "id": "lpu-block-37-reference",
+        "title": "LPU: Central Library, block 37",
+        "url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=MLB",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Central Library Lovely Professional University",
+        "address": "7P23+Q9 Central Library Lovely Professional University, Hardaspur, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "38",
+      "name": "Block 38 · Computer Applications and Research",
+      "category": "Academic",
+      "latitude": 31.2521954,
+      "longitude": 75.70311749999999,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-5788977802645604742",
+        "title": "Computer Applications and Research Department, LPU (Block 38)",
+        "url": "https://www.google.com/maps?cid=5788977802645604742"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "Computer Applications and Research Department, LPU (Block 38)",
+        "address": "Computer Applications and Research Department, LPU (Block 38), LPU Open Audi Rd, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "55",
+      "name": "Block 55 · School of Mechanical Engineering",
+      "category": "Academic",
+      "latitude": 31.2470394,
+      "longitude": 75.7034572,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-9126628790074468410",
+        "title": "School of Mechanical Engineering (Block 55)",
+        "url": "https://www.google.com/maps?cid=9126628790074468410"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "School of Mechanical Engineering (Block 55)",
+        "address": "6PW3+R98 School of Mechanical Engineering (Block 55), Gurudwara Rd, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "55A",
+      "name": "Block 55A · Chemical Engineering and Physical Sciences",
+      "category": "Academic",
+      "latitude": 31.2470625,
+      "longitude": 75.7036875,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-2123926545939340059",
+        "title": "LPU School Of Chemical Engineering and Physical Sciences",
+        "url": "https://www.google.com/maps?cid=2123926545939340059"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "LPU School Of Chemical Engineering and Physical Sciences",
+        "address": "6PW3+RFV LPU School Of Chemical Engineering and Physical Sciences, Block 55A School Of Physical Science And Chemical Engineering LPU, Hardaspur, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "56",
+      "name": "Block 56 · School of Bio Engineering & Biosciences",
+      "category": "Academic",
+      "latitude": 31.2466972,
+      "longitude": 75.70350169999999,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-2668868461393555063",
+        "title": "School Of Bio Engineering & Biosciences (LPU Block 56)",
+        "url": "https://www.google.com/maps?cid=2668868461393555063"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "School Of Bio Engineering & Biosciences (LPU Block 56)",
+        "address": "School Of Bio Engineering & Biosciences (LPU Block 56), Lovely Professional University, 56, Chaheru, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    },
+    {
+      "building_code": "57",
+      "name": "Block 57 · School of Agriculture",
+      "category": "Academic",
+      "latitude": 31.2462225,
+      "longitude": 75.7036322,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-873767666858229497",
+        "title": "School Of Agriculture (LPU Block 57)",
+        "url": "https://www.google.com/maps?cid=873767666858229497"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "School Of Agriculture (LPU Block 57)",
+        "address": "6PW3+FFJ School Of Agriculture (LPU Block 57), Gurudwara Rd, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z"
+    }
+  ]
+}

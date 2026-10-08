@@ -63,7 +63,9 @@ export default function App() {
   const [historical, setHistorical] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
-  const [directoryScope, setDirectoryScope] = useState<"all" | "mapped">("all");
+  const [directoryScope, setDirectoryScope] = useState<"all" | "mapped">(
+    "mapped",
+  );
   const [mappedPlaces, setMappedPlaces] = useState<Place[]>(campus.mapped);
   const [apiUnavailable, setApiUnavailable] = useState(false);
   const categories = useMemo(
@@ -175,7 +177,15 @@ export default function App() {
         if (!Array.isArray(data.items) || !data.items.length)
           throw new Error("No mapped records available");
         if (active) {
-          setMappedPlaces(data.items);
+          setMappedPlaces([
+            ...data.items,
+            ...campus.mapped.filter(
+              (p) =>
+                !data.items.some(
+                  (live: Place) => live.source_id === p.source_id,
+                ),
+            ),
+          ]);
           setApiUnavailable(false);
         }
       })
@@ -358,7 +368,9 @@ export default function App() {
                         <span className="eyebrow">FIND YOUR DESTINATION</span>
                         <h2>Campus directory</h2>
                       </div>
-                      <span className="count">55</span>
+                      <span className="count">
+                        {directoryScope === "all" ? 55 : mappedPlaces.length}
+                      </span>
                     </div>
                     <div className="directory-tabs" aria-label="Directory view">
                       <button
@@ -374,7 +386,7 @@ export default function App() {
                           setSelected(null);
                         }}
                       >
-                        All entries <span>55</span>
+                        Historical entries <span>55</span>
                       </button>
                       <button
                         aria-pressed={directoryScope === "mapped" || nearby}
@@ -735,6 +747,21 @@ export default function App() {
                         >
                           Clear my unverified pin
                         </button>
+                      )}
+                      {selected.building_code && (
+                        <p>
+                          <strong>Block {selected.building_code}</strong>
+                        </p>
+                      )}
+                      {selected.building_source_url && (
+                        <a
+                          className="source-link"
+                          href={selected.building_source_url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Building number source <ArrowUpRight size={12} />
+                        </a>
                       )}
                       {selected.source_url && (
                         <a

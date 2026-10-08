@@ -62,6 +62,7 @@ export function distanceMeters(a: [number, number], b: [number, number]) {
   return 6371000 * 2 * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 export function mapLabel(place: Place, places: Place[]) {
+  if (!place.historical && place.building_code) return place.building_code;
   if (place.old_map_id) return String(place.old_map_id).padStart(2, "0");
   const block = place.name.match(/^Block\s+(\d+)/i);
   if (block) return block[1];

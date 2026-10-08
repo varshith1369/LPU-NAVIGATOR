@@ -4,6 +4,8 @@ export type Place = {
   category: string;
   category_id?: number;
   old_map_id?: number;
+  building_code?: string | null;
+  building_source_url?: string;
   historical: boolean;
   snapshot?: boolean;
   verification_status: string;

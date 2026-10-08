@@ -426,6 +426,65 @@ test("public OSM import is idempotent and does not invent entrances", async () =
     ),
   );
 });
+test("numbered buildings survive repeat imports, API refresh and block searches", async () => {
+  const expected = [
+    "14",
+    "18",
+    "30",
+    "32",
+    "34",
+    "36",
+    "37",
+    "38",
+    "55",
+    "55A",
+    "56",
+    "57",
+  ];
+  const items = (await request(app).get("/api/locations").expect(200)).body
+    .items;
+  for (const code of expected) {
+    const matches = items.filter((p) => p.building_code === code);
+    assert.equal(matches.length, 1, `Unique block ${code}`);
+    const p = matches[0];
+    assert.equal(p.historical, false);
+    assert.ok(p.latitude > 31.24 && p.latitude < 31.27);
+    assert.ok(p.longitude > 75.69 && p.longitude < 75.72);
+    assert.match(p.building_source_url, /^https:\/\//);
+    const detail = (
+      await request(app).get(`/api/locations/${p.id}`).expect(200)
+    ).body;
+    assert.equal(detail.building_code, code);
+    const results = (
+      await request(app)
+        .get(`/api/locations/search?q=Block%20${code}`)
+        .expect(200)
+    ).body.items;
+    assert.ok(results.some((r) => r.id === p.id));
+  }
+  const evidence = await db.query(
+    "SELECT count(*)::int AS n FROM location_evidence WHERE claim_field='building_code'",
+  );
+  assert.equal(evidence.rows[0].n, expected.length);
+  assert.equal(
+    items.filter((p) => p.source_id.startsWith("google-place-")).length,
+    10,
+  );
+  const block = items.find((p) => p.building_code === "34");
+  await db.query(
+    "UPDATE locations SET building_code='34-reviewed' WHERE id=$1",
+    [block.id],
+  );
+  await seedPublicMap(db);
+  assert.equal(
+    (await request(app).get(`/api/locations/${block.id}`)).body.building_code,
+    "34-reviewed",
+  );
+  await db.query("UPDATE locations SET building_code='34' WHERE id=$1", [
+    block.id,
+  ]);
+});
+
 test("admin can close a path with evidence and an audit event", async () => {
   const edge = (
     await db.query(
