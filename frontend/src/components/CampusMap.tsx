@@ -77,6 +77,14 @@ function Resize() {
   }, [map]);
   return null;
 }
+function RouteFocus({ route }: { route: [number, number][] }) {
+  const map = useMap();
+  useEffect(() => {
+    if (route.length > 1)
+      map.fitBounds(route, { padding: [55, 100], maxZoom: 18 });
+  }, [map, route]);
+  return null;
+}
 function CampusBounds({ context }: { context: any }) {
   const map = useMap();
   const fitted = useRef(false);
@@ -115,14 +123,8 @@ export default function CampusMap({
   fresh?: boolean;
   suggestion?: Place | null;
 }) {
-  const [imageAvailable, setImageAvailable] = useState<boolean | null>(null);
   const [context, setContext] = useState<any>({ boundary: campus.boundary });
   const [tileError, setTileError] = useState(false);
-  useEffect(() => {
-    api("/map-status")
-      .then((d) => setImageAvailable(d.available))
-      .catch(() => setImageAvailable(false));
-  }, []);
   useEffect(() => {
     api("/map-context")
       .then((data) => {
@@ -153,6 +155,7 @@ export default function CampusMap({
         scrollWheelZoom
       >
         <Resize />
+        {!historical && <RouteFocus route={route} />}
         {!historical && context && (
           <>
             <CampusBounds context={context} />
@@ -175,13 +178,11 @@ export default function CampusMap({
           pauseFollow={pauseFollow}
         />
         {historical ? (
-          imageAvailable && (
-            <ImageOverlay
-              url="/api/historical-map"
-              bounds={bounds}
-              attribution="User-supplied historical LPU map · not to scale"
-            />
-          )
+          <ImageOverlay
+            url="/historical-campus-plan.png"
+            bounds={bounds}
+            attribution="User-supplied historical LPU map · not to scale"
+          />
         ) : (
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -210,7 +211,15 @@ export default function CampusMap({
               <CircleMarker
                 key={p.id}
                 center={point}
-                radius={selected?.id === p.id ? 19 : 17}
+                radius={
+                  historical
+                    ? selected?.id === p.id
+                      ? 13
+                      : 9
+                    : selected?.id === p.id
+                      ? 19
+                      : 17
+                }
                 pathOptions={{
                   color: "#ffffff",
                   fillColor:
@@ -304,25 +313,44 @@ export default function CampusMap({
             </CircleMarker>
           )}
         {!historical && route.length > 0 && (
-          <Polyline
-            positions={route}
-            pathOptions={{ color: "#285b47", weight: 5 }}
-          />
+          <>
+            <Polyline
+              positions={route}
+              pathOptions={{ color: "#285b47", weight: 5 }}
+            />
+            <CircleMarker
+              center={route[0]}
+              radius={7}
+              pathOptions={{
+                color: "#fff",
+                fillColor: "#285b47",
+                fillOpacity: 1,
+              }}
+            >
+              <Tooltip permanent direction="top">
+                Mapped path start
+              </Tooltip>
+            </CircleMarker>
+            <CircleMarker
+              center={route[route.length - 1]}
+              radius={7}
+              pathOptions={{
+                color: "#fff",
+                fillColor: "#f36e2c",
+                fillOpacity: 1,
+              }}
+            >
+              <Tooltip permanent direction="top">
+                Mapped path end
+              </Tooltip>
+            </CircleMarker>
+          </>
         )}
       </MapContainer>
       {!historical && tileError && (
         <div className="tile-status" role="status">
           Background tiles are unavailable. Campus outline, mapped paths and
           places are still shown.
-        </div>
-      )}
-      {historical && imageAvailable === false && (
-        <div className="map-empty">
-          <strong>Historical image is private</strong>
-          <p>
-            The directory is available. Add the supplied image locally to
-            explore the historical plan.
-          </p>
         </div>
       )}
       {!historical && geographic.length === 0 && !position && !context && (

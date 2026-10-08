@@ -92,6 +92,6 @@ test("pin numbers are stable across API ordering and separate historical and bui
   ];
   assert.equal(mapLabel(places[1], places), "B18");
   assert.equal(mapLabel({ old_map_id: 18 }, places), "18");
-  assert.equal(mapLabel(places[0], places), "M2");
-  assert.equal(mapLabel(places[0], [...places].reverse()), "M2");
+  assert.equal(mapLabel(places[0], places), "Library");
+  assert.equal(mapLabel(places[0], [...places].reverse()), "Library");
 });

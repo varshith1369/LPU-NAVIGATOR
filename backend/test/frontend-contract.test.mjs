@@ -32,6 +32,22 @@ test("directory contains every number and never invents missing names or GPS pos
     ),
   );
   assert.equal(campus.boundary.type, "Polygon");
+  const pinned = campus.directory.filter((p) => p.image_x_px != null);
+  assert.equal(pinned.length, 43);
+  assert.ok(
+    pinned.every(
+      (p) =>
+        p.image_x_px > 0 &&
+        p.image_x_px < 559 &&
+        p.image_y_px > 0 &&
+        p.image_y_px < 787,
+    ),
+  );
+  assert.ok(
+    campus.directory
+      .filter((p) => [44, 48, 49, 50].includes(p.old_map_id))
+      .every((p) => p.image_x_px == null),
+  );
   assert.ok(campus.paths.length > 0);
 });
 

@@ -220,7 +220,12 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
   );
   app.post("/api/routes", async (req, res) => {
     const body = parse(
-      z.object({ from: id, to: id, accessible: z.boolean().default(false) }),
+      z.object({
+        from: id,
+        to: id,
+        accessible: z.boolean().default(false),
+        allow_approximate: z.boolean().default(false),
+      }),
       req.body,
     );
     const route = await campusRoute(db, body);

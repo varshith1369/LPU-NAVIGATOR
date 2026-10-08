@@ -456,6 +456,50 @@ test("admin can close a path with evidence and an audit event", async () => {
     .send({ blocked: false, source_id: "historical-map-001" })
     .expect(400);
 });
+test("nearby path guidance connects the reported institutes without inventing entrances", async () => {
+  const places = (await request(app).get("/api/locations")).body.items;
+  const from = places.find(
+    (p) => p.name === "Lovely Institute Of Management",
+  ).id;
+  const to = places.find((p) => p.name === "Lovely Institute of Technology").id;
+  const [visitor, token] = await session();
+  const result = await visitor
+    .post("/api/routes")
+    .set("X-CSRF-Token", token)
+    .send({ from, to, allow_approximate: true })
+    .expect(200);
+  assert.equal(result.body.approximate_endpoints, true);
+  assert.ok(result.body.distance_m > 350 && result.body.distance_m < 500);
+  assert.ok(
+    result.body.approach_distance_m > 0 &&
+      result.body.approach_distance_m <= 150,
+  );
+  assert.ok(
+    result.body.departure_distance_m > 0 &&
+      result.body.departure_distance_m <= 150,
+  );
+  assert.ok(result.body.coordinates.length > 2);
+  assert.match(result.body.notice, /unverified/);
+  await visitor
+    .post("/api/routes")
+    .set("X-CSRF-Token", token)
+    .send({ from, to, allow_approximate: false })
+    .expect(422);
+  await visitor
+    .post("/api/routes")
+    .set("X-CSRF-Token", token)
+    .send({ from, to, allow_approximate: true, accessible: true })
+    .expect(422);
+  assert.equal(
+    (
+      await db.query(
+        "SELECT count(*)::int AS count FROM location_entrances WHERE location_id IN ($1,$2)",
+        [from, to],
+      )
+    ).rows[0].count,
+    0,
+  );
+});
 test("password reset is single-use and revokes existing sessions", async () => {
   const [account, csrf] = await session();
   await account

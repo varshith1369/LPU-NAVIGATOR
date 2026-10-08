@@ -65,12 +65,13 @@ export function mapLabel(place: Place, places: Place[]) {
   if (place.old_map_id) return String(place.old_map_id).padStart(2, "0");
   const block = place.name.match(/^Block\s+(\d+)/i);
   if (block) return `B${block[1]}`;
-  const ids = [
-    ...new Set(
-      places
-        .filter((p) => !p.old_map_id && !/^Block\s+\d+/i.test(p.name))
-        .map((p) => p.source_id),
-    ),
-  ].sort();
-  return `M${Math.max(1, ids.indexOf(place.source_id) + 1)}`;
+  const names: Record<string, string> = {
+    "Lovely Institute Of Management": "LIM",
+    "Lovely Institute of Technology": "LIT",
+    "Lovely Institute of Pharmacy": "Pharm",
+    "LPU Mall": "Mall",
+    "Central Library": "Library",
+    "School of Design": "Design",
+  };
+  return names[place.name] ?? place.name.split(" ")[0].slice(0, 8);
 }

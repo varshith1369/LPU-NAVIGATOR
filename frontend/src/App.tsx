@@ -60,7 +60,7 @@ export default function App() {
   const [view, setView] = useState<View>(
     new URLSearchParams(location.search).has("reset") ? "profile" : "explore",
   );
-  const [historical, setHistorical] = useState(false);
+  const [historical, setHistorical] = useState(true);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [directoryScope, setDirectoryScope] = useState<"all" | "mapped">("all");
@@ -198,6 +198,14 @@ export default function App() {
     setMobileList(false);
   };
   const choose = (p: Place) => {
+    setHistorical(p.historical && p.latitude == null);
+    if (p.historical) {
+      setFollow(false);
+      if (p.image_x_px == null)
+        setNotice(
+          "This entry remains in the directory, but its pin cannot be placed confidently from this image. Check the plan legend.",
+        );
+    }
     setSelected(p);
     setMobileList(false);
     if (!p.historical && !p.snapshot)
@@ -330,7 +338,14 @@ export default function App() {
                   <Directions
                     places={mappedPlaces.filter((p) => !p.snapshot)}
                     selected={selected}
-                    onRoute={setRoute}
+                    onRoute={(points) => {
+                      setRoute(points);
+                      setFollow(false);
+                      if (points.length) {
+                        setHistorical(false);
+                        setMobileList(false);
+                      }
+                    }}
                     onHistorical={() => {
                       setHistorical(false);
                       setNearby(false);
@@ -525,8 +540,8 @@ export default function App() {
                       <Info size={17} />
                       <span>
                         {directoryScope === "all"
-                          ? "51 named entries · 4 numbers missing from the source legend. GPS positions need verification."
-                          : "B = building number · M = mapped place. These differ from the historical plan numbers."}
+                          ? "55 references · 43 plan pins. Pins 01–08 need a clearer image; 44, 48, 49, 50 are absent from the legend. GPS is unverified."
+                          : "Live records use current names. For the original building numbers, open Numbered plan."}
                       </span>
                     </div>
                   </>
@@ -536,6 +551,19 @@ export default function App() {
                 <div className="map-toolbar">
                   <div className="mode-toggle">
                     <button
+                      className={historical ? "selected" : ""}
+                      onClick={() => {
+                        setHistorical(true);
+                        setSelected(null);
+                        setFollow(false);
+                        setDirectoryScope("all");
+                        setNearby(false);
+                        setMapReset((n) => n + 1);
+                      }}
+                    >
+                      Numbered plan
+                    </button>
+                    <button
                       className={!historical ? "selected" : ""}
                       onClick={() => {
                         setHistorical(false);
@@ -544,7 +572,7 @@ export default function App() {
                         setMapReset((n) => n + 1);
                       }}
                     >
-                      <MapPin size={14} /> Recenter campus
+                      <MapPin size={14} /> Live GPS map
                     </button>
                   </div>
                   <button
@@ -559,7 +587,7 @@ export default function App() {
                 <CampusMap
                   key={mapReset}
                   historical={historical}
-                  places={mappedPlaces}
+                  places={historical ? campus.directory : mappedPlaces}
                   selected={selected}
                   onSelect={choose}
                   position={position}
@@ -570,7 +598,12 @@ export default function App() {
                   pauseFollow={() => setFollow(false)}
                   suggestion={draftPlace}
                 />
-                <div className="gps-panel">
+                <div
+                  className="gps-panel"
+                  hidden={
+                    historical || (view === "directions" && !live.enabled)
+                  }
+                >
                   {live.enabled ? (
                     <>
                       <strong>
@@ -688,7 +721,7 @@ export default function App() {
                           ? draft?.place.id === selected.id &&
                             selected.latitude != null
                             ? "Your unverified preview. Not a published campus location."
-                            : "Historical reference. GPS position unavailable."
+                            : "Historical reference number · approximate position on the plan, not GPS."
                           : selected.verification_status.replaceAll("_", " ")}
                       </div>
                       {selected.historical && (
@@ -859,6 +892,7 @@ export default function App() {
           }}
           notify={setNotice}
           preview={(fix) => {
+            setHistorical(false);
             setDraft({
               place: { ...suggestPlace, latitude: null, longitude: null },
               fix,
@@ -891,6 +925,7 @@ function Directions({
   const [from, setFrom] = useState(""),
     [to, setTo] = useState(selected?.historical ? "" : (selected?.id ?? "")),
     [accessible, setAccessible] = useState(false),
+    [approximate, setApproximate] = useState(true),
     [result, setResult] = useState<any>(null),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
@@ -908,7 +943,12 @@ function Directions({
     setResult(null);
     onRoute([]);
     try {
-      const data = await post("/routes", { from, to, accessible });
+      const data = await post("/routes", {
+        from,
+        to,
+        accessible,
+        allow_approximate: approximate && !accessible,
+      });
       setResult(data);
       onRoute(data.coordinates);
     } catch (e) {
@@ -921,7 +961,9 @@ function Directions({
     <div className="form-panel">
       <div className="eyebrow">A WALK ACROSS CAMPUS</div>
       <h2>Get directions</h2>
-      <p>Walking routes use sourced campus paths.</p>
+      <p>
+        Follow mapped campus paths. Building entrances may need confirmation.
+      </p>
       <form onSubmit={submit}>
         <label>
           Starting point
@@ -948,6 +990,15 @@ function Directions({
               </option>
             ))}
           </select>
+        </label>
+        <label className="checkbox">
+          <input
+            type="checkbox"
+            checked={approximate}
+            disabled={accessible}
+            onChange={(e) => setApproximate(e.target.checked)}
+          />
+          Allow nearby mapped paths when entrances are unverified
         </label>
         <label className="checkbox">
           <input
@@ -982,6 +1033,9 @@ function Directions({
       )}
       {result && (
         <div className="route-summary">
+          {result.approximate_endpoints && (
+            <strong>Approximate mapped-path guidance</strong>
+          )}
           <h3>
             {Math.round(result.distance_m)} m ·{" "}
             {Math.ceil(result.estimated_seconds / 60)} min

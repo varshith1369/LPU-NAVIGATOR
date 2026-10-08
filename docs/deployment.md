@@ -10,7 +10,7 @@ The frontend bundles the numbered campus directory (1–55), public map boundary
 
 Render's free API can sleep when idle, and its free database expires 30 days after creation. Upgrade the database for ongoing use. The deployed database's external connections are restricted; the API uses its private internal connection.
 
-The historical source image stays private in `.local` and is excluded from builds. Production historical mode displays a source-unavailable notice until an appropriately licensed map is added through a reviewed publication workflow; the historical directory remains usable. Current GPS data and path data are still required for real navigation.
+At the user's request, the supplied campus plan is published as `frontend/public/historical-campus-plan.png` with approximate historical image pins. It is a reference plan, not a georeferenced GPS overlay. Current entrances and access conditions still require verification for door-to-door navigation.
 
 ## Vercel frontend + separate API
 
