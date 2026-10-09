@@ -12,6 +12,7 @@ import { configuration, security, hash } from "./security.mjs";
 import { campusRoute } from "./routing.mjs";
 import { answerQuestion } from "./assistant.mjs";
 import { registerAdmin } from "./admin.mjs";
+import { registerConversations } from "./conversations.mjs";
 import { publicMap } from "./public-map.mjs";
 import { numberMetadata } from "./numbered-buildings.mjs";
 
@@ -93,7 +94,14 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     });
     res.set("Cache-Control", "no-store").json({ token });
   });
-  app.use("/api", csrf);
+  app.use(
+    "/api",
+    (req, res, next) => {
+      res.set("Cache-Control", "no-store");
+      next();
+    },
+    csrf,
+  );
   app.get("/api/health", async (req, res) => {
     await db.query("SELECT 1");
     res.json({
@@ -254,13 +262,11 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
       accessible: body.accessible === "true",
     });
     if (!route)
-      return res
-        .status(422)
-        .json({
-          code: "ROUTE_UNAVAILABLE",
-          error:
-            "The saved campus walking paths do not connect these buildings with the requested access requirements.",
-        });
+      return res.status(422).json({
+        code: "ROUTE_UNAVAILABLE",
+        error:
+          "The saved campus walking paths do not connect these buildings with the requested access requirements.",
+      });
     res.json(route);
   });
   if (limit)
@@ -576,6 +582,7 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     }),
   );
   registerAdmin(app, db, requireUser, admin);
+  registerConversations(app, db, requireUser, admin);
   app.use("/api", (req, res) =>
     res.status(404).json({ error: "API endpoint not found." }),
   );

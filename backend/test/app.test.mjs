@@ -607,3 +607,200 @@ test("password reset is single-use and revokes existing sessions", async () => {
     })
     .expect(200);
 });
+
+test("private conversations enforce ownership and campus chat supports moderation", async () => {
+  const [one, c1] = await session(),
+    [two, c2] = await session();
+  for (const [agent, csrf, email] of [
+    [one, c1, "chat-one@example.test"],
+    [two, c2, "chat-two@example.test"],
+  ])
+    await agent
+      .post("/api/auth/register")
+      .set("X-CSRF-Token", csrf)
+      .send({ email, password: "chat-test-password-123" })
+      .expect(201);
+  await request(app).get("/api/conversations").expect(401);
+  const rooms = (await one.get("/api/conversations").expect(200)).body;
+  const support = rooms.find((r) => r.kind === "SUPPORT"),
+    campus = rooms.find((r) => r.kind === "CAMPUS");
+  await two.get(`/api/conversations/${support.id}/messages`).expect(404);
+  await two
+    .post(`/api/conversations/${support.id}/messages`)
+    .set("X-CSRF-Token", c2)
+    .send({ body: "Not allowed" })
+    .expect(404);
+  await one
+    .post(`/api/conversations/${support.id}/messages`)
+    .set("X-CSRF-Token", c1)
+    .send({ body: "Private question" })
+    .expect(201);
+  assert.equal(
+    (await admin.get(`/api/conversations/${support.id}/messages`).expect(200))
+      .body[0].body,
+    "Private question",
+  );
+  await admin
+    .post(`/api/conversations/${support.id}/messages`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ body: "Admin reply" })
+    .expect(201);
+  assert.equal(
+    (await one.get(`/api/conversations/${support.id}/messages`)).body[1].sender,
+    "Campus admin",
+  );
+  const message = (
+    await one
+      .post(`/api/conversations/${campus.id}/messages`)
+      .set("X-CSRF-Token", c1)
+      .send({ body: "Campus hello" })
+      .expect(201)
+  ).body;
+  assert.equal(
+    (await two.get(`/api/conversations/${campus.id}/messages`)).body.at(-1)
+      .body,
+    "Campus hello",
+  );
+  await two
+    .delete(`/api/conversations/${campus.id}/messages/${message.id}`)
+    .set("X-CSRF-Token", c2)
+    .expect(403);
+  await admin
+    .delete(`/api/conversations/${campus.id}/messages/${message.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .expect(200);
+  assert.equal(
+    (await one.get(`/api/conversations/${campus.id}/messages`)).body.at(-1)
+      .removed,
+    true,
+  );
+  await admin
+    .patch(`/api/conversations/${support.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ closed: true })
+    .expect(200);
+  await one
+    .post(`/api/conversations/${support.id}/messages`)
+    .set("X-CSRF-Token", c1)
+    .send({ body: "Closed" })
+    .expect(409);
+  await admin
+    .patch(`/api/conversations/${support.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ closed: false })
+    .expect(200);
+  await one
+    .post(`/api/conversations/${support.id}/messages`)
+    .set("X-CSRF-Token", c1)
+    .send({ body: "Reopened" })
+    .expect(201);
+  await migrate(db);
+  assert.equal(
+    (await one.get(`/api/conversations/${support.id}/messages`)).body.length,
+    3,
+  );
+});
+
+test("announcement scheduling, editing, deletion and admin category IDs work", async () => {
+  const dashboard = (await admin.get("/api/admin/dashboard").expect(200)).body;
+  assert.ok(dashboard.categories.every((c) => c.id > 0));
+  assert.ok(dashboard.sources.length);
+  const data = {
+    title: "Test campus update",
+    description: "Integration test only",
+    start_date: "2020-01-01T00:00:00.000Z",
+    end_date: null,
+    location_id: null,
+    priority: 2,
+  };
+  const row = (
+    await admin
+      .post("/api/admin/announcements")
+      .set("X-CSRF-Token", csrfAdmin)
+      .send(data)
+      .expect(201)
+  ).body;
+  assert.ok(
+    (await request(app).get("/api/announcements")).body.some(
+      (a) => a.id === row.id,
+    ),
+  );
+  await admin
+    .put(`/api/admin/announcements/${row.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ ...data, start_date: "2099-01-01T00:00:00.000Z" })
+    .expect(200);
+  assert.ok(
+    !(await request(app).get("/api/announcements")).body.some(
+      (a) => a.id === row.id,
+    ),
+  );
+  assert.ok(
+    (await admin.get("/api/admin/dashboard")).body.announcements.some(
+      (a) => a.id === row.id,
+    ),
+  );
+  await admin
+    .post("/api/admin/announcements")
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ ...data, end_date: "2019-01-01T00:00:00.000Z" })
+    .expect(400);
+  await admin
+    .delete(`/api/admin/announcements/${row.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .expect(200);
+});
+
+test("admin category and facility edits persist and deleted imports stay removed", async () => {
+  const place = (
+    await db.query("SELECT * FROM locations WHERE building_code='55A' LIMIT 1")
+  ).rows[0];
+  assert.ok(place);
+  await admin
+    .put(`/api/admin/categories/${place.category_id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({ name: "Edited academic category" })
+    .expect(200);
+  assert.ok(
+    (await admin.get("/api/admin/dashboard")).body.categories.some(
+      (c) => c.name === "Edited academic category",
+    ),
+  );
+  await admin
+    .post("/api/admin/facilities")
+    .set("X-CSRF-Token", csrfAdmin)
+    .send({
+      name: "Test facility",
+      location_id: Number(place.id),
+      source_id: place.source_id,
+    })
+    .expect(201);
+  const facility = (
+    await admin.get("/api/admin/dashboard")
+  ).body.facilities.find((f) => f.name === "Test facility");
+  assert.ok(facility);
+  await admin
+    .delete(
+      `/api/admin/locations/${place.id}/facilities/${facility.facility_id}`,
+    )
+    .set("X-CSRF-Token", csrfAdmin)
+    .expect(200);
+  assert.ok(
+    !(await admin.get("/api/admin/dashboard")).body.facilities.some(
+      (f) => f.name === "Test facility",
+    ),
+  );
+  await admin
+    .delete(`/api/admin/locations/${place.id}`)
+    .set("X-CSRF-Token", csrfAdmin)
+    .expect(200);
+  await seedPublicMap(db);
+  assert.equal(
+    (
+      await db.query("SELECT id FROM locations WHERE source_id=$1", [
+        place.source_id,
+      ])
+    ).rows.length,
+    0,
+  );
+});

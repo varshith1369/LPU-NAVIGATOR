@@ -56,6 +56,14 @@ export async function seedNumberedBuildings(db) {
   await db.transaction(async (tx) => {
     for (const p of numberedBuildings) {
       const sourceId = p.existing_source_id ?? p.source.id;
+      if (
+        (
+          await tx.query("SELECT 1 FROM removed_imports WHERE source_id=$1", [
+            sourceId,
+          ])
+        ).rows.length
+      )
+        continue;
       const evidenceSource = p.number_source ?? p.source;
       for (const s of [p.source, p.number_source].filter(Boolean)) {
         await tx.query(
@@ -109,7 +117,7 @@ export async function seedNumberedBuildings(db) {
       if (p.imported_name)
         await tx.query(
           "UPDATE locations SET name=$1,category_id=(SELECT id FROM categories WHERE name=$4),updated_at=now(),version=version+1 WHERE id=$2 AND ((name=$3 AND version=1) OR (name=$1 AND version=3)) AND (name<>$1 OR category_id<>(SELECT id FROM categories WHERE name=$4))",
-          [p.name, location.id, p.imported_name,p.category],
+          [p.name, location.id, p.imported_name, p.category],
         );
       if (!location.building_code)
         await tx.query(

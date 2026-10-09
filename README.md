@@ -114,4 +114,12 @@ Browser-verified desktop and mobile views are captured in `docs/screenshots/` wh
 
 ## Remaining work before campus use
 
-Verify entrances and actual walking connectivity, current facilities/opening hours and accessibility. Replace the advanced admin JSON inputs with task-specific forms, expand administrative editing for announcements/path closures, add full screen-reader auditing, improve turn-by-turn instructions, run native/hosted database checks and configure backups, mail delivery and hosting. Indoor routing and crowd predictions remain gated on suitable evidence/data.
+Verify entrances and actual walking connectivity, current facilities/opening hours and accessibility. Advanced walking-path geometry still uses the JSON editor. Add full screen-reader auditing, improve turn-by-turn instructions, and configure backups and mail delivery. Indoor routing and crowd predictions remain gated on suitable evidence/data.
+
+## Administration and conversations
+
+Sign in with an administrator account, then choose the shield (Admin). Edit building names, block numbers, GPS, categories, contact details, hours and status. Register evidence and facilities, review suggestions, manage user roles, and publish, schedule, edit or delete announcements. Public Updates refreshes every ten seconds. Changes are audited; building edits require the current record version. Deleted imported locations are not restored by deployment seeds.
+
+Chat includes private account-to-admin support and a shared campus conversation. Sign-in is required. Messages persist in PostgreSQL and refresh every three seconds while the chat page is visible. Administrators can reply, close/reopen rooms and remove messages. The UI shows the latest 100 messages; the API supports older pages with `before`. This is polling, not WebSocket push or background notifications.
+
+For an existing registered account, administrators can use `npm run db:admin`. On hosted deployments, `BOOTSTRAP_ADMIN_EMAIL` can promote a registered account during database setup; remove this environment variable after the initial promotion. No default password or public administrator signup exists. Migration `002_conversations.sql` is idempotent for existing databases.

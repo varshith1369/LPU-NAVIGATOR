@@ -75,6 +75,21 @@ export function registerAdmin(app, db, requireUser, admin) {
       )
     ).rows[0];
     res.json({
+      categories: (await db.query("SELECT * FROM categories ORDER BY name"))
+        .rows,
+      sources: (
+        await db.query("SELECT id,title,type FROM sources ORDER BY title")
+      ).rows,
+      announcements: (
+        await db.query(
+          "SELECT * FROM announcements ORDER BY start_date DESC LIMIT 500",
+        )
+      ).rows,
+      facilities: (
+        await db.query(
+          "SELECT lf.*,f.name,l.name AS location_name FROM location_facilities lf JOIN facilities f ON f.id=lf.facility_id JOIN locations l ON l.id=lf.location_id ORDER BY l.name,f.name",
+        )
+      ).rows,
       locations: locations.map((p) => ({ ...p, location_point: undefined })),
       reports,
       submissions,
@@ -108,6 +123,64 @@ export function registerAdmin(app, db, requireUser, admin) {
     });
     res.status(201).json(b);
   });
+  app.put("/api/admin/categories/:id", async (req, res) => {
+    const target = id.parse(req.params.id),
+      { name } = z
+        .object({ name: z.string().trim().min(1).max(100) })
+        .parse(req.body);
+    const row = await db.transaction(async (tx) => {
+      const before = (
+        await tx.query("SELECT * FROM categories WHERE id=$1 FOR UPDATE", [
+          target,
+        ])
+      ).rows[0];
+      if (!before) return null;
+      const after = (
+        await tx.query(
+          "UPDATE categories SET name=$1 WHERE id=$2 RETURNING *",
+          [name, target],
+        )
+      ).rows[0];
+      await audit(
+        tx,
+        req.user.id,
+        "UPDATE",
+        "categories",
+        target,
+        before,
+        after,
+      );
+      return after;
+    });
+    if (!row) return res.status(404).json({ error: "Category not found." });
+    res.json(row);
+  });
+  app.delete(
+    "/api/admin/locations/:id/facilities/:facilityId",
+    async (req, res) => {
+      const locationId = id.parse(req.params.id),
+        facilityId = id.parse(req.params.facilityId);
+      await db.transaction(async (tx) => {
+        const before = (
+          await tx.query(
+            "DELETE FROM location_facilities WHERE location_id=$1 AND facility_id=$2 RETURNING *",
+            [locationId, facilityId],
+          )
+        ).rows[0];
+        if (before)
+          await audit(
+            tx,
+            req.user.id,
+            "REMOVE_FACILITY",
+            "locations",
+            locationId,
+            before,
+            null,
+          );
+      });
+      res.json({ message: "Facility removed." });
+    },
+  );
   app.post("/api/admin/categories", async (req, res) => {
     const b = z
       .object({ name: z.string().trim().min(1).max(100) })
@@ -208,6 +281,10 @@ export function registerAdmin(app, db, requireUser, admin) {
   app.delete("/api/admin/locations/:id", async (req, res) => {
     const locationId = id.parse(req.params.id);
     const deleted = await db.transaction(async (tx) => {
+      await tx.query(
+        "INSERT INTO removed_imports(source_id) SELECT source_id FROM locations WHERE id=$1 ON CONFLICT DO NOTHING",
+        [locationId],
+      );
       const row = (
         await tx.query("DELETE FROM locations WHERE id=$1 RETURNING id,name", [
           locationId,
@@ -406,6 +483,10 @@ export function registerAdmin(app, db, requireUser, admin) {
         end_date: z.iso.datetime().nullable().default(null),
         priority: z.number().int().min(0).max(3).default(0),
       })
+      .refine(
+        (b) => !b.end_date || b.end_date > b.start_date,
+        "End time must be after start time",
+      )
       .parse(req.body);
     const row = await db.transaction(async (tx) => {
       const row = (
@@ -444,7 +525,7 @@ export function registerAdmin(app, db, requireUser, admin) {
         )
       ).rows[0];
       await tx.query(
-        "INSERT INTO location_facilities(location_id,facility_id,source_id) VALUES($1,$2,$3)",
+        "INSERT INTO location_facilities(location_id,facility_id,source_id) VALUES($1,$2,$3) ON CONFLICT(location_id,facility_id) DO UPDATE SET source_id=excluded.source_id,verification_status='UNVERIFIED'",
         [b.location_id, row.id, b.source_id],
       );
       await audit(
@@ -671,6 +752,10 @@ export function registerAdmin(app, db, requireUser, admin) {
         priority: z.number().int().min(0).max(3),
         location_id: id.nullable(),
       })
+      .refine(
+        (b) => !b.end_date || b.end_date > b.start_date,
+        "End time must be after start time",
+      )
       .parse(req.body);
     const row = await db.transaction(async (tx) => {
       const before = (

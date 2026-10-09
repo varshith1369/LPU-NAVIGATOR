@@ -62,6 +62,12 @@ export async function migrate(db) {
         "utf8",
       ),
     );
+  await db.exec(
+    readFileSync(
+      new URL("../../database/schema/002_conversations.sql", import.meta.url),
+      "utf8",
+    ),
+  );
 }
 
 export async function seedHistorical(db) {

@@ -30,6 +30,9 @@ import {
   Route as RouteIcon,
   Megaphone,
 } from "lucide-react";
+import AdminTools from "./components/AdminTools";
+import Conversations from "./components/Conversations";
+import AnnouncementEditor from "./components/AnnouncementEditor";
 import CampusMap from "./components/CampusMap";
 import { api, post, type Place, type User } from "./services/api";
 import campus from "./data/campus.json";
@@ -54,6 +57,7 @@ type View =
   | "explore"
   | "directions"
   | "assistant"
+  | "conversations"
   | "announcements"
   | "profile"
   | "admin";
@@ -176,18 +180,10 @@ export default function App() {
     let active = true;
     api("/locations")
       .then((data) => {
-        if (!Array.isArray(data.items) || !data.items.length)
+        if (!Array.isArray(data.items))
           throw new Error("No mapped records available");
         if (active) {
-          setMappedPlaces([
-            ...data.items,
-            ...campus.mapped.filter(
-              (p) =>
-                !data.items.some(
-                  (live: Place) => live.source_id === p.source_id,
-                ),
-            ),
-          ]);
+          setMappedPlaces(data.items);
           setApiUnavailable(false);
         }
       })
@@ -251,6 +247,7 @@ export default function App() {
               ["directions", Navigation, "Directions"],
               ["assistant", MessageCircle, "Assistant"],
               ["announcements", Megaphone, "Updates"],
+              ["conversations", MessageCircle, "Chat"],
             ] as const
           ).map(([key, Icon, label]) => (
             <button
@@ -874,10 +871,18 @@ export default function App() {
             </div>
           ) : view === "assistant" ? (
             <Assistant />
+          ) : view === "conversations" ? (
+            <Conversations user={user} />
           ) : view === "announcements" ? (
             <Announcements />
           ) : view === "admin" && user?.role === "ADMIN" ? (
-            <Admin categories={categories} notify={setNotice} />
+            <Admin
+              categories={categories}
+              notify={(message) => {
+                setNotice(message);
+                setRefresh((n) => n + 1);
+              }}
+            />
           ) : (
             <Profile user={user} setUser={setUser} notify={setNotice} />
           )}
@@ -1532,9 +1537,26 @@ function Announcements() {
   const [items, setItems] = useState<any[] | null>(null),
     [error, setError] = useState("");
   useEffect(() => {
-    api("/announcements")
-      .then(setItems)
-      .catch((e) => setError(e.message));
+    let active = true;
+    const load = () => {
+      if (document.hidden) return;
+      api("/announcements")
+        .then((rows) => {
+          if (active) {
+            setItems(rows);
+            setError("");
+          }
+        })
+        .catch((e) => {
+          if (active) setError(e.message);
+        });
+    };
+    load();
+    const timer = setInterval(load, 10000);
+    return () => {
+      active = false;
+      clearInterval(timer);
+    };
   }, []);
   return (
     <section className="content-panel">
@@ -1580,10 +1602,22 @@ function Admin({
     [lng, setLng] = useState(""),
     [operatingStatus, setOperatingStatus] = useState("UNKNOWN"),
     [editing, setEditing] = useState<any>(null),
-    [newCategory, setNewCategory] = useState("");
+    [newCategory, setNewCategory] = useState(""),
+    [buildingCode, setBuildingCode] = useState(""),
+    [phone, setPhone] = useState(""),
+    [website, setWebsite] = useState(""),
+    [hours, setHours] = useState<Record<string, string>>({});
   const load = () =>
     api("/admin/dashboard")
-      .then(setData)
+      .then((rows) =>
+        setData({
+          categories: [],
+          sources: [],
+          announcements: [],
+          facilities: [],
+          ...rows,
+        }),
+      )
       .catch((e) => setError(e.message));
   useEffect(() => {
     load();
@@ -1596,6 +1630,10 @@ function Admin({
       })
       .catch((e) => notify(e.message));
   function edit(p: any) {
+    setBuildingCode(p.building_code ?? "");
+    setPhone(p.phone ?? "");
+    setWebsite(p.website ?? "");
+    setHours(p.opening_hours ?? {});
     setEditing(p);
     setName(p.name);
     setCategory(String(p.category_id));
@@ -1622,6 +1660,14 @@ function Admin({
               </div>
             ))}
           </div>
+          <AnnouncementEditor
+            items={data.announcements}
+            locations={data.locations}
+            reload={() => {
+              load();
+              notify("Announcements updated.");
+            }}
+          />
           <div className="admin-columns">
             <section>
               <h3>{editing ? "Edit location" : "Add current location"}</h3>
@@ -1642,13 +1688,17 @@ function Admin({
                         longitude: lng === "" ? null : Number(lng),
                         version: editing?.version,
                         status: operatingStatus,
-                        opening_hours: editing?.opening_hours ?? null,
-                        phone: editing?.phone ?? null,
-                        website: editing?.website ?? null,
-                        building_code: editing?.building_code ?? null,
+                        opening_hours: hours,
+                        phone: phone || null,
+                        website: website || null,
+                        building_code: buildingCode || null,
                       },
                       editing ? "PUT" : "POST",
                     );
+                    setBuildingCode("");
+                    setPhone("");
+                    setWebsite("");
+                    setHours({});
                     setEditing(null);
                     setName("");
                     setDescription("");
@@ -1678,22 +1728,79 @@ function Admin({
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     <option value="">Select category</option>
-                    {categories.map((c) => (
-                      <option value={c.id} key={c.id}>
-                        {c.name}
-                      </option>
-                    ))}
+                    {(data.categories ?? categories).map(
+                      (c: { id: number; name: string }) => (
+                        <option value={c.id} key={c.id}>
+                          {c.name}
+                        </option>
+                      ),
+                    )}
                   </select>
                 </label>
                 <label>
-                  Evidence source ID
-                  <input
+                  Evidence source
+                  <select
                     required
                     value={source}
                     onChange={(e) => setSource(e.target.value)}
-                    placeholder="Register a current source first"
+                  >
+                    <option value="">Select current evidence</option>
+                    {data.sources
+                      .filter((s: any) => s.type !== "OLD_LPU_MAP")
+                      .map((s: any) => (
+                        <option key={s.id} value={s.id}>
+                          {s.title}
+                        </option>
+                      ))}
+                  </select>
+                </label>
+                <label>
+                  Building / block number
+                  <input
+                    value={buildingCode}
+                    onChange={(e) => setBuildingCode(e.target.value)}
+                    maxLength={80}
                   />
                 </label>
+                <label>
+                  Phone
+                  <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    maxLength={80}
+                  />
+                </label>
+                <label>
+                  Website
+                  <input
+                    type="url"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </label>
+                <details>
+                  <summary>Opening hours</summary>
+                  {[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ].map((day) => (
+                    <label key={day}>
+                      {day}
+                      <input
+                        placeholder="09:00-17:00 or Closed"
+                        value={hours[day] ?? ""}
+                        onChange={(e) =>
+                          setHours((h) => ({ ...h, [day]: e.target.value }))
+                        }
+                      />
+                    </label>
+                  ))}
+                </details>
                 <label>
                   Description
                   <textarea
@@ -1745,18 +1852,37 @@ function Admin({
                     onClick={() => {
                       setEditing(null);
                       setName("");
+                      setCategory("");
+                      setSource("");
+                      setDescription("");
+                      setLat("");
+                      setLng("");
+                      setBuildingCode("");
+                      setPhone("");
+                      setWebsite("");
+                      setHours({});
+                      setOperatingStatus("UNKNOWN");
                     }}
                   >
                     Cancel edit
                   </button>
                 )}
               </form>
-              <h3>Evidence and advanced records</h3>
-              <p>
-                Register evidence, verified claims, announcements, facilities,
-                or sourced paths as validated JSON.
-              </p>
-              <AdminRecord action={action} />
+              <AdminTools
+                data={data}
+                reload={() => {
+                  load();
+                  notify("Record saved.");
+                }}
+              />
+              <details>
+                <summary>Advanced path and record editor</summary>
+                <p>
+                  Manage sourced walking paths, entrances, and additional
+                  records.
+                </p>
+                <AdminRecord action={action} />
+              </details>
               <h3>Add category</h3>
               <form
                 onSubmit={(e) => {
