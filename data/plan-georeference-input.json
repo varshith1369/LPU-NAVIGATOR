@@ -1,0 +1,671 @@
+{
+  "source": {
+    "id": "lpu-official-induction-site-plan",
+    "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+    "title": "LPU Freshmen Induction campus site plan",
+    "image_width": 1000,
+    "image_height": 1520,
+    "image_sha256": "461836ac23661cd3c782dd916b98ca5cb9c276f7851aabd33763263c3b407a72",
+    "retrieved_at": "2026-10-09T00:00:00Z",
+    "publication_date": null
+  },
+  "notes": "Manually transcribed visible numbered circles. Pixel centers refer to the provided official site-plan image, which is diagrammatic, not a georeferenced survey. Names are those in the source, not guaranteed present-day occupants. Current Google sources can supersede names. Missing numbers are not invented. The source legend lists 39, 40, 52 but their map circles could not be located confidently.",
+  "controls": [
+    {
+      "code": "14",
+      "source_code": "14",
+      "pixel": {
+        "x": 270,
+        "y": 755
+      },
+      "role": "fit",
+      "latitude": 31.254501,
+      "longitude": 75.70554059999999,
+      "position_source_url": "https://www.google.com/maps?cid=4500083466120690996",
+      "number_source_url": "https://www.lpu.in/HRD/Broucher/CCT984.pdf",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "18",
+      "source_code": "18",
+      "pixel": {
+        "x": 443,
+        "y": 740
+      },
+      "role": "fit",
+      "latitude": 31.2552593,
+      "longitude": 75.703346,
+      "position_source_url": "https://www.openstreetmap.org/node/6325106324",
+      "number_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "notes": "Existing OpenStreetMap point retained as the fit control."
+    },
+    {
+      "code": "30",
+      "source_code": "30",
+      "pixel": {
+        "x": 280,
+        "y": 615
+      },
+      "role": "fit",
+      "latitude": 31.2527142,
+      "longitude": 75.7047836,
+      "position_source_url": "https://www.google.com/maps?cid=2667904719772660228",
+      "number_source_url": "https://www.google.com/maps?cid=2667904719772660228",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "32",
+      "source_code": "32",
+      "pixel": {
+        "x": 246,
+        "y": 579
+      },
+      "role": "fit",
+      "latitude": 31.2520625,
+      "longitude": 75.7048125,
+      "position_source_url": "https://www.google.com/maps?cid=11946081511885542298",
+      "number_source_url": "https://www.google.com/maps?cid=11946081511885542298",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "34",
+      "source_code": "34",
+      "pixel": {
+        "x": 223,
+        "y": 529
+      },
+      "role": "fit",
+      "latitude": 31.2512938,
+      "longitude": 75.70476029999999,
+      "position_source_url": "https://www.google.com/maps?cid=10038059493305117466",
+      "number_source_url": "https://www.google.com/maps?cid=10038059493305117466",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "36",
+      "source_code": "36",
+      "pixel": {
+        "x": 269,
+        "y": 515
+      },
+      "role": "fit",
+      "latitude": 31.2515771,
+      "longitude": 75.7041227,
+      "position_source_url": "https://www.google.com/maps?cid=564512687552076880",
+      "number_source_url": "https://www.google.com/maps?cid=564512687552076880",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "37",
+      "source_code": "37",
+      "pixel": {
+        "x": 301,
+        "y": 518
+      },
+      "role": "fit",
+      "latitude": 31.2518313,
+      "longitude": 75.70356422207865,
+      "position_source_url": "https://www.openstreetmap.org/way/422556249",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=MLB",
+      "notes": "Existing OpenStreetMap point retained as the fit control."
+    },
+    {
+      "code": "38",
+      "source_code": "38",
+      "pixel": {
+        "x": 341,
+        "y": 522
+      },
+      "role": "fit",
+      "latitude": 31.2521954,
+      "longitude": 75.70311749999999,
+      "position_source_url": "https://www.google.com/maps?cid=5788977802645604742",
+      "number_source_url": "https://www.google.com/maps?cid=5788977802645604742",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "55",
+      "source_code": "55",
+      "pixel": {
+        "x": 144,
+        "y": 211
+      },
+      "role": "fit",
+      "latitude": 31.2470394,
+      "longitude": 75.7034572,
+      "position_source_url": "https://www.google.com/maps?cid=9126628790074468410",
+      "number_source_url": "https://www.google.com/maps?cid=9126628790074468410",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "56",
+      "source_code": "56",
+      "pixel": {
+        "x": 114,
+        "y": 187
+      },
+      "role": "fit",
+      "latitude": 31.2466972,
+      "longitude": 75.70350169999999,
+      "position_source_url": "https://www.google.com/maps?cid=2668868461393555063",
+      "number_source_url": "https://www.google.com/maps?cid=2668868461393555063",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "57",
+      "source_code": "57",
+      "pixel": {
+        "x": 107,
+        "y": 150
+      },
+      "role": "fit",
+      "latitude": 31.2462225,
+      "longitude": 75.7036322,
+      "position_source_url": "https://www.google.com/maps?cid=873767666858229497",
+      "number_source_url": "https://www.google.com/maps?cid=873767666858229497",
+      "notes": "Named Google public-map building record; not an entrance survey."
+    },
+    {
+      "code": "26",
+      "source_code": "26",
+      "pixel": {
+        "x": 378,
+        "y": 556
+      },
+      "role": "holdout",
+      "latitude": 31.2525761,
+      "longitude": 75.7031068,
+      "position_source_url": "https://www.google.com/maps?cid=6943817078992480303",
+      "number_source_url": "https://www.google.com/maps?cid=6943817078992480303",
+      "notes": "Independent Google building record, excluded from the affine fit."
+    },
+    {
+      "code": "33",
+      "source_code": "33",
+      "pixel": {
+        "x": 237,
+        "y": 554
+      },
+      "role": "holdout",
+      "latitude": 31.2518319,
+      "longitude": 75.7047584,
+      "position_source_url": "https://www.google.com/maps?cid=79707721026695807",
+      "number_source_url": "https://www.lpu.in/events/techmarathon/",
+      "notes": "Independent Google building record, excluded from the affine fit."
+    },
+    {
+      "code": "35",
+      "source_code": "35",
+      "pixel": {
+        "x": 288,
+        "y": 549
+      },
+      "role": "holdout",
+      "latitude": 31.2520538,
+      "longitude": 75.7041119,
+      "position_source_url": "https://www.google.com/maps?cid=14579625004601050590",
+      "number_source_url": "https://www.lpu.in/events/freshmeninduction/minute-to-minute-schedule.php",
+      "notes": "Independent Google building record, excluded from the affine fit."
+    },
+    {
+      "code": "53",
+      "source_code": "53",
+      "pixel": {
+        "x": 184,
+        "y": 319
+      },
+      "role": "holdout",
+      "latitude": 31.2490298,
+      "longitude": 75.70362209999999,
+      "position_source_url": "https://www.google.com/maps?cid=15630065401416290880",
+      "number_source_url": "https://www.google.com/maps?cid=15630065401416290880",
+      "notes": "Independent Google building record, excluded from the affine fit."
+    },
+    {
+      "code": "1",
+      "source_code": "1",
+      "pixel": {
+        "x": 239,
+        "y": 1159
+      },
+      "role": "holdout",
+      "latitude": 31.2586405,
+      "longitude": 75.70891379999999,
+      "position_source_url": "https://www.google.com/maps?cid=12683150027335632343",
+      "number_source_url": "https://www.lpu.in/HRD/Broucher/CCT971.pdf",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 1; public reference code 1. This does not rename the output source label."
+    },
+    {
+      "code": "3",
+      "source_code": "3A",
+      "pixel": {
+        "x": 334,
+        "y": 1046
+      },
+      "role": "holdout",
+      "latitude": 31.2581045,
+      "longitude": 75.7068525,
+      "position_source_url": "https://www.google.com/maps?cid=15989278447914120094",
+      "number_source_url": "https://www.lpu.in/sustainable/doc/annual-report-2022.pdf",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 3A; public reference code 3. This does not rename the output source label."
+    },
+    {
+      "code": "6",
+      "source_code": "8A",
+      "pixel": {
+        "x": 263,
+        "y": 987
+      },
+      "role": "holdout",
+      "latitude": 31.2568719,
+      "longitude": 75.7072501,
+      "position_source_url": "https://www.google.com/maps?cid=8661084662962665289",
+      "number_source_url": "https://happenings.lpu.in/5-food-joints-to-visit-in-lpu/",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 8A; public reference code 6. This does not rename the output source label."
+    },
+    {
+      "code": "13",
+      "source_code": "13",
+      "pixel": {
+        "x": 274,
+        "y": 826
+      },
+      "role": "holdout",
+      "latitude": 31.2551178,
+      "longitude": 75.7060709,
+      "position_source_url": "https://www.google.com/maps?cid=9212203886738363511",
+      "number_source_url": "https://www.lpu.in/campus-life/art-and-culture.php",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 13; public reference code 13. This does not rename the output source label."
+    },
+    {
+      "code": "15",
+      "source_code": "15A",
+      "pixel": {
+        "x": 344,
+        "y": 847
+      },
+      "role": "holdout",
+      "latitude": 31.2557641,
+      "longitude": 75.7054825,
+      "position_source_url": "https://www.google.com/maps?cid=5479435647901965319",
+      "number_source_url": "https://happenings.lpu.in/5-food-joints-to-visit-in-lpu/",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 15A; public reference code 15. This does not rename the output source label."
+    },
+    {
+      "code": "15B",
+      "source_code": "15B",
+      "pixel": {
+        "x": 403,
+        "y": 807
+      },
+      "role": "holdout",
+      "latitude": 31.2556441,
+      "longitude": 75.704341,
+      "position_source_url": "https://www.google.com/maps?cid=6404386781288677907",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=LSH",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 15B; public reference code 15B. This does not rename the output source label."
+    },
+    {
+      "code": "18",
+      "source_code": "18",
+      "pixel": {
+        "x": 443,
+        "y": 740
+      },
+      "role": "alternative_reference",
+      "latitude": 31.2551999,
+      "longitude": 75.703739,
+      "position_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "number_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "notes": "Alternative Google point for an OSM training building. Not an independent building holdout."
+    },
+    {
+      "code": "37",
+      "source_code": "37",
+      "pixel": {
+        "x": 301,
+        "y": 518
+      },
+      "role": "alternative_reference",
+      "latitude": 31.2519927,
+      "longitude": 75.7033787,
+      "position_source_url": "https://www.google.com/maps?cid=3455241597575339866",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=MLB",
+      "notes": "Alternative Google point for an OSM training building. Not an independent building holdout."
+    }
+  ],
+  "labels": [
+    {
+      "code": "1",
+      "x": 239,
+      "y": 1159,
+      "source_name": "School of Computer Application"
+    },
+    {
+      "code": "2A",
+      "x": 284,
+      "y": 1087,
+      "source_name": "Mini Auditorium"
+    },
+    {
+      "code": "2B",
+      "x": 278,
+      "y": 1112,
+      "source_name": "Campus Cafe"
+    },
+    {
+      "code": "3A",
+      "x": 334,
+      "y": 1046,
+      "source_name": "School of International Studies"
+    },
+    {
+      "code": "3B",
+      "x": 292,
+      "y": 1043,
+      "source_name": "Lovely Institute of Technology (Pharmacy)"
+    },
+    {
+      "code": "8A",
+      "x": 263,
+      "y": 987,
+      "source_name": "School of Architecture and Design"
+    },
+    {
+      "code": "8B",
+      "x": 294,
+      "y": 974,
+      "source_name": "School of Pharmaceutical Sciences"
+    },
+    {
+      "code": "8C",
+      "x": 297,
+      "y": 953,
+      "source_name": "Uni Hospital / School of Arts and Languages / School of Fashion Design"
+    },
+    {
+      "code": "9",
+      "x": 366,
+      "y": 939,
+      "source_name": "Girls Hostel 1"
+    },
+    {
+      "code": "10",
+      "x": 419,
+      "y": 905,
+      "source_name": "Girls Hostel 2"
+    },
+    {
+      "code": "11",
+      "x": 405,
+      "y": 860,
+      "source_name": "Girls Hostel 3"
+    },
+    {
+      "code": "12",
+      "x": 346,
+      "y": 908,
+      "source_name": "Girls Hostel 4"
+    },
+    {
+      "code": "13",
+      "x": 274,
+      "y": 826,
+      "source_name": "Division of Student Affairs"
+    },
+    {
+      "code": "14",
+      "x": 270,
+      "y": 755,
+      "source_name": "School of Business"
+    },
+    {
+      "code": "15A",
+      "x": 344,
+      "y": 847,
+      "source_name": "Unicenter"
+    },
+    {
+      "code": "15B",
+      "x": 403,
+      "y": 807,
+      "source_name": "School of Hotel Management and Tourism"
+    },
+    {
+      "code": "18",
+      "x": 443,
+      "y": 740,
+      "source_name": "Department of Education / Physical Education"
+    },
+    {
+      "code": "19",
+      "x": 360,
+      "y": 803,
+      "source_name": "Unipolis"
+    },
+    {
+      "code": "20",
+      "x": 553,
+      "y": 657,
+      "source_name": "School of Law"
+    },
+    {
+      "code": "21A",
+      "x": 518,
+      "y": 579,
+      "source_name": "Girls Hostel 5"
+    },
+    {
+      "code": "21B",
+      "x": 557,
+      "y": 559,
+      "source_name": "Girls Hostel 6"
+    },
+    {
+      "code": "25",
+      "x": 400,
+      "y": 549,
+      "source_name": "School of Biotechnology and Biosciences"
+    },
+    {
+      "code": "26",
+      "x": 378,
+      "y": 556,
+      "source_name": "School of Electronics and Electrical Engineering"
+    },
+    {
+      "code": "27",
+      "x": 353,
+      "y": 570,
+      "source_name": "School of Physical Sciences"
+    },
+    {
+      "code": "28",
+      "x": 326,
+      "y": 583,
+      "source_name": "School of Agriculture"
+    },
+    {
+      "code": "29",
+      "x": 306,
+      "y": 600,
+      "source_name": "Office of the Pro-Chancellor / Administrative Block I"
+    },
+    {
+      "code": "30",
+      "x": 280,
+      "y": 615,
+      "source_name": "The Chancellory"
+    },
+    {
+      "code": "31",
+      "x": 251,
+      "y": 601,
+      "source_name": "Division of Admissions / Museum of Academics"
+    },
+    {
+      "code": "32",
+      "x": 246,
+      "y": 579,
+      "source_name": "Office of the Vice Chancellor / Division of Career Services and administrative divisions"
+    },
+    {
+      "code": "33",
+      "x": 237,
+      "y": 554,
+      "source_name": "School of Electronics and Electrical Engineering"
+    },
+    {
+      "code": "34",
+      "x": 223,
+      "y": 529,
+      "source_name": "School of Computer Science and Engineering"
+    },
+    {
+      "code": "35",
+      "x": 288,
+      "y": 549,
+      "source_name": "Shanti Devi Mittal Auditorium"
+    },
+    {
+      "code": "36",
+      "x": 269,
+      "y": 515,
+      "source_name": "School of Electronics and Electrical Engineering"
+    },
+    {
+      "code": "37",
+      "x": 301,
+      "y": 518,
+      "source_name": "Central Library"
+    },
+    {
+      "code": "38",
+      "x": 341,
+      "y": 522,
+      "source_name": "Research Center"
+    },
+    {
+      "code": "41A",
+      "x": 402,
+      "y": 489,
+      "source_name": "Staff Apartments"
+    },
+    {
+      "code": "41B",
+      "x": 423,
+      "y": 477,
+      "source_name": "Staff Apartments"
+    },
+    {
+      "code": "41C",
+      "x": 445,
+      "y": 469,
+      "source_name": "Staff Apartments"
+    },
+    {
+      "code": "41D",
+      "x": 461,
+      "y": 462,
+      "source_name": "Staff Apartments"
+    },
+    {
+      "code": "42",
+      "x": 424,
+      "y": 388,
+      "source_name": "Swimming Pool (under construction in source)"
+    },
+    {
+      "code": "45",
+      "x": 499,
+      "y": 389,
+      "source_name": "Boys Hostel 1"
+    },
+    {
+      "code": "47",
+      "x": 558,
+      "y": 210,
+      "source_name": "Boys Hostel 7"
+    },
+    {
+      "code": "48",
+      "x": 399,
+      "y": 299,
+      "source_name": "Boys Hostel 2"
+    },
+    {
+      "code": "49",
+      "x": 444,
+      "y": 277,
+      "source_name": "Boys Hostel 3"
+    },
+    {
+      "code": "50",
+      "x": 479,
+      "y": 252,
+      "source_name": "Boys Hostel 3A"
+    },
+    {
+      "code": "51A",
+      "x": 416,
+      "y": 210,
+      "source_name": "Boys Hostel 4"
+    },
+    {
+      "code": "51B",
+      "x": 467,
+      "y": 173,
+      "source_name": "Boys Hostel 4"
+    },
+    {
+      "code": "53",
+      "x": 184,
+      "y": 319,
+      "source_name": "Boys Hostel 5"
+    },
+    {
+      "code": "54",
+      "x": 162,
+      "y": 267,
+      "source_name": "Boys Hostel 6"
+    },
+    {
+      "code": "55",
+      "x": 144,
+      "y": 211,
+      "source_name": "School of Mechanical Engineering"
+    },
+    {
+      "code": "56",
+      "x": 114,
+      "y": 187,
+      "source_name": "School of Civil Engineering"
+    },
+    {
+      "code": "57",
+      "x": 107,
+      "y": 150,
+      "source_name": "School of Polytechnic"
+    },
+    {
+      "code": "58",
+      "x": 98,
+      "y": 125,
+      "source_name": "Workshops"
+    }
+  ],
+  "legend_only": [
+    {
+      "code": "39",
+      "source_name": "Sewage Treatment Plant"
+    },
+    {
+      "code": "40",
+      "source_name": "Central Store"
+    },
+    {
+      "code": "52",
+      "source_name": "Cricket Ground"
+    }
+  ]
+}

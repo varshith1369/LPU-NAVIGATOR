@@ -11,8 +11,17 @@ test("live block labels preserve suffixes and stay separate from historical lege
     ),
   );
   const blocks = campus.mapped.filter((p) => p.building_code);
-  assert.equal(blocks.length, 12);
-  assert.equal(new Set(blocks.map((p) => p.building_code)).size, 12);
+  assert.equal(blocks.length, 55);
+  assert.equal(new Set(blocks.map((p) => p.building_code)).size, 55);
+  assert.equal(
+    blocks.filter((p) => p.number_basis === "campus_plan").length,
+    32,
+  );
+  assert.ok(
+    blocks
+      .filter((p) => p.number_basis === "campus_plan")
+      .every((p) => p.position_verification === "APPROXIMATE"),
+  );
   for (const block of blocks) {
     assert.equal(mapLabel(block, campus.mapped), block.building_code);
     assert.equal(block.old_map_id, undefined);
@@ -25,6 +34,26 @@ test("live block labels preserve suffixes and stay separate from historical lege
   assert.equal(
     campus.directory.find((p) => p.old_map_id === 55).latitude,
     null,
+  );
+});
+
+test("plan-derived locations have explicit source pixels and independent validation", () => {
+  const data = JSON.parse(
+    readFileSync(
+      new URL("../../data/plan-building-positions.json", import.meta.url),
+    ),
+  );
+  assert.equal(data.positions.length, 53);
+  assert.equal(data.validation.within_campus_count, 53);
+  assert.ok(data.validation.independent_holdouts.count >= 10);
+  assert.ok(data.validation.independent_holdouts.rmse_m < 30);
+  assert.ok(
+    data.positions.every(
+      (p) =>
+        p.position_verification === "APPROXIMATE" &&
+        p.pixel.x >= 0 &&
+        p.pixel.y >= 0,
+    ),
   );
 });
 

@@ -6,6 +6,9 @@ export type Place = {
   old_map_id?: number;
   building_code?: string | null;
   building_source_url?: string;
+  number_basis?: string;
+  plan_code?: string;
+  position_verification?: string;
   historical: boolean;
   snapshot?: boolean;
   verification_status: string;

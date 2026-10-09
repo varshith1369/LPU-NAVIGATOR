@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import {
   CircleMarker,
   Polyline,
@@ -62,7 +62,7 @@ export default function NumberedBuildings({
   return (
     <>
       {pins.map(({ place, actual, label, shifted }) => (
-        <span key={place.id}>
+        <Fragment key={place.id}>
           {shifted && (
             <>
               <Polyline
@@ -88,9 +88,16 @@ export default function NumberedBuildings({
             radius={selected?.id === place.id ? 19 : 17}
             pathOptions={{
               color: "#fff",
-              fillColor: selected?.id === place.id ? "#f36e2c" : "#24394a",
+              fillColor:
+                selected?.id === place.id
+                  ? "#f36e2c"
+                  : place.number_basis === "campus_plan"
+                    ? "#89643b"
+                    : "#24394a",
               fillOpacity: 1,
               weight: 2,
+              dashArray:
+                place.number_basis === "campus_plan" ? "3 2" : undefined,
             }}
             eventHandlers={{ click: () => onSelect(place) }}
           >
@@ -103,7 +110,7 @@ export default function NumberedBuildings({
               {place.building_code}
             </Tooltip>
           </CircleMarker>
-        </span>
+        </Fragment>
       ))}
     </>
   );

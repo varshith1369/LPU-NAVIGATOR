@@ -129,6 +129,7 @@ export default function App() {
           p.name.toLowerCase().includes(search) ||
           p.category.toLowerCase().includes(search) ||
           mapLabel(p, mappedPlaces).toLowerCase() === search ||
+          p.plan_code?.toLowerCase() === search ||
           String(p.old_map_id) === search),
     );
     if (nearby && origin) {
@@ -534,9 +535,11 @@ export default function App() {
                                     ? p.category === "Unidentified"
                                       ? "Name missing from source"
                                       : "Campus plan reference"
-                                    : p.verification_status
-                                        .replaceAll("_", " ")
-                                        .toLowerCase()}
+                                    : p.number_basis === "campus_plan"
+                                      ? "Campus plan · approximate"
+                                      : p.verification_status
+                                          .replaceAll("_", " ")
+                                          .toLowerCase()}
                                   {p.distance_m != null
                                     ? ` · ${Math.round(p.distance_m)} m straight-line`
                                     : ""}
@@ -681,7 +684,7 @@ export default function App() {
                   <span>
                     {historical
                       ? "Reference only · not to scale"
-                      : "LPU · Phagwara"}
+                      : `${mappedPlaces.filter((p) => p.building_code).length} labels · brown = approximate`}
                   </span>
                 </div>
                 <button
@@ -708,6 +711,17 @@ export default function App() {
                           : ""}
                       </span>
                       <h2>{selected.name}</h2>
+                      {selected.number_basis === "campus_plan" && (
+                        <p>
+                          Approximate position from LPU’s campus plan. Check the
+                          building sign on arrival; names and numbering may have
+                          changed.
+                        </p>
+                      )}
+                      {selected.plan_code &&
+                        selected.plan_code !== selected.building_code && (
+                          <p>Campus plan label: {selected.plan_code}</p>
+                        )}
                       <p>
                         {selected.description ??
                           (selected.historical

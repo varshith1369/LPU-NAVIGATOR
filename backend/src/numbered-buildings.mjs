@@ -10,6 +10,15 @@ export const numberReference = (sourceId) =>
   numberedBuildings.find(
     (p) => (p.existing_source_id ?? p.source.id) === sourceId,
   );
+export const numberMetadata = (p) => {
+  const reference = numberReference(p.source_id);
+  if (!reference || p.building_code !== reference.building_code) return {};
+  return {
+    building_source_url: (reference.number_source ?? reference.source).url,
+    number_basis: reference.number_basis ?? "public_listing",
+    plan_code: reference.plan_code,
+  };
+};
 
 export function withNumberedBuildings(places) {
   const existing = places.map((p) => {
@@ -17,8 +26,11 @@ export function withNumberedBuildings(places) {
     return block
       ? {
           ...p,
+          name: block.imported_name ? block.name : p.name,
           building_code: block.building_code,
           building_source_url: (block.number_source ?? block.source).url,
+          number_basis: block.number_basis ?? "public_listing",
+          plan_code: block.plan_code,
         }
       : p;
   });
@@ -29,9 +41,11 @@ export function withNumberedBuildings(places) {
       .map((p) => ({
         ...p,
         building_source_url: (p.number_source ?? p.source).url,
-        verification_status: "VERIFIED_PUBLIC",
-        position_verification: "VERIFIED_PUBLIC",
+        verification_status: p.verification_status ?? "VERIFIED_PUBLIC",
+        position_verification: p.position_verification ?? "VERIFIED_PUBLIC",
+        number_basis: p.number_basis ?? "public_listing",
         description:
+          p.description ??
           "Number and building position sourced from public map listings. This point is not a verified entrance.",
       })),
   ];
@@ -64,16 +78,19 @@ export async function seedNumberedBuildings(db) {
       if (!location && !p.existing_source_id) {
         location = (
           await tx.query(
-            `INSERT INTO locations(name,category_id,building_code,description,source_id,verification_status,verification_date,latitude,longitude,position_source_id,position_verification,position_verified_at,status) VALUES($1,(SELECT id FROM categories WHERE name=$2),$3,$4,$5,'VERIFIED_PUBLIC',$6,$7,$8,$5,'VERIFIED_PUBLIC',$6,'UNKNOWN') RETURNING id,building_code`,
+            `INSERT INTO locations(name,category_id,building_code,description,source_id,verification_status,verification_date,latitude,longitude,position_source_id,position_verification,position_verified_at,status) VALUES($1,(SELECT id FROM categories WHERE name=$2),$3,$4,$5,$9,$6,$7,$8,$5,$10,$6,'UNKNOWN') RETURNING id,building_code`,
             [
               p.name,
               p.category,
               p.building_code,
-              "Public map building location; entrance and current operation are not verified.",
+              p.description ??
+                "Public map building location; entrance and current operation are not verified.",
               sourceId,
               p.retrieved_at,
               p.latitude,
               p.longitude,
+              p.verification_status ?? "VERIFIED_PUBLIC",
+              p.position_verification ?? "VERIFIED_PUBLIC",
             ],
           )
         ).rows[0];
@@ -83,6 +100,16 @@ export async function seedNumberedBuildings(db) {
           `Missing existing location for block ${p.building_code}`,
         );
       // Never replace an administrator's existing building code or position.
+      if (p.imported_name)
+        await tx.query(
+          "INSERT INTO location_aliases(location_id,alias,source_id) VALUES($1,$2,$3) ON CONFLICT DO NOTHING",
+          [location.id, p.imported_name, sourceId],
+        );
+      if (p.imported_name)
+        await tx.query(
+          "UPDATE locations SET name=$1,updated_at=now(),version=version+1 WHERE id=$2 AND name=$3 AND version=1",
+          [p.name, location.id, p.imported_name],
+        );
       if (!location.building_code)
         await tx.query(
           "UPDATE locations SET building_code=$1,updated_at=now(),version=version+1 WHERE id=$2 AND building_code IS NULL",
@@ -99,6 +126,8 @@ export async function seedNumberedBuildings(db) {
             building_code: p.building_code,
             listing: p.evidence,
             position_source: p.source.url,
+            plan_code: p.plan_code,
+            position_method: p.position_method,
           }),
         ],
       );
@@ -106,6 +135,11 @@ export async function seedNumberedBuildings(db) {
         "INSERT INTO location_aliases(location_id,alias,source_id) VALUES($1,$2,$3) ON CONFLICT DO NOTHING",
         [location.id, `Block ${p.building_code}`, evidenceSource.id],
       );
+      if (p.plan_code && p.plan_code !== p.building_code)
+        await tx.query(
+          "INSERT INTO location_aliases(location_id,alias,source_id) VALUES($1,$2,$3) ON CONFLICT DO NOTHING",
+          [location.id, `Plan ${p.plan_code}`, evidenceSource.id],
+        );
     }
   });
 }

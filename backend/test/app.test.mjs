@@ -4,6 +4,7 @@ import request from "supertest";
 import { connectDatabase, migrate, seedHistorical } from "../src/db.mjs";
 import { createApp } from "../src/app.mjs";
 import { seedPublicMap } from "../src/public-map.mjs";
+import { numberedBuildings } from "../src/numbered-buildings.mjs";
 import { hash } from "../src/security.mjs";
 let db, app, student, admin, csrfStudent, csrfAdmin, locationId;
 async function session() {
@@ -427,20 +428,8 @@ test("public OSM import is idempotent and does not invent entrances", async () =
   );
 });
 test("numbered buildings survive repeat imports, API refresh and block searches", async () => {
-  const expected = [
-    "14",
-    "18",
-    "30",
-    "32",
-    "34",
-    "36",
-    "37",
-    "38",
-    "55",
-    "55A",
-    "56",
-    "57",
-  ];
+  const expected = numberedBuildings.map((p) => p.building_code);
+  assert.equal(expected.length, 55);
   const items = (await request(app).get("/api/locations").expect(200)).body
     .items;
   for (const code of expected) {
@@ -451,6 +440,8 @@ test("numbered buildings survive repeat imports, API refresh and block searches"
     assert.ok(p.latitude > 31.24 && p.latitude < 31.27);
     assert.ok(p.longitude > 75.69 && p.longitude < 75.72);
     assert.match(p.building_source_url, /^https:\/\//);
+    if (p.number_basis === "campus_plan")
+      assert.equal(p.position_verification, "APPROXIMATE");
     const detail = (
       await request(app).get(`/api/locations/${p.id}`).expect(200)
     ).body;
@@ -468,7 +459,7 @@ test("numbered buildings survive repeat imports, API refresh and block searches"
   assert.equal(evidence.rows[0].n, expected.length);
   assert.equal(
     items.filter((p) => p.source_id.startsWith("google-place-")).length,
-    10,
+    18,
   );
   const block = items.find((p) => p.building_code === "34");
   await db.query(
@@ -517,10 +508,8 @@ test("admin can close a path with evidence and an audit event", async () => {
 });
 test("nearby path guidance connects the reported institutes without inventing entrances", async () => {
   const places = (await request(app).get("/api/locations")).body.items;
-  const from = places.find(
-    (p) => p.name === "Lovely Institute Of Management",
-  ).id;
-  const to = places.find((p) => p.name === "Lovely Institute of Technology").id;
+  const from = places.find((p) => p.source_id === "osm-way-354743583").id;
+  const to = places.find((p) => p.source_id === "osm-way-354755644").id;
   const [visitor, token] = await session();
   const result = await visitor
     .post("/api/routes")

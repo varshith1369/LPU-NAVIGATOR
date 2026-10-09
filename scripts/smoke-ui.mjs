@@ -42,20 +42,11 @@ assert.ok(
     (n) => n.textContent === "18",
   ),
 );
-for (const block of [
-  "14",
-  "18",
-  "30",
-  "32",
-  "34",
-  "36",
-  "37",
-  "38",
-  "55",
-  "55A",
-  "56",
-  "57",
-]) {
+const expectedBlocks = places.items
+  .filter((p) => p.building_code)
+  .map((p) => p.building_code);
+assert.equal(expectedBlocks.length, 55);
+for (const block of expectedBlocks) {
   assert.equal(
     [...w.document.querySelectorAll(".map-number")].filter(
       (n) => n.textContent === block,
@@ -64,7 +55,9 @@ for (const block of [
     `One live marker for block ${block}`,
   );
 }
-assert.equal(w.document.querySelectorAll(".place-row").length, 18);
+assert.equal(w.document.querySelectorAll(".place-row").length, 56);
+assert.ok(text.includes("55 labels"));
+assert.ok(text.includes("Campus plan · approximate"));
 const historicalTab = [...w.document.querySelectorAll("button")].find((b) =>
   b.textContent.includes("Historical entries"),
 );

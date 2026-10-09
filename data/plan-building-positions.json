@@ -1,0 +1,2912 @@
+{
+  "source": {
+    "id": "lpu-official-induction-site-plan",
+    "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+    "title": "LPU Freshmen Induction campus site plan",
+    "image_width": 1000,
+    "image_height": 1520,
+    "image_sha256": "461836ac23661cd3c782dd916b98ca5cb9c276f7851aabd33763263c3b407a72",
+    "retrieved_at": "2026-10-09T00:00:00Z",
+    "publication_date": null
+  },
+  "notes": [
+    "Review dataset: these source diagram labels are not a claim of current building identities or GPS-surveyed entrances.",
+    "All 53 coordinates are affine estimates, including those matching control labels. Use separately sourced direct coordinates when available.",
+    "The official diagram is undated. Published numbers and occupants may have changed; source codes are retained without automatic renaming.",
+    "Nearest OSM footprints are candidates for manual review only. No coordinates are automatically snapped.",
+    "Fit and validation errors describe public-map point agreement, not guaranteed positioning accuracy at each building.",
+    "OSM boundary and footprint coverage may be incomplete. Outside-boundary findings are flagged, not silently discarded."
+  ],
+  "inputs": {
+    "labels_and_controls_sha256": "a5be83e28e6649006018d354379158c563718b9cc930ce96c6dc6934fa165342",
+    "osm_area_sha256": "1f26f74c197bacc758edffe3d53ce3b0d64912dda14f0723ef679bdcb7e0c694",
+    "osm_license": "ODbL-1.0",
+    "osm_attribution": "© OpenStreetMap contributors"
+  },
+  "affine_model": {
+    "formula": "coordinate = coefficient_x * pixel_x + coefficient_y * pixel_y + intercept",
+    "coefficient_order": [
+      "x",
+      "y",
+      "intercept"
+    ],
+    "latitude": [
+      0.000006571889519250362,
+      0.000011777001806478892,
+      31.24370313089854
+    ],
+    "longitude": [
+      -0.000012792051788892423,
+      0.0000070594887234847195,
+      75.70382723821625
+    ]
+  },
+  "validation": {
+    "fitting": {
+      "count": 11,
+      "rmse_m": 13.894,
+      "median_m": 11.938,
+      "maximum_m": 21.308
+    },
+    "independent_holdouts": {
+      "count": 10,
+      "rmse_m": 23.714,
+      "median_m": 22.215,
+      "maximum_m": 41.281
+    },
+    "leave_one_out": {
+      "count": 11,
+      "rmse_m": 21.681,
+      "median_m": 17.171,
+      "maximum_m": 46.138
+    },
+    "leave_one_out_results": [
+      {
+        "code": "14",
+        "error_m": 46.138
+      },
+      {
+        "code": "18",
+        "error_m": 18.394
+      },
+      {
+        "code": "30",
+        "error_m": 23.826
+      },
+      {
+        "code": "32",
+        "error_m": 11.459
+      },
+      {
+        "code": "34",
+        "error_m": 15.149
+      },
+      {
+        "code": "36",
+        "error_m": 11.733
+      },
+      {
+        "code": "37",
+        "error_m": 10.066
+      },
+      {
+        "code": "38",
+        "error_m": 17.171
+      },
+      {
+        "code": "55",
+        "error_m": 14.438
+      },
+      {
+        "code": "56",
+        "error_m": 26.205
+      },
+      {
+        "code": "57",
+        "error_m": 18.609
+      }
+    ],
+    "within_campus_count": 53,
+    "outside_campus_codes": [],
+    "within_building_count": 24,
+    "candidate_building_count": 245
+  },
+  "control_points": [
+    {
+      "code": "14",
+      "source_code": "14",
+      "pixel": {
+        "x": 270,
+        "y": 755
+      },
+      "role": "fit",
+      "latitude": 31.254501,
+      "longitude": 75.70554059999999,
+      "position_source_url": "https://www.google.com/maps?cid=4500083466120690996",
+      "number_source_url": "https://www.lpu.in/HRD/Broucher/CCT984.pdf",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.25436918,
+      "predicted_longitude": 75.7057033,
+      "error_m": 21.308
+    },
+    {
+      "code": "18",
+      "source_code": "18",
+      "pixel": {
+        "x": 443,
+        "y": 740
+      },
+      "role": "fit",
+      "latitude": 31.2552593,
+      "longitude": 75.703346,
+      "position_source_url": "https://www.openstreetmap.org/node/6325106324",
+      "number_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "notes": "Existing OpenStreetMap point retained as the fit control.",
+      "predicted_latitude": 31.25532946,
+      "predicted_longitude": 75.70338438,
+      "error_m": 8.612
+    },
+    {
+      "code": "30",
+      "source_code": "30",
+      "pixel": {
+        "x": 280,
+        "y": 615
+      },
+      "role": "fit",
+      "latitude": 31.2527142,
+      "longitude": 75.7047836,
+      "position_source_url": "https://www.google.com/maps?cid=2667904719772660228",
+      "number_source_url": "https://www.google.com/maps?cid=2667904719772660228",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.25278612,
+      "predicted_longitude": 75.70458705,
+      "error_m": 20.323
+    },
+    {
+      "code": "32",
+      "source_code": "32",
+      "pixel": {
+        "x": 246,
+        "y": 579
+      },
+      "role": "fit",
+      "latitude": 31.2520625,
+      "longitude": 75.7048125,
+      "position_source_url": "https://www.google.com/maps?cid=11946081511885542298",
+      "number_source_url": "https://www.google.com/maps?cid=11946081511885542298",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.2521387,
+      "predicted_longitude": 75.70476784,
+      "error_m": 9.477
+    },
+    {
+      "code": "34",
+      "source_code": "34",
+      "pixel": {
+        "x": 223,
+        "y": 529
+      },
+      "role": "fit",
+      "latitude": 31.2512938,
+      "longitude": 75.70476029999999,
+      "position_source_url": "https://www.google.com/maps?cid=10038059493305117466",
+      "number_source_url": "https://www.google.com/maps?cid=10038059493305117466",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.2513987,
+      "predicted_longitude": 75.70470908,
+      "error_m": 12.639
+    },
+    {
+      "code": "36",
+      "source_code": "36",
+      "pixel": {
+        "x": 269,
+        "y": 515
+      },
+      "role": "fit",
+      "latitude": 31.2515771,
+      "longitude": 75.7041227,
+      "position_source_url": "https://www.google.com/maps?cid=564512687552076880",
+      "number_source_url": "https://www.google.com/maps?cid=564512687552076880",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.25153613,
+      "predicted_longitude": 75.70402181,
+      "error_m": 10.618
+    },
+    {
+      "code": "37",
+      "source_code": "37",
+      "pixel": {
+        "x": 301,
+        "y": 518
+      },
+      "role": "fit",
+      "latitude": 31.2518313,
+      "longitude": 75.70356422207865,
+      "position_source_url": "https://www.openstreetmap.org/way/422556249",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=MLB",
+      "notes": "Existing OpenStreetMap point retained as the fit control.",
+      "predicted_latitude": 31.25178176,
+      "predicted_longitude": 75.70363365,
+      "error_m": 8.597
+    },
+    {
+      "code": "38",
+      "source_code": "38",
+      "pixel": {
+        "x": 341,
+        "y": 522
+      },
+      "role": "fit",
+      "latitude": 31.2521954,
+      "longitude": 75.70311749999999,
+      "position_source_url": "https://www.google.com/maps?cid=5788977802645604742",
+      "number_source_url": "https://www.google.com/maps?cid=5788977802645604742",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.25209174,
+      "predicted_longitude": 75.7031502,
+      "error_m": 11.938
+    },
+    {
+      "code": "55",
+      "source_code": "55",
+      "pixel": {
+        "x": 144,
+        "y": 211
+      },
+      "role": "fit",
+      "latitude": 31.2470394,
+      "longitude": 75.7034572,
+      "position_source_url": "https://www.google.com/maps?cid=9126628790074468410",
+      "number_source_url": "https://www.google.com/maps?cid=9126628790074468410",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.24713443,
+      "predicted_longitude": 75.70347473,
+      "error_m": 10.698
+    },
+    {
+      "code": "56",
+      "source_code": "56",
+      "pixel": {
+        "x": 114,
+        "y": 187
+      },
+      "role": "fit",
+      "latitude": 31.2466972,
+      "longitude": 75.70350169999999,
+      "position_source_url": "https://www.google.com/maps?cid=2668868461393555063",
+      "number_source_url": "https://www.google.com/maps?cid=2668868461393555063",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.24665463,
+      "predicted_longitude": 75.70368907,
+      "error_m": 18.431
+    },
+    {
+      "code": "57",
+      "source_code": "57",
+      "pixel": {
+        "x": 107,
+        "y": 150
+      },
+      "role": "fit",
+      "latitude": 31.2462225,
+      "longitude": 75.7036322,
+      "position_source_url": "https://www.google.com/maps?cid=873767666858229497",
+      "number_source_url": "https://www.google.com/maps?cid=873767666858229497",
+      "notes": "Named Google public-map building record; not an entrance survey.",
+      "predicted_latitude": 31.24617287,
+      "predicted_longitude": 75.70351741,
+      "error_m": 12.228
+    }
+  ],
+  "holdout_points": [
+    {
+      "code": "26",
+      "source_code": "26",
+      "pixel": {
+        "x": 378,
+        "y": 556
+      },
+      "role": "holdout",
+      "latitude": 31.2525761,
+      "longitude": 75.7031068,
+      "position_source_url": "https://www.google.com/maps?cid=6943817078992480303",
+      "number_source_url": "https://www.google.com/maps?cid=6943817078992480303",
+      "notes": "Independent Google building record, excluded from the affine fit.",
+      "predicted_latitude": 31.25273532,
+      "predicted_longitude": 75.70291692,
+      "error_m": 25.283
+    },
+    {
+      "code": "33",
+      "source_code": "33",
+      "pixel": {
+        "x": 237,
+        "y": 554
+      },
+      "role": "holdout",
+      "latitude": 31.2518319,
+      "longitude": 75.7047584,
+      "position_source_url": "https://www.google.com/maps?cid=79707721026695807",
+      "number_source_url": "https://www.lpu.in/events/techmarathon/",
+      "notes": "Independent Google building record, excluded from the affine fit.",
+      "predicted_latitude": 31.25178513,
+      "predicted_longitude": 75.70470648,
+      "error_m": 7.17
+    },
+    {
+      "code": "35",
+      "source_code": "35",
+      "pixel": {
+        "x": 288,
+        "y": 549
+      },
+      "role": "holdout",
+      "latitude": 31.2520538,
+      "longitude": 75.7041119,
+      "position_source_url": "https://www.google.com/maps?cid=14579625004601050590",
+      "number_source_url": "https://www.lpu.in/events/freshmeninduction/minute-to-minute-schedule.php",
+      "notes": "Independent Google building record, excluded from the affine fit.",
+      "predicted_latitude": 31.25206141,
+      "predicted_longitude": 75.70401879,
+      "error_m": 8.892
+    },
+    {
+      "code": "53",
+      "source_code": "53",
+      "pixel": {
+        "x": 184,
+        "y": 319
+      },
+      "role": "holdout",
+      "latitude": 31.2490298,
+      "longitude": 75.70362209999999,
+      "position_source_url": "https://www.google.com/maps?cid=15630065401416290880",
+      "number_source_url": "https://www.google.com/maps?cid=15630065401416290880",
+      "notes": "Independent Google building record, excluded from the affine fit.",
+      "predicted_latitude": 31.24866922,
+      "predicted_longitude": 75.70372548,
+      "error_m": 41.281
+    },
+    {
+      "code": "1",
+      "source_code": "1",
+      "pixel": {
+        "x": 239,
+        "y": 1159
+      },
+      "role": "holdout",
+      "latitude": 31.2586405,
+      "longitude": 75.70891379999999,
+      "position_source_url": "https://www.google.com/maps?cid=12683150027335632343",
+      "number_source_url": "https://www.lpu.in/HRD/Broucher/CCT971.pdf",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 1; public reference code 1. This does not rename the output source label.",
+      "predicted_latitude": 31.25892336,
+      "predicted_longitude": 75.70895189,
+      "error_m": 31.66
+    },
+    {
+      "code": "3",
+      "source_code": "3A",
+      "pixel": {
+        "x": 334,
+        "y": 1046
+      },
+      "role": "holdout",
+      "latitude": 31.2581045,
+      "longitude": 75.7068525,
+      "position_source_url": "https://www.google.com/maps?cid=15989278447914120094",
+      "number_source_url": "https://www.lpu.in/sustainable/doc/annual-report-2022.pdf",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 3A; public reference code 3. This does not rename the output source label.",
+      "predicted_latitude": 31.25821689,
+      "predicted_longitude": 75.70693892,
+      "error_m": 14.955
+    },
+    {
+      "code": "6",
+      "source_code": "8A",
+      "pixel": {
+        "x": 263,
+        "y": 987
+      },
+      "role": "holdout",
+      "latitude": 31.2568719,
+      "longitude": 75.7072501,
+      "position_source_url": "https://www.google.com/maps?cid=8661084662962665289",
+      "number_source_url": "https://happenings.lpu.in/5-food-joints-to-visit-in-lpu/",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 8A; public reference code 6. This does not rename the output source label.",
+      "predicted_latitude": 31.25705544,
+      "predicted_longitude": 75.70743064,
+      "error_m": 26.665
+    },
+    {
+      "code": "13",
+      "source_code": "13",
+      "pixel": {
+        "x": 274,
+        "y": 826
+      },
+      "role": "holdout",
+      "latitude": 31.2551178,
+      "longitude": 75.7060709,
+      "position_source_url": "https://www.google.com/maps?cid=9212203886738363511",
+      "number_source_url": "https://www.lpu.in/campus-life/art-and-culture.php",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 13; public reference code 13. This does not rename the output source label.",
+      "predicted_latitude": 31.25523163,
+      "predicted_longitude": 75.70615335,
+      "error_m": 14.888
+    },
+    {
+      "code": "15",
+      "source_code": "15A",
+      "pixel": {
+        "x": 344,
+        "y": 847
+      },
+      "role": "holdout",
+      "latitude": 31.2557641,
+      "longitude": 75.7054825,
+      "position_source_url": "https://www.google.com/maps?cid=5479435647901965319",
+      "number_source_url": "https://happenings.lpu.in/5-food-joints-to-visit-in-lpu/",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 15A; public reference code 15. This does not rename the output source label.",
+      "predicted_latitude": 31.25593898,
+      "predicted_longitude": 75.70540616,
+      "error_m": 20.756
+    },
+    {
+      "code": "15B",
+      "source_code": "15B",
+      "pixel": {
+        "x": 403,
+        "y": 807
+      },
+      "role": "holdout",
+      "latitude": 31.2556441,
+      "longitude": 75.704341,
+      "position_source_url": "https://www.google.com/maps?cid=6404386781288677907",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=LSH",
+      "notes": "Independent named-building location matched to the source plan footprint. Plan code 15B; public reference code 15B. This does not rename the output source label.",
+      "predicted_latitude": 31.25585564,
+      "predicted_longitude": 75.70436905,
+      "error_m": 23.673
+    }
+  ],
+  "alternative_reference_points": [
+    {
+      "code": "18",
+      "source_code": "18",
+      "pixel": {
+        "x": 443,
+        "y": 740
+      },
+      "role": "alternative_reference",
+      "latitude": 31.2551999,
+      "longitude": 75.703739,
+      "position_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "number_source_url": "https://www.google.com/maps?cid=11793478306432889635",
+      "notes": "Alternative Google point for an OSM training building. Not an independent building holdout.",
+      "predicted_latitude": 31.25532946,
+      "predicted_longitude": 75.70338438,
+      "error_m": 36.658
+    },
+    {
+      "code": "37",
+      "source_code": "37",
+      "pixel": {
+        "x": 301,
+        "y": 518
+      },
+      "role": "alternative_reference",
+      "latitude": 31.2519927,
+      "longitude": 75.7033787,
+      "position_source_url": "https://www.google.com/maps?cid=3455241597575339866",
+      "number_source_url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=MLB",
+      "notes": "Alternative Google point for an OSM training building. Not an independent building holdout.",
+      "predicted_latitude": 31.25178176,
+      "predicted_longitude": 75.70363365,
+      "error_m": 33.727
+    }
+  ],
+  "positions": [
+    {
+      "source_code": "1",
+      "source_name": "School of Computer Application",
+      "pixel": {
+        "x": 239,
+        "y": 1159
+      },
+      "latitude": 31.25892336,
+      "longitude": 75.70895189,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-354743583",
+            "url": "https://www.openstreetmap.org/way/354743583",
+            "name": "Lovely Institute Of Management",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 1.813
+          },
+          {
+            "source_id": "osm-way-422823981",
+            "url": "https://www.openstreetmap.org/way/422823981",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 30.963
+          },
+          {
+            "source_id": "osm-way-427330237",
+            "url": "https://www.openstreetmap.org/way/427330237",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 76.514
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "2A",
+      "source_name": "Mini Auditorium",
+      "pixel": {
+        "x": 284,
+        "y": 1087
+      },
+      "latitude": 31.25837115,
+      "longitude": 75.70786796,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-427330238",
+            "url": "https://www.openstreetmap.org/way/427330238",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-427330237",
+            "url": "https://www.openstreetmap.org/way/427330237",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 12.998
+          },
+          {
+            "source_id": "osm-way-422732974",
+            "url": "https://www.openstreetmap.org/way/422732974",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 13.559
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "2B",
+      "source_name": "Campus Cafe",
+      "pixel": {
+        "x": 278,
+        "y": 1112
+      },
+      "latitude": 31.25862614,
+      "longitude": 75.7081212,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422732974",
+            "url": "https://www.openstreetmap.org/way/422732974",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 11.093
+          },
+          {
+            "source_id": "osm-way-427330238",
+            "url": "https://www.openstreetmap.org/way/427330238",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 17.109
+          },
+          {
+            "source_id": "osm-way-427330237",
+            "url": "https://www.openstreetmap.org/way/427330237",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 18.567
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "3A",
+      "source_name": "School of International Studies",
+      "pixel": {
+        "x": 334,
+        "y": 1046
+      },
+      "latitude": 31.25821689,
+      "longitude": 75.70693892,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-354755644",
+            "url": "https://www.openstreetmap.org/way/354755644",
+            "name": "Lovely Institute of Technology",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 4.375
+          },
+          {
+            "source_id": "osm-way-426283204",
+            "url": "https://www.openstreetmap.org/way/426283204",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 7.039
+          },
+          {
+            "source_id": "osm-way-426529781",
+            "url": "https://www.openstreetmap.org/way/426529781",
+            "name": null,
+            "building": "roof",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 12.424
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "3B",
+      "source_name": "Lovely Institute of Technology (Pharmacy)",
+      "pixel": {
+        "x": 292,
+        "y": 1043
+      },
+      "latitude": 31.25790554,
+      "longitude": 75.70745501,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-354830243",
+            "url": "https://www.openstreetmap.org/way/354830243",
+            "name": "Lovely Institute of Pharmacy",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 22.775
+          },
+          {
+            "source_id": "osm-way-427330237",
+            "url": "https://www.openstreetmap.org/way/427330237",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 25.546
+          },
+          {
+            "source_id": "osm-way-426529781",
+            "url": "https://www.openstreetmap.org/way/426529781",
+            "name": null,
+            "building": "roof",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 34.503
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "8A",
+      "source_name": "School of Architecture and Design",
+      "pixel": {
+        "x": 263,
+        "y": 987
+      },
+      "latitude": 31.25705544,
+      "longitude": 75.70743064,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-354830243",
+            "url": "https://www.openstreetmap.org/way/354830243",
+            "name": "Lovely Institute of Pharmacy",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 45.189
+          },
+          {
+            "source_id": "osm-way-422738980",
+            "url": "https://www.openstreetmap.org/way/422738980",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 47.558
+          },
+          {
+            "source_id": "osm-way-426529781",
+            "url": "https://www.openstreetmap.org/way/426529781",
+            "name": null,
+            "building": "roof",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 89.959
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "8B",
+      "source_name": "School of Pharmaceutical Sciences",
+      "pixel": {
+        "x": 294,
+        "y": 974
+      },
+      "latitude": 31.25710607,
+      "longitude": 75.70694232,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-354830243",
+            "url": "https://www.openstreetmap.org/way/354830243",
+            "name": "Lovely Institute of Pharmacy",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 51.078
+          },
+          {
+            "source_id": "osm-way-354755644",
+            "url": "https://www.openstreetmap.org/way/354755644",
+            "name": "Lovely Institute of Technology",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 72.05
+          },
+          {
+            "source_id": "osm-way-426529781",
+            "url": "https://www.openstreetmap.org/way/426529781",
+            "name": null,
+            "building": "roof",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 79.119
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "8C",
+      "source_name": "Uni Hospital / School of Arts and Languages / School of Fashion Design",
+      "pixel": {
+        "x": 297,
+        "y": 953
+      },
+      "latitude": 31.25687846,
+      "longitude": 75.70675569,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-425717556",
+            "url": "https://www.openstreetmap.org/way/425717556",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 72.149
+          },
+          {
+            "source_id": "osm-way-425717558",
+            "url": "https://www.openstreetmap.org/way/425717558",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 73.704
+          },
+          {
+            "source_id": "osm-way-354830243",
+            "url": "https://www.openstreetmap.org/way/354830243",
+            "name": "Lovely Institute of Pharmacy",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 79.992
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "9",
+      "source_name": "Girls Hostel 1",
+      "pixel": {
+        "x": 366,
+        "y": 939
+      },
+      "latitude": 31.25716705,
+      "longitude": 75.70577421,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437906",
+            "url": "https://www.openstreetmap.org/way/422437906",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 6.26
+          },
+          {
+            "source_id": "osm-way-425716258",
+            "url": "https://www.openstreetmap.org/way/425716258",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 12.295
+          },
+          {
+            "source_id": "osm-way-425716259",
+            "url": "https://www.openstreetmap.org/way/425716259",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 17.416
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "10",
+      "source_name": "Girls Hostel 2",
+      "pixel": {
+        "x": 419,
+        "y": 905
+      },
+      "latitude": 31.25711494,
+      "longitude": 75.70485621,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437900",
+            "url": "https://www.openstreetmap.org/way/422437900",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 7.873
+          },
+          {
+            "source_id": "osm-way-422437904",
+            "url": "https://www.openstreetmap.org/way/422437904",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 38.246
+          },
+          {
+            "source_id": "osm-way-422437901",
+            "url": "https://www.openstreetmap.org/way/422437901",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 43.156
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "11",
+      "source_name": "Girls Hostel 3",
+      "pixel": {
+        "x": 405,
+        "y": 860
+      },
+      "latitude": 31.25649297,
+      "longitude": 75.70471762,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437901",
+            "url": "https://www.openstreetmap.org/way/422437901",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 0.448
+          },
+          {
+            "source_id": "osm-way-422437898",
+            "url": "https://www.openstreetmap.org/way/422437898",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 8
+          },
+          {
+            "source_id": "osm-way-422437900",
+            "url": "https://www.openstreetmap.org/way/422437900",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 26.122
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "12",
+      "source_name": "Girls Hostel 4",
+      "pixel": {
+        "x": 346,
+        "y": 908
+      },
+      "latitude": 31.25667052,
+      "longitude": 75.7058112,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437902",
+            "url": "https://www.openstreetmap.org/way/422437902",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422437908",
+            "url": "https://www.openstreetmap.org/way/422437908",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 15.712
+          },
+          {
+            "source_id": "osm-way-425716257",
+            "url": "https://www.openstreetmap.org/way/425716257",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 20.794
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "13",
+      "source_name": "Division of Student Affairs",
+      "pixel": {
+        "x": 274,
+        "y": 826
+      },
+      "latitude": 31.25523163,
+      "longitude": 75.70615335,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437887",
+            "url": "https://www.openstreetmap.org/way/422437887",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 55.198
+          },
+          {
+            "source_id": "osm-way-422437885",
+            "url": "https://www.openstreetmap.org/way/422437885",
+            "name": "LPU Mall",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 62.602
+          },
+          {
+            "source_id": "osm-way-422823431",
+            "url": "https://www.openstreetmap.org/way/422823431",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 79.548
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "14",
+      "source_name": "School of Business",
+      "pixel": {
+        "x": 270,
+        "y": 755
+      },
+      "latitude": 31.25436918,
+      "longitude": 75.7057033,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437888",
+            "url": "https://www.openstreetmap.org/way/422437888",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422437887",
+            "url": "https://www.openstreetmap.org/way/422437887",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 0.863
+          },
+          {
+            "source_id": "osm-way-422823431",
+            "url": "https://www.openstreetmap.org/way/422823431",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 77.185
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "15A",
+      "source_name": "Unicenter",
+      "pixel": {
+        "x": 344,
+        "y": 847
+      },
+      "latitude": 31.25593898,
+      "longitude": 75.70540616,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437885",
+            "url": "https://www.openstreetmap.org/way/422437885",
+            "name": "LPU Mall",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 18.237
+          },
+          {
+            "source_id": "osm-way-422437898",
+            "url": "https://www.openstreetmap.org/way/422437898",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 34.107
+          },
+          {
+            "source_id": "osm-way-422437902",
+            "url": "https://www.openstreetmap.org/way/422437902",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 41.963
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "15B",
+      "source_name": "School of Hotel Management and Tourism",
+      "pixel": {
+        "x": 403,
+        "y": 807
+      },
+      "latitude": 31.25585564,
+      "longitude": 75.70436905,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437899",
+            "url": "https://www.openstreetmap.org/way/422437899",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 24.913
+          },
+          {
+            "source_id": "osm-way-422437885",
+            "url": "https://www.openstreetmap.org/way/422437885",
+            "name": "LPU Mall",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 25.042
+          },
+          {
+            "source_id": "osm-way-422437898",
+            "url": "https://www.openstreetmap.org/way/422437898",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 26.994
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "18",
+      "source_name": "Department of Education / Physical Education",
+      "pixel": {
+        "x": 443,
+        "y": 740
+      },
+      "latitude": 31.25532946,
+      "longitude": 75.70338438,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437890",
+            "url": "https://www.openstreetmap.org/way/422437890",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-675395630",
+            "url": "https://www.openstreetmap.org/way/675395630",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-425699179",
+            "url": "https://www.openstreetmap.org/way/425699179",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 58.268
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "19",
+      "source_name": "Unipolis",
+      "pixel": {
+        "x": 360,
+        "y": 803
+      },
+      "latitude": 31.25552594,
+      "longitude": 75.70489087,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437885",
+            "url": "https://www.openstreetmap.org/way/422437885",
+            "name": "LPU Mall",
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823431",
+            "url": "https://www.openstreetmap.org/way/422823431",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 16.542
+          },
+          {
+            "source_id": "osm-way-426529406",
+            "url": "https://www.openstreetmap.org/way/426529406",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 37.652
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "20",
+      "source_name": "School of Law",
+      "pixel": {
+        "x": 553,
+        "y": 657
+      },
+      "latitude": 31.25507488,
+      "longitude": 75.70139132,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548857",
+            "url": "https://www.openstreetmap.org/way/422548857",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422548858",
+            "url": "https://www.openstreetmap.org/way/422548858",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 22.76
+          },
+          {
+            "source_id": "osm-way-422548856",
+            "url": "https://www.openstreetmap.org/way/422548856",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 40.789
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "21A",
+      "source_name": "Girls Hostel 5",
+      "pixel": {
+        "x": 518,
+        "y": 579
+      },
+      "latitude": 31.25392625,
+      "longitude": 75.7012884,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548308",
+            "url": "https://www.openstreetmap.org/way/422548308",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 1.659
+          },
+          {
+            "source_id": "osm-way-422738883",
+            "url": "https://www.openstreetmap.org/way/422738883",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 1.748
+          },
+          {
+            "source_id": "osm-way-422548304",
+            "url": "https://www.openstreetmap.org/way/422548304",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 4.564
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "21B",
+      "source_name": "Girls Hostel 6",
+      "pixel": {
+        "x": 557,
+        "y": 559
+      },
+      "latitude": 31.25394702,
+      "longitude": 75.70064832,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548301",
+            "url": "https://www.openstreetmap.org/way/422548301",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422548312",
+            "url": "https://www.openstreetmap.org/way/422548312",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 8.801
+          },
+          {
+            "source_id": "osm-way-422548313",
+            "url": "https://www.openstreetmap.org/way/422548313",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 10.108
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "25",
+      "source_name": "School of Biotechnology and Biosciences",
+      "pixel": {
+        "x": 400,
+        "y": 549
+      },
+      "latitude": 31.25279746,
+      "longitude": 75.70258608,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823422",
+            "url": "https://www.openstreetmap.org/way/422823422",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 3.174
+          },
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 3.371
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 54.962
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "26",
+      "source_name": "School of Electronics and Electrical Engineering",
+      "pixel": {
+        "x": 378,
+        "y": 556
+      },
+      "latitude": 31.25273532,
+      "longitude": 75.70291692,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823422",
+            "url": "https://www.openstreetmap.org/way/422823422",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 35.171
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 48.144
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "27",
+      "source_name": "School of Physical Sciences",
+      "pixel": {
+        "x": 353,
+        "y": 570
+      },
+      "latitude": 31.2527359,
+      "longitude": 75.70333555,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 48.614
+          },
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 59.417
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "28",
+      "source_name": "School of Agriculture",
+      "pixel": {
+        "x": 326,
+        "y": 583
+      },
+      "latitude": 31.25271156,
+      "longitude": 75.70377271,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 46.668
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 46.921
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "29",
+      "source_name": "Office of the Pro-Chancellor / Administrative Block I",
+      "pixel": {
+        "x": 306,
+        "y": 600
+      },
+      "latitude": 31.25278033,
+      "longitude": 75.70414856,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823423",
+            "url": "https://www.openstreetmap.org/way/422823423",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 26.565
+          },
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 54.422
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "30",
+      "source_name": "The Chancellory",
+      "pixel": {
+        "x": 280,
+        "y": 615
+      },
+      "latitude": 31.25278612,
+      "longitude": 75.70458705,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823423",
+            "url": "https://www.openstreetmap.org/way/422823423",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823424",
+            "url": "https://www.openstreetmap.org/way/422823424",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 15.558
+          },
+          {
+            "source_id": "osm-way-422823426",
+            "url": "https://www.openstreetmap.org/way/422823426",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 22.417
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "31",
+      "source_name": "Division of Admissions / Museum of Academics",
+      "pixel": {
+        "x": 251,
+        "y": 601
+      },
+      "latitude": 31.25243065,
+      "longitude": 75.70485919,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823423",
+            "url": "https://www.openstreetmap.org/way/422823423",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 11.031
+          },
+          {
+            "source_id": "osm-way-422823426",
+            "url": "https://www.openstreetmap.org/way/422823426",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 12.82
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "32",
+      "source_name": "Office of the Vice Chancellor / Division of Career Services and administrative divisions",
+      "pixel": {
+        "x": 246,
+        "y": 579
+      },
+      "latitude": 31.2521387,
+      "longitude": 75.70476784,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823423",
+            "url": "https://www.openstreetmap.org/way/422823423",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 32.886
+          },
+          {
+            "source_id": "osm-way-422823424",
+            "url": "https://www.openstreetmap.org/way/422823424",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 45.474
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "33",
+      "source_name": "School of Electronics and Electrical Engineering",
+      "pixel": {
+        "x": 237,
+        "y": 554
+      },
+      "latitude": 31.25178513,
+      "longitude": 75.70470648,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 43.739
+          },
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 46.113
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "34",
+      "source_name": "School of Computer Science and Engineering",
+      "pixel": {
+        "x": 223,
+        "y": 529
+      },
+      "latitude": 31.2513987,
+      "longitude": 75.70470908,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823419",
+            "url": "https://www.openstreetmap.org/way/422823419",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 35.666
+          },
+          {
+            "source_id": "osm-way-422823418",
+            "url": "https://www.openstreetmap.org/way/422823418",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 39.227
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "35",
+      "source_name": "Shanti Devi Mittal Auditorium",
+      "pixel": {
+        "x": 288,
+        "y": 549
+      },
+      "latitude": 31.25206141,
+      "longitude": 75.70401879,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422556251",
+            "url": "https://www.openstreetmap.org/way/422556251",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 5.532
+          },
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 12.1
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "36",
+      "source_name": "School of Electronics and Electrical Engineering",
+      "pixel": {
+        "x": 269,
+        "y": 515
+      },
+      "latitude": 31.25153613,
+      "longitude": 75.70402181,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823420",
+            "url": "https://www.openstreetmap.org/way/422823420",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 36.719
+          },
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 43.998
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "37",
+      "source_name": "Central Library",
+      "pixel": {
+        "x": 301,
+        "y": 518
+      },
+      "latitude": 31.25178176,
+      "longitude": 75.70363365,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422556250",
+            "url": "https://www.openstreetmap.org/way/422556250",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 34.307
+          },
+          {
+            "source_id": "osm-way-422886539",
+            "url": "https://www.openstreetmap.org/way/422886539",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 41.433
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "38",
+      "source_name": "Research Center",
+      "pixel": {
+        "x": 341,
+        "y": 522
+      },
+      "latitude": 31.25209174,
+      "longitude": 75.7031502,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422556249",
+            "url": "https://www.openstreetmap.org/way/422556249",
+            "name": "Central Library",
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422823421",
+            "url": "https://www.openstreetmap.org/way/422823421",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 39.542
+          },
+          {
+            "source_id": "osm-way-422551928",
+            "url": "https://www.openstreetmap.org/way/422551928",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 51.306
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "41A",
+      "source_name": "Staff Apartments",
+      "pixel": {
+        "x": 402,
+        "y": 489
+      },
+      "latitude": 31.25210398,
+      "longitude": 75.70213692,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-1550425052",
+            "url": "https://www.openstreetmap.org/way/1550425052",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 8.47
+          },
+          {
+            "source_id": "osm-way-422437895",
+            "url": "https://www.openstreetmap.org/way/422437895",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 18.512
+          },
+          {
+            "source_id": "osm-way-422437896",
+            "url": "https://www.openstreetmap.org/way/422437896",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 36.758
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "41B",
+      "source_name": "Staff Apartments",
+      "pixel": {
+        "x": 423,
+        "y": 477
+      },
+      "latitude": 31.25210067,
+      "longitude": 75.70178358,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-1550425052",
+            "url": "https://www.openstreetmap.org/way/1550425052",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 3.74
+          },
+          {
+            "source_id": "osm-way-422437896",
+            "url": "https://www.openstreetmap.org/way/422437896",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 19.524
+          },
+          {
+            "source_id": "osm-way-422437895",
+            "url": "https://www.openstreetmap.org/way/422437895",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 22.874
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "41C",
+      "source_name": "Staff Apartments",
+      "pixel": {
+        "x": 445,
+        "y": 469
+      },
+      "latitude": 31.25215104,
+      "longitude": 75.70144568,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437897",
+            "url": "https://www.openstreetmap.org/way/422437897",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 2.266
+          },
+          {
+            "source_id": "osm-way-1550425052",
+            "url": "https://www.openstreetmap.org/way/1550425052",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 11.176
+          },
+          {
+            "source_id": "osm-way-422437896",
+            "url": "https://www.openstreetmap.org/way/422437896",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 30.87
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "41D",
+      "source_name": "Staff Apartments",
+      "pixel": {
+        "x": 461,
+        "y": 462
+      },
+      "latitude": 31.25217375,
+      "longitude": 75.70119159,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437897",
+            "url": "https://www.openstreetmap.org/way/422437897",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 11.047
+          },
+          {
+            "source_id": "osm-way-1550425052",
+            "url": "https://www.openstreetmap.org/way/1550425052",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 35.033
+          },
+          {
+            "source_id": "osm-way-422437896",
+            "url": "https://www.openstreetmap.org/way/422437896",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 49.156
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "42",
+      "source_name": "Swimming Pool (under construction in source)",
+      "pixel": {
+        "x": 424,
+        "y": 388
+      },
+      "latitude": 31.25105909,
+      "longitude": 75.70114249,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422437897",
+            "url": "https://www.openstreetmap.org/way/422437897",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 45.164
+          },
+          {
+            "source_id": "osm-way-422548300",
+            "url": "https://www.openstreetmap.org/way/422548300",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 63.441
+          },
+          {
+            "source_id": "osm-way-422820538",
+            "url": "https://www.openstreetmap.org/way/422820538",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 66.295
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "45",
+      "source_name": "Boys Hostel 1",
+      "pixel": {
+        "x": 499,
+        "y": 389
+      },
+      "latitude": 31.25156376,
+      "longitude": 75.70019015,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548300",
+            "url": "https://www.openstreetmap.org/way/422548300",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 4.142
+          },
+          {
+            "source_id": "osm-way-1300687861",
+            "url": "https://www.openstreetmap.org/way/1300687861",
+            "name": "the grand castle",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 64.63
+          },
+          {
+            "source_id": "osm-way-1300687862",
+            "url": "https://www.openstreetmap.org/way/1300687862",
+            "name": "pheonix apartment",
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 68.916
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "47",
+      "source_name": "Boys Hostel 7",
+      "pixel": {
+        "x": 558,
+        "y": 210
+      },
+      "latitude": 31.24984342,
+      "longitude": 75.69817177,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548299",
+            "url": "https://www.openstreetmap.org/way/422548299",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 19.362
+          },
+          {
+            "source_id": "osm-way-1304996361",
+            "url": "https://www.openstreetmap.org/way/1304996361",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 38.648
+          },
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 98.38
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "48",
+      "source_name": "Boys Hostel 2",
+      "pixel": {
+        "x": 399,
+        "y": 299
+      },
+      "latitude": 31.24984664,
+      "longitude": 75.700834,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 2.65
+          },
+          {
+            "source_id": "osm-way-422820537",
+            "url": "https://www.openstreetmap.org/way/422820537",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 71.278
+          },
+          {
+            "source_id": "osm-way-422820538",
+            "url": "https://www.openstreetmap.org/way/422820538",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 77.875
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "49",
+      "source_name": "Boys Hostel 3",
+      "pixel": {
+        "x": 444,
+        "y": 277
+      },
+      "latitude": 31.24988328,
+      "longitude": 75.70010305,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 4.508
+          },
+          {
+            "source_id": "osm-way-422820537",
+            "url": "https://www.openstreetmap.org/way/422820537",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 60.077
+          },
+          {
+            "source_id": "osm-way-422820538",
+            "url": "https://www.openstreetmap.org/way/422820538",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 80.948
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "50",
+      "source_name": "Boys Hostel 3A",
+      "pixel": {
+        "x": 479,
+        "y": 252
+      },
+      "latitude": 31.24981887,
+      "longitude": 75.69947884,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 15.331
+          },
+          {
+            "source_id": "osm-way-422820537",
+            "url": "https://www.openstreetmap.org/way/422820537",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 85.44
+          },
+          {
+            "source_id": "osm-way-422548299",
+            "url": "https://www.openstreetmap.org/way/422548299",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 104.598
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "51A",
+      "source_name": "Boys Hostel 4",
+      "pixel": {
+        "x": 416,
+        "y": 210
+      },
+      "latitude": 31.24891021,
+      "longitude": 75.69998824,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548298",
+            "url": "https://www.openstreetmap.org/way/422548298",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 1.388
+          },
+          {
+            "source_id": "osm-way-422738863",
+            "url": "https://www.openstreetmap.org/way/422738863",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 43.146
+          },
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 59.143
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "51B",
+      "source_name": "Boys Hostel 4",
+      "pixel": {
+        "x": 467,
+        "y": 173
+      },
+      "latitude": 31.24880962,
+      "longitude": 75.69907464,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422548298",
+            "url": "https://www.openstreetmap.org/way/422548298",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 2.113
+          },
+          {
+            "source_id": "osm-way-422548297",
+            "url": "https://www.openstreetmap.org/way/422548297",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 58.241
+          },
+          {
+            "source_id": "osm-way-422548299",
+            "url": "https://www.openstreetmap.org/way/422548299",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 96.663
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "53",
+      "source_name": "Boys Hostel 5",
+      "pixel": {
+        "x": 184,
+        "y": 319
+      },
+      "latitude": 31.24866922,
+      "longitude": 75.70372548,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422547443",
+            "url": "https://www.openstreetmap.org/way/422547443",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 2.012
+          },
+          {
+            "source_id": "osm-way-422547444",
+            "url": "https://www.openstreetmap.org/way/422547444",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 10.217
+          },
+          {
+            "source_id": "osm-way-422547445",
+            "url": "https://www.openstreetmap.org/way/422547445",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 27.319
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "54",
+      "source_name": "Boys Hostel 6",
+      "pixel": {
+        "x": 162,
+        "y": 267
+      },
+      "latitude": 31.24791224,
+      "longitude": 75.70363981,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422547443",
+            "url": "https://www.openstreetmap.org/way/422547443",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422547446",
+            "url": "https://www.openstreetmap.org/way/422547446",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 19.85
+          },
+          {
+            "source_id": "osm-way-422547447",
+            "url": "https://www.openstreetmap.org/way/422547447",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 20.756
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "55",
+      "source_name": "School of Mechanical Engineering",
+      "pixel": {
+        "x": 144,
+        "y": 211
+      },
+      "latitude": 31.24713443,
+      "longitude": 75.70347473,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422547448",
+            "url": "https://www.openstreetmap.org/way/422547448",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422547456",
+            "url": "https://www.openstreetmap.org/way/422547456",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 13.304
+          },
+          {
+            "source_id": "osm-way-422547449",
+            "url": "https://www.openstreetmap.org/way/422547449",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 26.349
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "56",
+      "source_name": "School of Civil Engineering",
+      "pixel": {
+        "x": 114,
+        "y": 187
+      },
+      "latitude": 31.24665463,
+      "longitude": 75.70368907,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422547450",
+            "url": "https://www.openstreetmap.org/way/422547450",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422547454",
+            "url": "https://www.openstreetmap.org/way/422547454",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 10.754
+          },
+          {
+            "source_id": "osm-way-422547451",
+            "url": "https://www.openstreetmap.org/way/422547451",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 19.643
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "57",
+      "source_name": "School of Polytechnic",
+      "pixel": {
+        "x": 107,
+        "y": 150
+      },
+      "latitude": 31.24617287,
+      "longitude": 75.70351741,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": true,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422547452",
+            "url": "https://www.openstreetmap.org/way/422547452",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": true,
+            "distance_to_footprint_m": 0
+          },
+          {
+            "source_id": "osm-way-422547453",
+            "url": "https://www.openstreetmap.org/way/422547453",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 24.92
+          },
+          {
+            "source_id": "osm-way-422551921",
+            "url": "https://www.openstreetmap.org/way/422551921",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 25.2
+          }
+        ],
+        "automatically_snapped": false
+      }
+    },
+    {
+      "source_code": "58",
+      "source_name": "Workshops",
+      "pixel": {
+        "x": 98,
+        "y": 125
+      },
+      "latitude": 31.2458193,
+      "longitude": 75.70345605,
+      "position_verification": "APPROXIMATE",
+      "method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "source_id": "lpu-official-induction-site-plan",
+      "source_url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+      "review": {
+        "within_osm_campus_boundary": true,
+        "within_building_footprint": false,
+        "nearest_building_candidates": [
+          {
+            "source_id": "osm-way-422551921",
+            "url": "https://www.openstreetmap.org/way/422551921",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 1.928
+          },
+          {
+            "source_id": "osm-way-422547452",
+            "url": "https://www.openstreetmap.org/way/422547452",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 33.082
+          },
+          {
+            "source_id": "osm-way-422547453",
+            "url": "https://www.openstreetmap.org/way/422547453",
+            "name": null,
+            "building": "yes",
+            "contains_derived_point": false,
+            "distance_to_footprint_m": 60.697
+          }
+        ],
+        "automatically_snapped": false
+      }
+    }
+  ],
+  "legend_only": [
+    {
+      "code": "39",
+      "source_name": "Sewage Treatment Plant"
+    },
+    {
+      "code": "40",
+      "source_name": "Central Store"
+    },
+    {
+      "code": "52",
+      "source_name": "Cricket Ground"
+    }
+  ]
+}

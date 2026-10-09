@@ -13,7 +13,7 @@ import { campusRoute } from "./routing.mjs";
 import { answerQuestion } from "./assistant.mjs";
 import { registerAdmin } from "./admin.mjs";
 import { publicMap } from "./public-map.mjs";
-import { numberReference } from "./numbered-buildings.mjs";
+import { numberMetadata } from "./numbered-buildings.mjs";
 
 const id = z.coerce.number().int().positive();
 const email = z
@@ -31,14 +31,7 @@ const parse = (schema, value) => schema.parse(value);
 const currentSelect = `SELECT l.*,c.name AS category,s.url AS source_url,s.title AS source_title,false AS historical FROM locations l JOIN categories c ON c.id=l.category_id JOIN sources s ON s.id=l.source_id`;
 const safePlace = (p) => ({
   ...p,
-  building_source_url:
-    p.building_code &&
-    p.building_code === numberReference(p.source_id)?.building_code
-      ? (
-          numberReference(p.source_id).number_source ??
-          numberReference(p.source_id).source
-        ).url
-      : undefined,
+  ...numberMetadata(p),
   id: String(p.id),
   latitude: p.latitude ?? null,
   longitude: p.longitude ?? null,

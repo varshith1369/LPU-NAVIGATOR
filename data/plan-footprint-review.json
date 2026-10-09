@@ -1,0 +1,411 @@
+{
+  "source": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+  "notes": "Manual shape/order matching against official plan; no blind nearest-building assignment. Coordinates remain approximate. Connected building ways can contain separately numbered wings.",
+  "matches": [
+    {
+      "code": "2A",
+      "source_code": "2A",
+      "osm_way": 427330237,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70786796,
+        31.25837115
+      ],
+      "position": [
+        75.7079480400961,
+        31.258274682435385
+      ],
+      "source_url": "https://www.openstreetmap.org/way/427330237"
+    },
+    {
+      "code": "2B",
+      "source_code": "2B",
+      "osm_way": 422732974,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.7081212,
+        31.25862614
+      ],
+      "position": [
+        75.7080949,
+        31.2585288
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422732974"
+    },
+    {
+      "code": "9",
+      "source_code": "9",
+      "osm_way": 422437906,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70577421,
+        31.25716705
+      ],
+      "position": [
+        75.7057348628916,
+        31.257121060380758
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437906"
+    },
+    {
+      "code": "10",
+      "source_code": "10",
+      "osm_way": 422437900,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70485621,
+        31.25711494
+      ],
+      "position": [
+        75.70485591239488,
+        31.25704413585799
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437900"
+    },
+    {
+      "code": "11",
+      "source_code": "11",
+      "osm_way": 422437898,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70471762,
+        31.25649297
+      ],
+      "position": [
+        75.70471659798977,
+        31.256421029367655
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437898"
+    },
+    {
+      "code": "12",
+      "source_code": "12",
+      "osm_way": 422437902,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.7058112,
+        31.25667052
+      ],
+      "position": [
+        75.7058112,
+        31.25667052
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437902"
+    },
+    {
+      "code": "20",
+      "source_code": "20",
+      "osm_way": 422548857,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70139132,
+        31.25507488
+      ],
+      "position": [
+        75.70139132,
+        31.25507488
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548857"
+    },
+    {
+      "code": "21A",
+      "source_code": "21A",
+      "osm_way": 422548319,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.7012884,
+        31.25392625
+      ],
+      "position": [
+        75.70128755555314,
+        31.25388050912825
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548319"
+    },
+    {
+      "code": "21B",
+      "source_code": "21B",
+      "osm_way": 422548312,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70064832,
+        31.25394702
+      ],
+      "position": [
+        75.7005713,
+        31.2539031
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548312"
+    },
+    {
+      "code": "25",
+      "source_code": "25",
+      "osm_way": 422823421,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70258608,
+        31.25279746
+      ],
+      "position": [
+        75.70258541941072,
+        31.25276484340434
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422823421"
+    },
+    {
+      "code": "27",
+      "source_code": "27",
+      "osm_way": 422823421,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70333555,
+        31.2527359
+      ],
+      "position": [
+        75.70333555,
+        31.2527359
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422823421"
+    },
+    {
+      "code": "28",
+      "source_code": "28",
+      "osm_way": 422823421,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70377271,
+        31.25271156
+      ],
+      "position": [
+        75.70377271,
+        31.25271156
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422823421"
+    },
+    {
+      "code": "29",
+      "source_code": "29",
+      "osm_way": 422823421,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70414856,
+        31.25278033
+      ],
+      "position": [
+        75.70414856,
+        31.25278033
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422823421"
+    },
+    {
+      "code": "31",
+      "source_code": "31",
+      "osm_way": 422823420,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70485919,
+        31.25243065
+      ],
+      "position": [
+        75.70485919,
+        31.25243065
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422823420"
+    },
+    {
+      "code": "41A",
+      "source_code": "41A",
+      "osm_way": 422437894,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.70213692,
+        31.25210398
+      ],
+      "position": [
+        75.70248122572377,
+        31.25152045
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437894"
+    },
+    {
+      "code": "41B",
+      "source_code": "41B",
+      "osm_way": 422437895,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.70178358,
+        31.25210067
+      ],
+      "position": [
+        75.70203233739431,
+        31.25172715
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437895"
+    },
+    {
+      "code": "41C",
+      "source_code": "41C",
+      "osm_way": 422437896,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.70144568,
+        31.25215104
+      ],
+      "position": [
+        75.70171831669387,
+        31.25170555
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437896"
+    },
+    {
+      "code": "41D",
+      "source_code": "41D",
+      "osm_way": 422437897,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.70119159,
+        31.25217375
+      ],
+      "position": [
+        75.70107468096529,
+        31.25177345
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422437897"
+    },
+    {
+      "code": "45",
+      "source_code": "45",
+      "osm_way": 422548300,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.70019015,
+        31.25156376
+      ],
+      "position": [
+        75.70035679787298,
+        31.251222
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548300"
+    },
+    {
+      "code": "47",
+      "source_code": "47",
+      "osm_way": 422548299,
+      "method": "PointOnSurface",
+      "affine_position": [
+        75.69817177,
+        31.24984342
+      ],
+      "position": [
+        75.69820321202768,
+        31.249569049999998
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548299"
+    },
+    {
+      "code": "48",
+      "source_code": "48",
+      "osm_way": 422548297,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.700834,
+        31.24984664
+      ],
+      "position": [
+        75.7008618575378,
+        31.249847377948022
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548297"
+    },
+    {
+      "code": "49",
+      "source_code": "49",
+      "osm_way": 422548297,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70010305,
+        31.24988328
+      ],
+      "position": [
+        75.70005564143172,
+        31.24988202786113
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548297"
+    },
+    {
+      "code": "50",
+      "source_code": "50",
+      "osm_way": 422548297,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.69947884,
+        31.24981887
+      ],
+      "position": [
+        75.69948148982604,
+        31.249681009313804
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548297"
+    },
+    {
+      "code": "51A",
+      "source_code": "51A",
+      "osm_way": 422548298,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.69998824,
+        31.24891021
+      ],
+      "position": [
+        75.69998940182917,
+        31.248897758798716
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548298"
+    },
+    {
+      "code": "51B",
+      "source_code": "51B",
+      "osm_way": 422548298,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.69907464,
+        31.24880962
+      ],
+      "position": [
+        75.69907640217995,
+        31.248790674329296
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422548298"
+    },
+    {
+      "code": "54",
+      "source_code": "54",
+      "osm_way": 422547446,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70363981,
+        31.24791224
+      ],
+      "position": [
+        75.7037179,
+        31.2480778
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422547446"
+    },
+    {
+      "code": "58",
+      "source_code": "58",
+      "osm_way": 422551921,
+      "method": "ClosestPoint on manually matched footprint",
+      "affine_position": [
+        75.70345605,
+        31.2458193
+      ],
+      "position": [
+        75.7034557412852,
+        31.24583663496769
+      ],
+      "source_url": "https://www.openstreetmap.org/way/422551921"
+    }
+  ]
+}

@@ -1,6 +1,412 @@
 {
-  "notes": "Building numbers and positions from named public map records. Official LPU references corroborate blocks 14 and 37. Existing OSM positions retained for 18 and 37. Historical legend numbers are not current block numbers. These points are not verified entrances.",
+  "notes": "55 source-backed labels: 53 LPU site-plan features with current number corrections where corroborated, plus separately sourced39 and55A. Plan-derived positions and identifiers remain approximate, not certified current signage. Original historicallegend1–55 is a different numbering system.",
   "blocks": [
+    {
+      "building_code": "1",
+      "name": "Block 1 · School of Fashion Design",
+      "category": "Academic",
+      "latitude": 31.25867795,
+      "longitude": 75.70885881317236,
+      "existing_source_id": "osm-way-354743583",
+      "source": {
+        "id": "google-place-12683150027335632343",
+        "title": "School of Fashion Design",
+        "url": "https://www.google.com/maps?cid=12683150027335632343"
+      },
+      "number_source": {
+        "id": "lpu-block-1-reference",
+        "title": "LPU block 1 reference",
+        "url": "https://www.lpu.in/HRD/Broucher/CCT971.pdf",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "School of Fashion Design",
+        "address": "School of Fashion Design, Grand Trunk Rd, Khajurla, Punjab 144411",
+        "latitude": 31.2586405,
+        "longitude": 75.70891379999999,
+        "cid": "12683150027335632343"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "1",
+      "imported_name": "Lovely Institute Of Management",
+      "position_verification": "APPROXIMATE"
+    },
+    {
+      "building_code": "2A",
+      "name": "Block 2A",
+      "category": "Academic",
+      "latitude": 31.258274682435385,
+      "longitude": 75.7079480400961,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-2A",
+        "title": "LPU campus plan · label 2A",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "2A",
+        "source_name": "Mini Auditorium",
+        "pixel": {
+          "x": 284,
+          "y": 1087
+        },
+        "osm_footprint": 427330237
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "2A",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "2B",
+      "name": "Block 2B",
+      "category": "Food",
+      "latitude": 31.2585288,
+      "longitude": 75.7080949,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-2B",
+        "title": "LPU campus plan · label 2B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "2B",
+        "source_name": "Campus Cafe",
+        "pixel": {
+          "x": 278,
+          "y": 1112
+        },
+        "osm_footprint": 422732974
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "2B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "3",
+      "name": "Block 3 · Uni Hospital / Physiotherapy",
+      "category": "Healthcare",
+      "latitude": 31.257936450000003,
+      "longitude": 75.70684138490748,
+      "existing_source_id": "osm-way-354755644",
+      "source": {
+        "id": "google-place-15989278447914120094",
+        "title": "Lovely Professional University Hospital",
+        "url": "https://www.google.com/maps?cid=15989278447914120094"
+      },
+      "number_source": {
+        "id": "lpu-block-3-reference",
+        "title": "LPU block 3 reference",
+        "url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=LAS",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Lovely Professional University Hospital",
+        "address": "7P54+6PX Lovely Professional University Hospital, Kapurthala, Punjab 144411",
+        "latitude": 31.2581045,
+        "longitude": 75.7068525,
+        "cid": "15989278447914120094"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "3A",
+      "imported_name": "Lovely Institute of Technology",
+      "position_verification": "APPROXIMATE"
+    },
+    {
+      "building_code": "4",
+      "name": "Block 4",
+      "category": "Academic",
+      "latitude": 31.2576228,
+      "longitude": 75.70722350932269,
+      "existing_source_id": "osm-way-354830243",
+      "source": {
+        "id": "lpu-plan-block-3B",
+        "title": "LPU campus plan · label 3B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": {
+        "id": "lpu-current-pharmacy-block4",
+        "type": "OFFICIAL_LPU",
+        "title": "LPU Pharmacy library · Block 4",
+        "url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=LIP"
+      },
+      "evidence": {
+        "plan_code": "3B",
+        "source_name": "Lovely Institute of Technology (Pharmacy)",
+        "pixel": {
+          "x": 292,
+          "y": 1043
+        },
+        "osm_footprint": null
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "3B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance.",
+      "imported_name": "Lovely Institute of Pharmacy"
+    },
+    {
+      "building_code": "6",
+      "name": "Block 6 · Architecture, Planning and Design",
+      "category": "Academic",
+      "latitude": 31.2568719,
+      "longitude": 75.7072501,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-8661084662962665289",
+        "title": "Lovely school of Architecture, Planning and Design",
+        "url": "https://www.google.com/maps?cid=8661084662962665289"
+      },
+      "number_source": {
+        "id": "lpu-block-6-reference",
+        "title": "LPU block 6 reference",
+        "url": "https://happenings.lpu.in/5-food-joints-to-visit-in-lpu/",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Lovely school of Architecture, Planning and Design",
+        "address": "Lovely school of Architecture, Planning and Design, Lovely School of Architecture and Design, Lovely Professional University, Jalandhar, Punjab 144411",
+        "latitude": 31.2568719,
+        "longitude": 75.7072501,
+        "cid": "8661084662962665289"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "8A"
+    },
+    {
+      "building_code": "8B",
+      "name": "Block 8B",
+      "category": "Academic",
+      "latitude": 31.25710607,
+      "longitude": 75.70694232,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-8B",
+        "title": "LPU campus plan · label 8B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "8B",
+        "source_name": "School of Pharmaceutical Sciences",
+        "pixel": {
+          "x": 294,
+          "y": 974
+        },
+        "osm_footprint": null
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "8B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "8C",
+      "name": "Block 8C",
+      "category": "Academic",
+      "latitude": 31.256641199999997,
+      "longitude": 75.70708133868544,
+      "existing_source_id": "osm-way-425717552",
+      "source": {
+        "id": "lpu-plan-block-8C",
+        "title": "LPU campus plan · label 8C",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "8C",
+        "source_name": "Uni Hospital / School of Arts and Languages / School of Fashion Design",
+        "pixel": {
+          "x": 297,
+          "y": 953
+        },
+        "osm_footprint": null
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "8C",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance.",
+      "imported_name": "School of Design"
+    },
+    {
+      "building_code": "9",
+      "name": "Block 9",
+      "category": "Hostel",
+      "latitude": 31.257121060380758,
+      "longitude": 75.7057348628916,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-9",
+        "title": "LPU campus plan · label 9",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "9",
+        "source_name": "Girls Hostel 1",
+        "pixel": {
+          "x": 366,
+          "y": 939
+        },
+        "osm_footprint": 422437906
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "9",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "10",
+      "name": "Block 10",
+      "category": "Hostel",
+      "latitude": 31.25704413585799,
+      "longitude": 75.70485591239488,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-10",
+        "title": "LPU campus plan · label 10",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "10",
+        "source_name": "Girls Hostel 2",
+        "pixel": {
+          "x": 419,
+          "y": 905
+        },
+        "osm_footprint": 422437900
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "10",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "11",
+      "name": "Block 11",
+      "category": "Hostel",
+      "latitude": 31.256421029367655,
+      "longitude": 75.70471659798977,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-11",
+        "title": "LPU campus plan · label 11",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "11",
+        "source_name": "Girls Hostel 3",
+        "pixel": {
+          "x": 405,
+          "y": 860
+        },
+        "osm_footprint": 422437898
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "11",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "12",
+      "name": "Block 12",
+      "category": "Hostel",
+      "latitude": 31.25667052,
+      "longitude": 75.7058112,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-12",
+        "title": "LPU campus plan · label 12",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "12",
+        "source_name": "Girls Hostel 4",
+        "pixel": {
+          "x": 346,
+          "y": 908
+        },
+        "osm_footprint": 422437902
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "12",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "13",
+      "name": "Block 13 · Student Welfare Wing",
+      "category": "Administrative",
+      "latitude": 31.2551178,
+      "longitude": 75.7060709,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-9212203886738363511",
+        "title": "Division of Student Welfare",
+        "url": "https://www.google.com/maps?cid=9212203886738363511"
+      },
+      "number_source": {
+        "id": "lpu-block-13-reference",
+        "title": "LPU block 13 reference",
+        "url": "https://www.lpu.in/campus-life/art-and-culture.php",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Division of Student Welfare",
+        "address": "Division of Student Welfare, L.P.U, Khajurla, Punjab 144411",
+        "latitude": 31.2551178,
+        "longitude": 75.7060709,
+        "cid": "9212203886738363511"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "13"
+    },
     {
       "building_code": "14",
       "name": "Block 14 · Mittal School of Business",
@@ -23,14 +429,75 @@
         "name": "Mittal School of Business",
         "address": "Mittal School of Business, Khajurla, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "14"
+    },
+    {
+      "building_code": "15A",
+      "name": "Block 15A · Uni Mall",
+      "category": "Shopping",
+      "latitude": 31.25567615,
+      "longitude": 75.70518690561389,
+      "existing_source_id": "osm-way-422437885",
+      "source": {
+        "id": "google-place-5479435647901965319",
+        "title": "Uni Mall",
+        "url": "https://www.google.com/maps?cid=5479435647901965319"
+      },
+      "number_source": {
+        "id": "lpu-block-15A-reference",
+        "title": "LPU block 15A reference",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Uni Mall",
+        "address": "7P44+855 Uni Mall, Phagwara, Punjab 144411",
+        "latitude": 31.2557641,
+        "longitude": 75.7054825,
+        "cid": "5479435647901965319"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "15A",
+      "position_verification": "APPROXIMATE"
+    },
+    {
+      "building_code": "15B",
+      "name": "Block 15B · Hotel Management",
+      "category": "Academic",
+      "latitude": 31.2556441,
+      "longitude": 75.704341,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-6404386781288677907",
+        "title": "LPU School of Hotel Management",
+        "url": "https://www.google.com/maps?cid=6404386781288677907"
+      },
+      "number_source": {
+        "id": "lpu-block-15B-reference",
+        "title": "LPU block 15B reference",
+        "url": "https://library.lpu.in/cgi-bin/koha/opac-library.pl?branchcode=LSH",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "LPU School of Hotel Management",
+        "address": "LPU School of Hotel Management, Jalandhar, Punjab 144411",
+        "latitude": 31.2556441,
+        "longitude": 75.704341,
+        "cid": "6404386781288677907"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "15B"
     },
     {
       "building_code": "18",
       "name": "Block 18 · Humanities",
       "category": "Academic",
-      "latitude": 31.2551999,
-      "longitude": 75.703739,
+      "latitude": 31.2552593,
+      "longitude": 75.703346,
       "existing_source_id": "osm-node-6325106324",
       "source": {
         "id": "google-place-11793478306432889635",
@@ -42,7 +509,279 @@
         "name": "LPU 18 block Humanities Block",
         "address": "Humanities, LPU 18 block Humanities Block, School of Education, lovely professional University, Phagwara, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "18",
+      "position_verification": "VERIFIED_PUBLIC"
+    },
+    {
+      "building_code": "19",
+      "name": "Block 19",
+      "category": "Sports",
+      "latitude": 31.25552594,
+      "longitude": 75.70489087,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-19",
+        "title": "LPU campus plan · label 19",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "19",
+        "source_name": "Unipolis",
+        "pixel": {
+          "x": 360,
+          "y": 803
+        },
+        "osm_footprint": null
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "19",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "20",
+      "name": "Block 20",
+      "category": "Academic",
+      "latitude": 31.25507488,
+      "longitude": 75.70139132,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-20",
+        "title": "LPU campus plan · label 20",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "20",
+        "source_name": "School of Law",
+        "pixel": {
+          "x": 553,
+          "y": 657
+        },
+        "osm_footprint": 422548857
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "20",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "21A",
+      "name": "Block 21A",
+      "category": "Hostel",
+      "latitude": 31.25388050912825,
+      "longitude": 75.70128755555314,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-21A",
+        "title": "LPU campus plan · label 21A",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "21A",
+        "source_name": "Girls Hostel 5",
+        "pixel": {
+          "x": 518,
+          "y": 579
+        },
+        "osm_footprint": 422548319
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "21A",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "21B",
+      "name": "Block 21B",
+      "category": "Hostel",
+      "latitude": 31.2539031,
+      "longitude": 75.7005713,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-21B",
+        "title": "LPU campus plan · label 21B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "21B",
+        "source_name": "Girls Hostel 6",
+        "pixel": {
+          "x": 557,
+          "y": 559
+        },
+        "osm_footprint": 422548312
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "21B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "25",
+      "name": "Block 25",
+      "category": "Academic",
+      "latitude": 31.25276484340434,
+      "longitude": 75.70258541941072,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-25",
+        "title": "LPU campus plan · label 25",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "25",
+        "source_name": "School of Biotechnology and Biosciences",
+        "pixel": {
+          "x": 400,
+          "y": 549
+        },
+        "osm_footprint": 422823421
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "25",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "26",
+      "name": "Block 26",
+      "category": "Academic",
+      "latitude": 31.2525761,
+      "longitude": 75.7031068,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-6943817078992480303",
+        "title": "School of Agriculture Lpu 26th Block",
+        "url": "https://www.google.com/maps?cid=6943817078992480303"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "School of Agriculture Lpu 26th Block",
+        "address": "7P33+26Q School of Agriculture Lpu 26th Block, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "26"
+    },
+    {
+      "building_code": "27",
+      "name": "Block 27",
+      "category": "Academic",
+      "latitude": 31.2527359,
+      "longitude": 75.70333555,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-27",
+        "title": "LPU campus plan · label 27",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "27",
+        "source_name": "School of Physical Sciences",
+        "pixel": {
+          "x": 353,
+          "y": 570
+        },
+        "osm_footprint": 422823421
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "27",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "28",
+      "name": "Block 28",
+      "category": "Academic",
+      "latitude": 31.25271156,
+      "longitude": 75.70377271,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-28",
+        "title": "LPU campus plan · label 28",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "28",
+        "source_name": "School of Agriculture",
+        "pixel": {
+          "x": 326,
+          "y": 583
+        },
+        "osm_footprint": 422823421
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "28",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "29",
+      "name": "Block 29",
+      "category": "Academic",
+      "latitude": 31.25278033,
+      "longitude": 75.70414856,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-29",
+        "title": "LPU campus plan · label 29",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "29",
+        "source_name": "Office of the Pro-Chancellor / Administrative Block I",
+        "pixel": {
+          "x": 306,
+          "y": 600
+        },
+        "osm_footprint": 422823421
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "29",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
     },
     {
       "building_code": "30",
@@ -61,7 +800,40 @@
         "name": "Division of Admissions, LPU",
         "address": "Block 30 Admissions, Division of Admissions, LPU, Lovely Professional University, Phagwara, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "30"
+    },
+    {
+      "building_code": "31",
+      "name": "Block 31",
+      "category": "Academic",
+      "latitude": 31.25243065,
+      "longitude": 75.70485919,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-31",
+        "title": "LPU campus plan · label 31",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "31",
+        "source_name": "Division of Admissions / Museum of Academics",
+        "pixel": {
+          "x": 251,
+          "y": 601
+        },
+        "osm_footprint": 422823420
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "31",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
     },
     {
       "building_code": "32",
@@ -80,7 +852,35 @@
         "name": "Block 32, Division of Career Services",
         "address": "Block 32, Division of Career Services, Jalandhar, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "32"
+    },
+    {
+      "building_code": "33",
+      "name": "Block 33",
+      "category": "Academic",
+      "latitude": 31.2518319,
+      "longitude": 75.7047584,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-79707721026695807",
+        "title": "Block 33",
+        "url": "https://www.google.com/maps?cid=79707721026695807"
+      },
+      "number_source": {
+        "id": "lpu-block-33-reference",
+        "title": "LPU: block 33",
+        "url": "https://www.lpu.in/events/techmarathon/",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Block 33",
+        "address": "7P23+RW6 Block 33, Khajurla, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "33"
     },
     {
       "building_code": "34",
@@ -99,7 +899,35 @@
         "name": "LPU School of Computer Science & Engineering",
         "address": "Block 34 - School of Computer Engineering, LPU School of Computer Science & Engineering, School of Computer Science & Engineering, Lovely Professional University, Jalandhar, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "34"
+    },
+    {
+      "building_code": "35",
+      "name": "Block 35",
+      "category": "Utility",
+      "latitude": 31.2520538,
+      "longitude": 75.7041119,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-14579625004601050590",
+        "title": "Shanti Devi Mittal Auditorium",
+        "url": "https://www.google.com/maps?cid=14579625004601050590"
+      },
+      "number_source": {
+        "id": "lpu-block-35-reference",
+        "title": "LPU: block 35",
+        "url": "https://www.lpu.in/events/freshmeninduction/minute-to-minute-schedule.php",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "Shanti Devi Mittal Auditorium",
+        "address": "Shanti Devi Mittal Auditorium, Lovely Professional University, Block 35, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "35"
     },
     {
       "building_code": "36",
@@ -118,14 +946,16 @@
         "name": "LPU Block 36",
         "address": "LPU Block 36, Lovely Professional University, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "36"
     },
     {
       "building_code": "37",
       "name": "Block 37 · Central Library",
       "category": "Library",
-      "latitude": 31.2519927,
-      "longitude": 75.7033787,
+      "latitude": 31.2518313,
+      "longitude": 75.70356422207865,
       "existing_source_id": "osm-way-422556249",
       "source": {
         "id": "google-place-3455241597575339866",
@@ -142,7 +972,10 @@
         "name": "Central Library Lovely Professional University",
         "address": "7P23+Q9 Central Library Lovely Professional University, Hardaspur, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "37",
+      "position_verification": "APPROXIMATE"
     },
     {
       "building_code": "38",
@@ -161,7 +994,433 @@
         "name": "Computer Applications and Research Department, LPU (Block 38)",
         "address": "Computer Applications and Research Department, LPU (Block 38), LPU Open Audi Rd, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "38"
+    },
+    {
+      "building_code": "41A",
+      "name": "Block 41A",
+      "category": "Hostel",
+      "latitude": 31.25152045,
+      "longitude": 75.70248122572377,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-41A",
+        "title": "LPU campus plan · label 41A",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "41A",
+        "source_name": "Staff Apartments",
+        "pixel": {
+          "x": 402,
+          "y": 489
+        },
+        "osm_footprint": 422437894
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "41A",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "41B",
+      "name": "Block 41B",
+      "category": "Hostel",
+      "latitude": 31.25172715,
+      "longitude": 75.70203233739431,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-41B",
+        "title": "LPU campus plan · label 41B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "41B",
+        "source_name": "Staff Apartments",
+        "pixel": {
+          "x": 423,
+          "y": 477
+        },
+        "osm_footprint": 422437895
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "41B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "41C",
+      "name": "Block 41C",
+      "category": "Hostel",
+      "latitude": 31.25170555,
+      "longitude": 75.70171831669387,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-41C",
+        "title": "LPU campus plan · label 41C",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "41C",
+        "source_name": "Staff Apartments",
+        "pixel": {
+          "x": 445,
+          "y": 469
+        },
+        "osm_footprint": 422437896
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "41C",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "41D",
+      "name": "Block 41D",
+      "category": "Hostel",
+      "latitude": 31.25177345,
+      "longitude": 75.70107468096529,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-41D",
+        "title": "LPU campus plan · label 41D",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "41D",
+        "source_name": "Staff Apartments",
+        "pixel": {
+          "x": 461,
+          "y": 462
+        },
+        "osm_footprint": 422437897
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "41D",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "42",
+      "name": "Block 42",
+      "category": "Sports",
+      "latitude": 31.25105909,
+      "longitude": 75.70114249,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-42",
+        "title": "LPU campus plan · label 42",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "42",
+        "source_name": "Swimming Pool (under construction in source)",
+        "pixel": {
+          "x": 424,
+          "y": 388
+        },
+        "osm_footprint": null
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "42",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "AFFINE_GEOREFERENCE_FROM_OFFICIAL_DIAGRAM",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "45",
+      "name": "Block 45",
+      "category": "Hostel",
+      "latitude": 31.251222,
+      "longitude": 75.70035679787298,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-45",
+        "title": "LPU campus plan · label 45",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "45",
+        "source_name": "Boys Hostel 1",
+        "pixel": {
+          "x": 499,
+          "y": 389
+        },
+        "osm_footprint": 422548300
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "45",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "47",
+      "name": "Block 47",
+      "category": "Hostel",
+      "latitude": 31.249569049999998,
+      "longitude": 75.69820321202768,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-47",
+        "title": "LPU campus plan · label 47",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "47",
+        "source_name": "Boys Hostel 7",
+        "pixel": {
+          "x": 558,
+          "y": 210
+        },
+        "osm_footprint": 422548299
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "47",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "48",
+      "name": "Block 48",
+      "category": "Hostel",
+      "latitude": 31.249847377948022,
+      "longitude": 75.7008618575378,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-48",
+        "title": "LPU campus plan · label 48",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "48",
+        "source_name": "Boys Hostel 2",
+        "pixel": {
+          "x": 399,
+          "y": 299
+        },
+        "osm_footprint": 422548297
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "48",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "49",
+      "name": "Block 49",
+      "category": "Hostel",
+      "latitude": 31.24988202786113,
+      "longitude": 75.70005564143172,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-49",
+        "title": "LPU campus plan · label 49",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "49",
+        "source_name": "Boys Hostel 3",
+        "pixel": {
+          "x": 444,
+          "y": 277
+        },
+        "osm_footprint": 422548297
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "49",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "50",
+      "name": "Block 50",
+      "category": "Hostel",
+      "latitude": 31.249681009313804,
+      "longitude": 75.69948148982604,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-50",
+        "title": "LPU campus plan · label 50",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "50",
+        "source_name": "Boys Hostel 3A",
+        "pixel": {
+          "x": 479,
+          "y": 252
+        },
+        "osm_footprint": 422548297
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "50",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "51A",
+      "name": "Block 51A",
+      "category": "Hostel",
+      "latitude": 31.248897758798716,
+      "longitude": 75.69998940182917,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-51A",
+        "title": "LPU campus plan · label 51A",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "51A",
+        "source_name": "Boys Hostel 4",
+        "pixel": {
+          "x": 416,
+          "y": 210
+        },
+        "osm_footprint": 422548298
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "51A",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "51B",
+      "name": "Block 51B",
+      "category": "Hostel",
+      "latitude": 31.248790674329296,
+      "longitude": 75.69907640217995,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-51B",
+        "title": "LPU campus plan · label 51B",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "51B",
+        "source_name": "Boys Hostel 4",
+        "pixel": {
+          "x": 467,
+          "y": 173
+        },
+        "osm_footprint": 422548298
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "51B",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "53",
+      "name": "Block 53",
+      "category": "Academic",
+      "latitude": 31.2490298,
+      "longitude": 75.70362209999999,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-15630065401416290880",
+        "title": "Block 53",
+        "url": "https://www.google.com/maps?cid=15630065401416290880"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "Block 53",
+        "address": "6PX3+JC9 Block 53, Gurudwara Rd, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "53"
+    },
+    {
+      "building_code": "54",
+      "name": "Block 54",
+      "category": "Hostel",
+      "latitude": 31.2480778,
+      "longitude": 75.7037179,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-54",
+        "title": "LPU campus plan · label 54",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "54",
+        "source_name": "Boys Hostel 6",
+        "pixel": {
+          "x": 162,
+          "y": 267
+        },
+        "osm_footprint": 422547446
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "54",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
     },
     {
       "building_code": "55",
@@ -180,26 +1439,9 @@
         "name": "School of Mechanical Engineering (Block 55)",
         "address": "6PW3+R98 School of Mechanical Engineering (Block 55), Gurudwara Rd, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
-    },
-    {
-      "building_code": "55A",
-      "name": "Block 55A · Chemical Engineering and Physical Sciences",
-      "category": "Academic",
-      "latitude": 31.2470625,
-      "longitude": 75.7036875,
-      "existing_source_id": null,
-      "source": {
-        "id": "google-place-2123926545939340059",
-        "title": "LPU School Of Chemical Engineering and Physical Sciences",
-        "url": "https://www.google.com/maps?cid=2123926545939340059"
-      },
-      "number_source": null,
-      "evidence": {
-        "name": "LPU School Of Chemical Engineering and Physical Sciences",
-        "address": "6PW3+RFV LPU School Of Chemical Engineering and Physical Sciences, Block 55A School Of Physical Science And Chemical Engineering LPU, Hardaspur, Phagwara, Punjab 144411"
-      },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "55"
     },
     {
       "building_code": "56",
@@ -218,7 +1460,9 @@
         "name": "School Of Bio Engineering & Biosciences (LPU Block 56)",
         "address": "School Of Bio Engineering & Biosciences (LPU Block 56), Lovely Professional University, 56, Chaheru, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "56"
     },
     {
       "building_code": "57",
@@ -237,7 +1481,85 @@
         "name": "School Of Agriculture (LPU Block 57)",
         "address": "6PW3+FFJ School Of Agriculture (LPU Block 57), Gurudwara Rd, Phagwara, Punjab 144411"
       },
-      "retrieved_at": "2026-10-09T00:00:00Z"
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing",
+      "plan_code": "57"
+    },
+    {
+      "building_code": "58",
+      "name": "Block 58",
+      "category": "Academic",
+      "latitude": 31.24583663496769,
+      "longitude": 75.7034557412852,
+      "existing_source_id": null,
+      "source": {
+        "id": "lpu-plan-block-58",
+        "title": "LPU campus plan · label 58",
+        "url": "https://www.lpu.in/events/freshmeninduction/imgs/event_location.jpg",
+        "type": "OFFICIAL_LPU"
+      },
+      "number_source": null,
+      "evidence": {
+        "plan_code": "58",
+        "source_name": "Workshops",
+        "pixel": {
+          "x": 98,
+          "y": 125
+        },
+        "osm_footprint": 422551921
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "campus_plan",
+      "plan_code": "58",
+      "verification_status": "APPROXIMATE",
+      "position_verification": "APPROXIMATE",
+      "position_method": "OFFICIAL_PLAN_MATCHED_OSM_FOOTPRINT",
+      "description": "Approximate building position matched from LPU’s undated campus plan. The source number is a plan reference; current signage and use may differ. This is not a surveyed entrance."
+    },
+    {
+      "building_code": "39",
+      "name": "Block 39",
+      "category": "Academic",
+      "latitude": 31.251112,
+      "longitude": 75.7053389,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-18214407072554055295",
+        "title": "LPU Innovation Studio Block 39",
+        "url": "https://www.google.com/maps?cid=18214407072554055295"
+      },
+      "number_source": {
+        "id": "lpu-block-39-reference",
+        "title": "LPU: block 39",
+        "url": "https://www.lpu.in/lpu-assets/download/lovely-world/july2024-issue.pdf",
+        "type": "OFFICIAL_LPU"
+      },
+      "evidence": {
+        "name": "LPU Innovation Studio Block 39",
+        "address": "7P24+C4W LPU Innovation Studio Block 39, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing"
+    },
+    {
+      "building_code": "55A",
+      "name": "Block 55A · Chemical Engineering and Physical Sciences",
+      "category": "Academic",
+      "latitude": 31.2470625,
+      "longitude": 75.7036875,
+      "existing_source_id": null,
+      "source": {
+        "id": "google-place-2123926545939340059",
+        "title": "LPU School Of Chemical Engineering and Physical Sciences",
+        "url": "https://www.google.com/maps?cid=2123926545939340059"
+      },
+      "number_source": null,
+      "evidence": {
+        "name": "LPU School Of Chemical Engineering and Physical Sciences",
+        "address": "6PW3+RFV LPU School Of Chemical Engineering and Physical Sciences, Block 55A School Of Physical Science And Chemical Engineering LPU, Hardaspur, Phagwara, Punjab 144411"
+      },
+      "retrieved_at": "2026-10-09T00:00:00Z",
+      "number_basis": "public_listing"
     }
   ]
 }
