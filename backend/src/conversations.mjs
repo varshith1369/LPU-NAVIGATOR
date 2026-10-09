@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { rateLimit } from "express-rate-limit";
 import { audit } from "./admin.mjs";
+import { PostgresRateStore } from "./rate-store.mjs";
 const id = z.coerce.number().int().positive();
 export function registerConversations(app, db, requireUser, admin) {
   app.use("/api/conversations", requireUser, (req, res, next) => {
@@ -62,7 +63,14 @@ export function registerConversations(app, db, requireUser, admin) {
   });
   app.post(
     "/api/conversations/:id/messages",
-    rateLimit({ windowMs: 60000, limit: 30 }),
+    rateLimit({
+      windowMs: 60000,
+      limit: 30,
+      keyGenerator: (req) => String(req.user.id),
+      store: process.env.VERCEL
+        ? new PostgresRateStore(db, "messages")
+        : undefined,
+    }),
     access,
     async (req, res) => {
       const { body } = z
@@ -84,12 +92,10 @@ export function registerConversations(app, db, requireUser, admin) {
         ).rows[0];
       });
       if (!result)
-        return res
-          .status(409)
-          .json({
-            error:
-              "This conversation is closed. Ask an administrator to reopen it.",
-          });
+        return res.status(409).json({
+          error:
+            "This conversation is closed. Ask an administrator to reopen it.",
+        });
       res.status(201).json(result);
     },
   );

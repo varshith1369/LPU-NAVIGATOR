@@ -19,6 +19,7 @@
   "dependencies": {
     "@electric-sql/pglite": "0.5.8",
     "@electric-sql/pglite-postgis": "0.2.8",
+    "@vercel/functions": "^3.9.11",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",

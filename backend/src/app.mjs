@@ -13,6 +13,7 @@ import { campusRoute } from "./routing.mjs";
 import { answerQuestion } from "./assistant.mjs";
 import { registerAdmin } from "./admin.mjs";
 import { registerConversations } from "./conversations.mjs";
+import { PostgresRateStore } from "./rate-store.mjs";
 import { publicMap } from "./public-map.mjs";
 import { numberMetadata } from "./numbered-buildings.mjs";
 
@@ -44,6 +45,7 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
   const app = express();
   const { requireUser, admin, issue, csrf } = security(db, config);
   app.disable("x-powered-by");
+  if (process.env.VERCEL || process.env.RENDER) app.set("trust proxy", 1);
   app.use(
     helmet({
       contentSecurityPolicy: {
@@ -72,9 +74,19 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
   );
   app.use(express.json({ limit: "64kb" }));
   app.use(cookieParser(config.secret));
-  app.use('/api',(req,res,next)=>{
-    if(process.env.MIGRATION_READ_ONLY==='true' && (!['GET','HEAD','OPTIONS'].includes(req.method) || req.path.startsWith('/conversations')))
-      return res.status(503).set('Retry-After','60').json({error:'We are moving campus data to the new host. Please retry in a minute.'});
+  app.use("/api", (req, res, next) => {
+    if (
+      process.env.MIGRATION_READ_ONLY === "true" &&
+      (!["GET", "HEAD", "OPTIONS"].includes(req.method) ||
+        req.path.startsWith("/conversations"))
+    )
+      return res
+        .status(503)
+        .set("Retry-After", "60")
+        .json({
+          error:
+            "We are moving campus data to the new host. Please retry in a minute.",
+        });
     next();
   });
   if (limit)
@@ -83,6 +95,10 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
       rateLimit({
         windowMs: 60000,
         limit: 200,
+        store: process.env.VERCEL
+          ? new PostgresRateStore(db, "api")
+          : undefined,
+        validate: { forwardedHeader: false },
         standardHeaders: "draft-8",
         legacyHeaders: false,
       }),
@@ -280,6 +296,10 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
       rateLimit({
         windowMs: 15 * 60000,
         limit: 25,
+        store: process.env.VERCEL
+          ? new PostgresRateStore(db, "auth")
+          : undefined,
+        validate: { forwardedHeader: false },
         standardHeaders: "draft-8",
         legacyHeaders: false,
       }),

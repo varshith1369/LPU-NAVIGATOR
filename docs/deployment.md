@@ -1,8 +1,16 @@
 # Deployment
 
-Deployment targets: repository `varshith1369/LPU-NAVIGATOR`, Vercel project `lpu-campus-navigator` at `https://lpu-campus-navigator-lpu.vercel.app`, and Render API `lpu-campus-api` at `https://lpu-campus-api.onrender.com`. The API uses managed PostgreSQL 17 in Singapore. `vercel.json` must be included in every frontend deployment so `/api/*` reaches Render rather than returning Vercel 404 pages.
+Deployment targets: repository `varshith1369/LPU-NAVIGATOR`, Vercel project `lpu-campus-navigator` at `https://lpu-campus-navigator-lpu.vercel.app`, and Neon PostgreSQL 17 in Singapore. `vercel.json` routes `/api/*` to `api/index.mjs` in Vercel; the frontend and API use the same origin. The previous Render service is retained temporarily for rollback only.
 
-The frontend bundles the numbered campus directory (1–55), public map boundary, mapped paths, and eight sourced map features. All 55 directory numbers remain searchable without the API: 51 have names in the supplied legend and 44, 48, 49, 50 are explicitly unidentified. Reference entries have no invented GPS coordinates. The API refreshes mapped place details; a failed refresh keeps the bundled map and directory visible and displays a reconnect notice. Background map tiles still require an internet connection.
+## Vercel + Neon free deployment
+
+The Vercel Node function exports the existing Express app, using a small shared PostgreSQL pool with Vercel pool lifecycle handling. Only the local development/test path loads PGlite. Set `DATABASE_URL` to Neon's pooled TLS connection string, `JWT_SECRET` to the existing signing secret, and `APP_ORIGIN` to the canonical HTTPS site. Keep the same signing secret during migration to preserve sessions. The API runs in `sin1` beside the Singapore database. Shared database counters preserve rate limits across function instances; only the immediate hosting proxy is trusted.
+
+Run migrations before serving requests; never seed in a function invocation. For migration, first set `MIGRATION_READ_ONLY=true` on the old API and redeploy it. After verifying its write endpoints return 503, run `scripts/transfer-database.mjs` with source and destination connection strings in environment variables. It creates an ignored local backup, transfers records in dependency order, restores identity sequences, and verifies all copied values in a transaction. It refuses populated destination application tables. Verify the preview before switching production, then close temporary source database network access. Do not enable maintenance on the new API.
+
+Free hosting has quotas, not guaranteed always-on capacity. Neon suspends idle compute and automatically resumes it on requests; Vercel functions may also cold-start. Frequent chat polling consumes compute and function quota. Monitor usage before wider campus adoption. Vercel Hobby is for personal, non-commercial projects.
+
+The frontend bundles 56 mapped places with 55 building labels, public map boundaries and mapped paths. Approximate campus-plan positions retain their provenance. The separate historical directory has 55 references: 51 named entries and four explicitly unidentified entries. The API refreshes mapped place details; an initial failed refresh keeps the bundled map visible. Background map tiles still require an internet connection.
 
 ## Single-service deployment
 
@@ -12,7 +20,7 @@ Render's free API can sleep when idle, and its free database expires 30 days aft
 
 The user requested removal of the historical plan. Its public image asset and UI mode are removed; only the live geographic map is displayed. Historical numbering remains directory reference data, and must not be projected onto GPS positions without evidence. Current entrances and access conditions still require verification for door-to-door navigation.
 
-## Vercel frontend + separate API
+## Legacy alternative: Vercel frontend + separate API
 
 After provisioning the actual backend, run `node scripts/configure-vercel.mjs https://<actual-backend-host>` with its real origin (not the angle-bracket example). Deploy the repository using `npm run build` and output directory `dist`. The generated rewrite proxies `/api` through the frontend origin, keeping HttpOnly cookies same-origin. Set API `APP_ORIGIN` to the actual Vercel/custom HTTPS origin. Check proxy headers and rate limiting with your platform before exposing login publicly; the current API does not blindly trust X-Forwarded-For.
 

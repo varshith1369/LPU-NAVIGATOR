@@ -1,36 +1,14 @@
 import { PGlite } from "@electric-sql/pglite";
 import { postgis } from "@electric-sql/pglite-postgis";
 import { pg_trgm } from "@electric-sql/pglite/contrib/pg_trgm";
-import pg from "pg";
+import { connectPostgres } from "./postgres.mjs";
 import { mkdirSync, readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 
 export async function connectDatabase({ memory = false } = {}) {
   let db;
   if (process.env.DATABASE_URL && !memory) {
-    const pool = new pg.Pool({
-      connectionString: process.env.DATABASE_URL,
-      max: 10,
-    });
-    db = {
-      query: (sql, args) => pool.query(sql, args),
-      exec: (sql) => pool.query(sql),
-      close: () => pool.end(),
-      transaction: async (fn) => {
-        const client = await pool.connect();
-        try {
-          await client.query("BEGIN");
-          const result = await fn(client);
-          await client.query("COMMIT");
-          return result;
-        } catch (e) {
-          await client.query("ROLLBACK");
-          throw e;
-        } finally {
-          client.release();
-        }
-      },
-    };
+    db = connectPostgres();
   } else {
     if (process.env.NODE_ENV === "production" && !memory)
       throw new Error("Production requires DATABASE_URL");
@@ -65,6 +43,12 @@ export async function migrate(db) {
   await db.exec(
     readFileSync(
       new URL("../../database/schema/002_conversations.sql", import.meta.url),
+      "utf8",
+    ),
+  );
+  await db.exec(
+    readFileSync(
+      new URL("../../database/schema/003_rate_limits.sql", import.meta.url),
       "utf8",
     ),
   );

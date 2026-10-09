@@ -804,3 +804,30 @@ test("admin category and facility edits persist and deleted imports stay removed
     0,
   );
 });
+
+test("shared rate counters survive multiple serverless store instances", async () => {
+  const { PostgresRateStore } = await import("../src/rate-store.mjs");
+  const a = new PostgresRateStore(db, "test"),
+    b = new PostgresRateStore(db, "test");
+  a.init({ windowMs: 60000 });
+  b.init({ windowMs: 60000 });
+  assert.equal((await a.increment("client")).totalHits, 1);
+  assert.equal((await b.increment("client")).totalHits, 2);
+  await db.query(
+    "UPDATE request_rate_limits SET reset_at=now()-interval '1 second' WHERE bucket='test'",
+  );
+  assert.equal((await b.increment("client")).totalHits, 1);
+  await a.resetKey("client");
+});
+test("migration window allows reads and rejects account and chat writes", async () => {
+  const before = process.env.MIGRATION_READ_ONLY;
+  process.env.MIGRATION_READ_ONLY = "true";
+  try {
+    await request(app).get("/api/health").expect(200);
+    await request(app).post("/api/auth/register").send({}).expect(503);
+    await request(app).get("/api/conversations").expect(503);
+  } finally {
+    if (before === undefined) delete process.env.MIGRATION_READ_ONLY;
+    else process.env.MIGRATION_READ_ONLY = before;
+  }
+});
