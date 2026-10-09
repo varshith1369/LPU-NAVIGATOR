@@ -233,8 +233,10 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     const route = await campusRoute(db, body);
     if (!route)
       return res.status(422).json({
-        error:
-          "No sourced connected route is available for these locations and access requirements.",
+        code: "ROUTE_UNAVAILABLE",
+        error: body.accessible
+          ? "No route with verified step-free access is stored between these buildings."
+          : "The saved campus walking paths do not connect these buildings. Try Google Maps walking directions below.",
       });
     res.json(route);
   });
@@ -254,7 +256,11 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     if (!route)
       return res
         .status(422)
-        .json({ error: "No sourced connected route is available." });
+        .json({
+          code: "ROUTE_UNAVAILABLE",
+          error:
+            "The saved campus walking paths do not connect these buildings with the requested access requirements.",
+        });
     res.json(route);
   });
   if (limit)

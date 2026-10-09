@@ -34,6 +34,7 @@ import CampusMap from "./components/CampusMap";
 import { api, post, type Place, type User } from "./services/api";
 import campus from "./data/campus.json";
 import LocationSuggestion from "./components/LocationSuggestion";
+import { walkingDirectionsUrl } from "./services/directions";
 import { useLiveLocation } from "./services/useLiveLocation";
 import {
   distanceMeters,
@@ -958,6 +959,15 @@ function Directions({
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
   const [places, setPlaces] = useState<Place[]>(initialPlaces);
+  const externalDirections = walkingDirectionsUrl(
+    places.find((p) => p.id === from),
+    places.find((p) => p.id === to),
+  );
+  useEffect(() => {
+    setResult(null);
+    setError("");
+    onRoute([]);
+  }, [from, to, accessible, approximate]);
   useEffect(() => {
     onHistorical();
     api("/locations")
@@ -966,6 +976,10 @@ function Directions({
   }, []);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (from === to) {
+      setError("Choose two different buildings.");
+      return;
+    }
     setBusy(true);
     setError("");
     setResult(null);
@@ -997,6 +1011,7 @@ function Directions({
           Starting point
           <select
             required
+            disabled={busy}
             value={from}
             onChange={(e) => setFrom(e.target.value)}
           >
@@ -1010,7 +1025,12 @@ function Directions({
         </label>
         <label>
           Destination
-          <select required value={to} onChange={(e) => setTo(e.target.value)}>
+          <select
+            required
+            disabled={busy}
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          >
             <option value="">Choose a place</option>
             {places.map((p) => (
               <option key={p.id} value={p.id}>
@@ -1023,7 +1043,7 @@ function Directions({
           <input
             type="checkbox"
             checked={approximate}
-            disabled={accessible}
+            disabled={accessible || busy}
             onChange={(e) => setApproximate(e.target.checked)}
           />
           Allow nearby mapped paths when entrances are unverified
@@ -1032,6 +1052,7 @@ function Directions({
           <input
             type="checkbox"
             checked={accessible}
+            disabled={busy}
             onChange={(e) => setAccessible(e.target.checked)}
           />
           Require an accessibility-verified route
@@ -1054,10 +1075,31 @@ function Directions({
           </span>
         </div>
       )}
-      {error && (
+      {error && !(externalDirections && !accessible) && (
         <p role="alert" className="form-error">
           {error}
         </p>
+      )}
+      {error && externalDirections && !accessible && (
+        <div className="route-summary" role="status">
+          <h3>Continue with Google Maps</h3>
+          <p>{error}</p>
+          <p>
+            Both selected buildings are filled in. Google Maps will check its
+            walking routes; building access still needs confirmation.
+          </p>
+          <a
+            className="primary-button"
+            href={externalDirections}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ArrowUpRight size={17} /> Try Google Maps walking directions
+          </a>
+          <p>
+            Opens in a new tab. Approximate building pins may need adjustment.
+          </p>
+        </div>
       )}
       {result && (
         <div className="route-summary">

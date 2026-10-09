@@ -289,7 +289,8 @@ test("routing does not manufacture an edge for disconnected locations", async ()
     .set("X-CSRF-Token", csrfStudent)
     .send({ from: locationId, to: 999, accessible: false })
     .expect(422);
-  assert.match(r.body.error, /No sourced connected route/);
+  assert.equal(r.body.code, "ROUTE_UNAVAILABLE");
+  assert.match(r.body.error, /do not connect/);
 });
 test("assistant refuses unknown campus facts and identifies historical provenance", async () => {
   let r = await student
@@ -475,6 +476,23 @@ test("numbered buildings survive repeat imports, API refresh and block searches"
   await db.query("UPDATE locations SET building_code='34' WHERE id=$1", [
     block.id,
   ]);
+});
+
+test("Block 57 to Block 1 reports missing local coverage without inventing a connection", async () => {
+  const places = (await request(app).get("/api/locations")).body.items;
+  const [visitor, token] = await session();
+  const result = await visitor
+    .post("/api/routes")
+    .set("X-CSRF-Token", token)
+    .send({
+      from: places.find((p) => p.building_code === "57").id,
+      to: places.find((p) => p.building_code === "1").id,
+      allow_approximate: true,
+    })
+    .expect(422);
+  assert.equal(result.body.code, "ROUTE_UNAVAILABLE");
+  assert.match(result.body.error, /Google Maps/);
+  assert.equal(result.body.coordinates, undefined);
 });
 
 test("admin can close a path with evidence and an audit event", async () => {

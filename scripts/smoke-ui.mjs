@@ -25,6 +25,16 @@ w.ResizeObserver = class {
 };
 w.SVGSVGElement.prototype.createSVGRect = () => ({});
 w.fetch = async (path) => {
+  if (path.endsWith("/csrf")) return Response.json({ token: "ui-test-token" });
+  if (path.endsWith("/routes"))
+    return Response.json(
+      {
+        code: "ROUTE_UNAVAILABLE",
+        error:
+          "The saved campus walking paths do not connect these buildings. Try Google Maps walking directions below.",
+      },
+      { status: 422 },
+    );
   if (path.endsWith("/locations")) return Response.json(places);
   if (path.endsWith("/profile"))
     return Response.json({ error: "Please sign in" }, { status: 401 });
@@ -83,6 +93,48 @@ process.stdout.write(
     content: text.slice(0, 250),
     places: w.document.querySelectorAll(".place-row").length,
   }) + "\n",
+);
+const directions = [...w.document.querySelectorAll("button")].find(
+  (b) => b.textContent.trim() === "Directions",
+);
+directions.click();
+await new Promise((resolve) => setTimeout(resolve, 100));
+const selects = w.document.querySelectorAll(".form-panel select");
+const from = places.items.find((p) => p.building_code === "57");
+const to = places.items.find((p) => p.building_code === "1");
+for (const [select, id] of [
+  [selects[0], from.id],
+  [selects[1], to.id],
+]) {
+  select.value = id;
+  select.dispatchEvent(new w.Event("change", { bubbles: true }));
+  await new Promise((resolve) => setTimeout(resolve, 50));
+}
+w.document
+  .querySelector(".form-panel form")
+  .dispatchEvent(new w.Event("submit", { bubbles: true, cancelable: true }));
+await new Promise((resolve) => setTimeout(resolve, 100));
+const fallback = w.document.querySelector(
+  'a[href^="https://www.google.com/maps/dir/"]',
+);
+assert.ok(fallback, "Disconnected routes offer external walking directions");
+assert.equal(
+  new URL(fallback.href).searchParams.get("origin"),
+  `${from.latitude},${from.longitude}`,
+);
+assert.equal(
+  new URL(fallback.href).searchParams.get("destination"),
+  `${to.latitude},${to.longitude}`,
+);
+const checkboxes = w.document.querySelectorAll(
+  '.form-panel input[type="checkbox"]',
+);
+checkboxes[1].click();
+await new Promise((resolve) => setTimeout(resolve, 100));
+assert.equal(
+  w.document.querySelector('a[href^="https://www.google.com/maps/dir/"]'),
+  null,
+  "Walking fallback must not imply step-free accessibility",
 );
 dom.window.close();
 assert.deepEqual(errors, []);

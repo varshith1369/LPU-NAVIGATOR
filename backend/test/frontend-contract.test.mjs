@@ -3,6 +3,32 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { api } from "../../frontend/src/services/api.ts";
 import { mapLabel } from "../../frontend/src/services/location.ts";
+import { walkingDirectionsUrl } from "../../frontend/src/services/directions.ts";
+
+test("disconnected Block 57 to Block 1 can hand exact building pins to walking directions", () => {
+  const campus = JSON.parse(
+    readFileSync(
+      new URL("../../frontend/src/data/campus.json", import.meta.url),
+    ),
+  );
+  const from = campus.mapped.find((p) => p.building_code === "57");
+  const to = campus.mapped.find((p) => p.building_code === "1");
+  const url = new URL(walkingDirectionsUrl(from, to));
+  assert.equal(url.origin, "https://www.google.com");
+  assert.equal(url.searchParams.get("travelmode"), "walking");
+  assert.equal(url.searchParams.get("api"), "1");
+  assert.equal(
+    url.searchParams.get("origin"),
+    `${from.latitude},${from.longitude}`,
+  );
+  assert.equal(
+    url.searchParams.get("destination"),
+    `${to.latitude},${to.longitude}`,
+  );
+  assert.equal(walkingDirectionsUrl(from, from), null);
+  assert.equal(walkingDirectionsUrl(campus.directory[0], to), null);
+  assert.equal(walkingDirectionsUrl({ ...from, latitude: NaN }, to), null);
+});
 
 test("live block labels preserve suffixes and stay separate from historical legend numbers", () => {
   const campus = JSON.parse(
