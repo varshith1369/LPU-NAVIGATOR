@@ -437,6 +437,7 @@ test("numbered buildings survive repeat imports, API refresh and block searches"
     assert.equal(matches.length, 1, `Unique block ${code}`);
     const p = matches[0];
     assert.equal(p.historical, false);
+    if (["3", "4"].includes(code)) assert.equal(p.category, "Healthcare");
     assert.ok(p.latitude > 31.24 && p.latitude < 31.27);
     assert.ok(p.longitude > 75.69 && p.longitude < 75.72);
     assert.match(p.building_source_url, /^https:\/\//);

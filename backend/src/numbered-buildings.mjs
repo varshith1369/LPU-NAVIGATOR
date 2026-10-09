@@ -27,6 +27,7 @@ export function withNumberedBuildings(places) {
       ? {
           ...p,
           name: block.imported_name ? block.name : p.name,
+          category: block.imported_name ? block.category : p.category,
           building_code: block.building_code,
           building_source_url: (block.number_source ?? block.source).url,
           number_basis: block.number_basis ?? "public_listing",
@@ -107,8 +108,8 @@ export async function seedNumberedBuildings(db) {
         );
       if (p.imported_name)
         await tx.query(
-          "UPDATE locations SET name=$1,updated_at=now(),version=version+1 WHERE id=$2 AND name=$3 AND version=1",
-          [p.name, location.id, p.imported_name],
+          "UPDATE locations SET name=$1,category_id=(SELECT id FROM categories WHERE name=$4),updated_at=now(),version=version+1 WHERE id=$2 AND ((name=$3 AND version=1) OR (name=$1 AND version=3)) AND (name<>$1 OR category_id<>(SELECT id FROM categories WHERE name=$4))",
+          [p.name, location.id, p.imported_name,p.category],
         );
       if (!location.building_code)
         await tx.query(
