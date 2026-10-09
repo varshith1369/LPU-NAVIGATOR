@@ -72,6 +72,11 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
   );
   app.use(express.json({ limit: "64kb" }));
   app.use(cookieParser(config.secret));
+  app.use('/api',(req,res,next)=>{
+    if(process.env.MIGRATION_READ_ONLY==='true' && (!['GET','HEAD','OPTIONS'].includes(req.method) || req.path.startsWith('/conversations')))
+      return res.status(503).set('Retry-After','60').json({error:'We are moving campus data to the new host. Please retry in a minute.'});
+    next();
+  });
   if (limit)
     app.use(
       "/api",
