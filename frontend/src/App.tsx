@@ -301,12 +301,12 @@ export default function App() {
           </div>
           <div className="topbar-right">
             <InstallApp />
-            <span className="student-label">A student-developed project</span>
+            <span className="student-label">By Y VARSHITH REDDY</span>
             <button
               className="text-button"
               onClick={() => switchView(user ? "profile" : "profile")}
             >
-              {user ? "My account" : "Sign in"}
+              {user ? "Account" : "Sign in"}
               <ArrowUpRight size={16} />
             </button>
           </div>

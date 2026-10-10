@@ -734,3 +734,49 @@ a:focus-visible {
     height: 320px;
   }
 }
+/* Keep both actions in the header after signing in, including narrow phones. */
+@media (max-width: 1050px) {
+  .topbar .student-label {
+    display: none;
+  }
+}
+@media (max-width: 720px) {
+  .topbar {
+    flex-wrap: nowrap;
+    gap: 8px;
+    height: auto;
+    min-height: 68px;
+    padding: 10px 12px;
+  }
+  .topbar .wordmark {
+    min-width: 0;
+    gap: 8px;
+  }
+  .topbar .topbar-right {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 6px;
+  }
+  .topbar .text-button {
+    white-space: nowrap;
+    min-height: 44px;
+    padding: 9px;
+    gap: 5px;
+    font-size: 11px;
+  }
+  .topbar .install-app .text-button span {
+    font-size: 0;
+  }
+  .topbar .install-app .text-button span::after {
+    content: "Install";
+    font-size: 11px;
+  }
+  .topbar .wordmark small {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .topbar .wordmark > div {
+    display: none;
+  }
+}

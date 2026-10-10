@@ -1,0 +1,222 @@
+.campus-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  overflow: auto;
+  padding: 24px;
+  min-height: 100dvh;
+  color: #fff8ee;
+  background:
+    radial-gradient(ellipse at 70% 25%, #26525c 0, transparent 55%), #102837;
+}
+.opening-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(#f5ddbc 1px, transparent 1px),
+    linear-gradient(90deg, #f5ddbc 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(ellipse, black, transparent 75%);
+}
+.opening-orbit {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 25px;
+  color: #ffac71;
+  animation: opening-reveal 0.8s both;
+}
+.opening-orbit span {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #ffb77855;
+  border-radius: 50%;
+}
+.opening-orbit span:first-child {
+  inset: 12px;
+  border-top: 2px solid #ffb778;
+  animation: opening-turn 3.8s ease-in-out;
+}
+.opening-orbit span:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  width: 8px;
+  height: 8px;
+  background: #ffac71;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ffac71;
+}
+.opening-copy {
+  position: relative;
+  animation: opening-reveal 0.9s 0.1s both;
+}
+.opening-kicker {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: #b8cbc8;
+}
+.campus-opening h1 {
+  font-family: Manrope, sans-serif;
+  font-size: clamp(34px, 6vw, 72px);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  margin: 20px 0;
+  color: #fff8ee;
+}
+.campus-opening em {
+  font-style: normal;
+  color: #ffb77d;
+}
+.opening-product {
+  color: #c3d2d5;
+  font-size: 15px;
+}
+.opening-credit {
+  margin: 30px auto 24px;
+  display: grid;
+  gap: 9px;
+}
+.opening-credit span {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #9bb5be;
+}
+.opening-credit strong {
+  font-size: clamp(15px, 3vw, 21px);
+  letter-spacing: 0.14em;
+  font-weight: 600;
+}
+.opening-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.opening-actions button {
+  min-height: 44px;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #f4a36a;
+  color: #132d3a;
+  font-weight: 650;
+}
+.opening-actions button + button {
+  background: #ffffff0d;
+  border: 1px solid #ffffff35;
+  color: #f7ecdf;
+}
+.opening-actions button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 4px;
+}
+.opening-copy small {
+  display: block;
+  margin-top: 18px;
+  font-size: 10px;
+  color: #a9c1c8;
+}
+.opening-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #f4a36a;
+  transform-origin: left;
+  animation: opening-progress 3.8s linear both;
+}
+.welcome-sound {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 13px;
+  min-height: 40px;
+  background: #173342;
+  color: #fff4e8;
+  border-radius: 24px;
+  box-shadow: 0 3px 15px #17334225;
+  font-size: 11px;
+}
+.sound-error {
+  position: fixed;
+  right: 16px;
+  bottom: 65px;
+  z-index: 800;
+  padding: 8px;
+  background: white;
+  color: #173342;
+}
+@keyframes opening-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes opening-turn {
+  from {
+    transform: rotate(-120deg);
+  }
+  to {
+    transform: rotate(240deg);
+  }
+}
+@keyframes opening-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 720px) {
+  .welcome-sound {
+    bottom: 78px;
+    right: 12px;
+  }
+  .welcome-sound span {
+    display: none;
+  }
+  .sound-error {
+    bottom: 125px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .campus-opening *,
+  .campus-opening *::after {
+    animation: none !important;
+  }
+}
+@media (max-height: 640px) {
+  .opening-orbit {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 12px;
+  }
+  .opening-credit {
+    margin: 18px auto;
+  }
+  .campus-opening h1 {
+    font-size: 34px;
+    margin: 12px 0;
+  }
+}

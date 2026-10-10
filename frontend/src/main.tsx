@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import OpeningExperience from "./components/OpeningExperience";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
 import "./explorer.css";
@@ -54,7 +55,13 @@ function OpenMainSite({ url }: { url: string }) {
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <StartupBoundary>
-      {destination ? <OpenMainSite url={destination} /> : <App />}
+      {destination ? (
+        <OpenMainSite url={destination} />
+      ) : (
+        <OpeningExperience>
+          <App />
+        </OpeningExperience>
+      )}
     </StartupBoundary>
   </React.StrictMode>,
 );
