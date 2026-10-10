@@ -2,6 +2,21 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "regions": ["sin1"],
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache" },
+        { "key": "Service-Worker-Allowed", "value": "/" }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json" }
+      ]
+    }
+  ],
   "functions": {
     "api/index.mjs": {
       "maxDuration": 60,

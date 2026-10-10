@@ -1,0 +1,44 @@
+import { JSDOM, VirtualConsole } from 'jsdom';
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import webpush from 'web-push';
+const html=readFileSync('dist/index.html','utf8');
+const js=readFileSync('dist'+html.match(/src="([^"]+\.js)"/)[1],'utf8');
+const errors=[];
+const output=new VirtualConsole(); output.on('jsdomError',e=>errors.push(e.message));
+const dom=new JSDOM(html,{url:'https://lpu-campus-navigator-lpu.vercel.app/',runScripts:'outside-only',pretendToBeVisual:true,virtualConsole:output});
+const w=dom.window;
+w.ResizeObserver=class{observe(){} disconnect(){}};
+w.SVGSVGElement.prototype.createSVGRect=()=>({});
+w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};
+let prompts=0,subscribed=0,saved=0,removed=0;
+let subscription=null;
+const registration={pushManager:{getSubscription:async()=>subscription,subscribe:async()=>{
+  subscribed++; subscription={toJSON:()=>({endpoint:'https://fcm.googleapis.com/test',keys:{auth:'a',p256dh:'b'}}),unsubscribe:async()=>{subscription=null;return true;}};return subscription;
+}}};
+Object.defineProperty(w.navigator,'serviceWorker',{value:{register:async()=>registration,getRegistration:async()=>registration,ready:Promise.resolve(registration)}});
+w.PushManager=function(){};
+w.Notification={permission:'default',requestPermission:async()=>{prompts++;w.Notification.permission='granted';return 'granted';}};
+w.fetch=async(path,options={})=>{
+  if(path.endsWith('/csrf'))return Response.json({token:'test'});
+  if(path.endsWith('/push/config'))return Response.json({publicKey:webpush.generateVAPIDKeys().publicKey});
+  if(path.endsWith('/push/subscriptions')){if(options.method==='DELETE')removed++;else saved++;return Response.json({});}
+  if(path.endsWith('/profile'))return Response.json({error:'Sign in'},{status:401});
+  if(path.endsWith('/locations'))return Response.json({items:JSON.parse(readFileSync('frontend/src/data/campus.json','utf8')).mapped});
+  return Response.json([]);
+};
+const tick=()=>new Promise(r=>setTimeout(r,150));
+const button=(text)=>[...w.document.querySelectorAll('button')].find(b=>b.textContent.includes(text));
+w.eval(js); await tick();
+assert.equal(prompts,0,'Permission must not be requested on load');
+button('Install & alerts').click(); await tick();
+assert.ok(w.document.querySelector('dialog').open);
+button('Install app').click(); await tick();
+assert.ok(w.document.body.textContent.includes('Open your browser menu'));
+button('Enable notifications').click(); await tick();
+assert.equal(prompts,1);assert.equal(subscribed,1);assert.equal(saved,1);
+button('Turn off notifications').click();await tick();
+assert.equal(removed,1);assert.equal(subscription,null);
+assert.deepEqual(errors,[]);
+dom.window.close();
+console.log('Install dialog, manual install guidance, explicit permission, subscription and unsubscribe passed.');

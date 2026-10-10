@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { waitUntil } from "@vercel/functions";
+import { notifyAnnouncement } from "./push.mjs";
 const id = z.coerce.number().int().positive();
 const status = z.enum([
   "VERIFIED_OFFICIAL",
@@ -506,6 +508,9 @@ export function registerAdmin(app, db, requireUser, admin) {
       await audit(tx, req.user.id, "CREATE", "announcements", row.id, null, b);
       return row;
     });
+    const delivery = notifyAnnouncement(db, row).catch(() => console.error("Announcement push delivery could not complete"));
+    if (process.env.VERCEL) waitUntil(delivery);
+    else await delivery;
     res.status(201).json(row);
   });
   app.post("/api/admin/facilities", async (req, res) => {

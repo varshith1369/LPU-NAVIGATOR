@@ -1200,3 +1200,61 @@ main {
     inset: 14px 12px auto;
   }
 }
+/* Installation and notification controls stay reachable on narrow screens. */
+.install-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 2000;
+  width: min(92vw, 480px);
+  max-height: 85dvh;
+  overflow: auto;
+  padding: 28px;
+  border: 1px solid #d8dfd0;
+  border-radius: 20px;
+  background: #faf8f3;
+  color: #193f35;
+  box-shadow: 0 16px 80px #16304255;
+}
+.install-dialog h2 {
+  padding-right: 24px;
+}
+.install-dialog p {
+  line-height: 1.6;
+}
+.install-dialog h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.install-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 8px;
+}
+.install-dialog::backdrop {
+  background: #16304266;
+}
+.install-dialog .install-note {
+  font-size: 12px;
+  color: #536774;
+}
+.install-status {
+  padding: 12px;
+  background: #e5eddf;
+  border-radius: 10px;
+}
+@media (max-width: 600px) {
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .topbar-right {
+    flex-wrap: wrap;
+  }
+  .install-app .text-button {
+    font-size: 12px;
+  }
+}

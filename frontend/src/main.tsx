@@ -6,6 +6,13 @@ import "./style.css";
 import "./explorer.css";
 import { canonicalDestination } from "./services/canonical";
 const destination = canonicalDestination(window.location.href);
+if (!destination && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {
+      // Normal browsing remains available if installation is unsupported.
+    });
+  });
+}
 class StartupBoundary extends React.Component<
   React.PropsWithChildren,
   { failed: boolean }

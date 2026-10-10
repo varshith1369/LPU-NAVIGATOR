@@ -32,6 +32,7 @@ export default function AnnouncementEditor({
   return (
     <section className="admin-announcements">
       <h3>Publish campus announcements</h3>
+      <p>New announcements published immediately send alerts to devices that opted in. Scheduled announcements appear in Updates at their start time; scheduled push and alerts for edits are not enabled.</p>
       <form
         onSubmit={async (e) => {
           e.preventDefault();

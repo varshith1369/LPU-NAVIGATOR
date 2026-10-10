@@ -1,5 +1,13 @@
 # Deployment
 
+## Installation and device notifications
+
+The web manifest, PNG icons and root service worker support installation on compatible mobile and desktop browsers. Use **Install & alerts** in the app. On iPhone/iPad, add the site to the Home Screen in Safari, open the installed app, then enable notifications (iOS/iPadOS 16.4+). Permission is requested only after pressing Enable notifications. Each device has its own opt-in and unsubscribe control; no login is required for public announcements.
+
+Run migration `004_push.sql` before publishing this version. Set `VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY` using a stable key pair from `web-push.generateVAPIDKeys()`; never expose the private key or rotate it casually because subscriptions depend on it. New announcements created with an active start/end window trigger Web Push. Scheduled records and edits still refresh in the Updates feed but do not trigger scheduled push. Delivery depends on network, browser permission, OS settings and provider availability; it is not an emergency alert service. Broadcasts use bounded batches with a 45-second budget, suitable for this small project rather than guaranteed large-scale delivery. Add a durable queue with retry scheduling before campus-wide rollout.
+
+The worker caches only a static offline notice, never authentication, conversations, API responses or map tiles. Installation does not imply offline routing. Public subscription endpoints use CSRF checks, rate limits and an HTTPS push-provider allowlist. Unsubscribe requires the subscription's secret auth key. Expired provider subscriptions are removed after HTTP 404/410 responses.
+
 Deployment targets: repository `varshith1369/LPU-NAVIGATOR`, Vercel project `lpu-campus-navigator` at `https://lpu-campus-navigator-lpu.vercel.app`, and Neon PostgreSQL 17 in Singapore. `vercel.json` routes `/api/*` to `api/index.mjs` in Vercel; the frontend and API use the same origin. The previous Render service is retained temporarily for rollback only.
 
 ## Vercel + Neon free deployment

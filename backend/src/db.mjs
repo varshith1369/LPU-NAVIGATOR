@@ -52,6 +52,7 @@ export async function migrate(db) {
       "utf8",
     ),
   );
+  await db.exec(readFileSync(new URL("../../database/schema/004_push.sql", import.meta.url), "utf8"));
 }
 
 export async function seedHistorical(db) {

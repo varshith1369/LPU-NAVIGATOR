@@ -31,6 +31,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import AdminTools from "./components/AdminTools";
+import InstallApp from "./components/InstallApp";
 import Conversations from "./components/Conversations";
 import AnnouncementEditor from "./components/AnnouncementEditor";
 import CampusMap from "./components/CampusMap";
@@ -63,7 +64,11 @@ type View =
   | "admin";
 export default function App() {
   const [view, setView] = useState<View>(
-    new URLSearchParams(location.search).has("reset") ? "profile" : "explore",
+    new URLSearchParams(location.search).has("reset")
+      ? "profile"
+      : new URLSearchParams(location.search).get("view") === "announcements"
+        ? "announcements"
+        : "explore",
   );
   const [historical, setHistorical] = useState(false);
   const [query, setQuery] = useState("");
@@ -293,6 +298,7 @@ export default function App() {
             </div>
           </div>
           <div className="topbar-right">
+            <InstallApp />
             <span className="student-label">A student-developed project</span>
             <button
               className="text-button"

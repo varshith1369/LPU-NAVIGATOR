@@ -16,6 +16,7 @@ import { registerConversations } from "./conversations.mjs";
 import { PostgresRateStore } from "./rate-store.mjs";
 import { publicMap } from "./public-map.mjs";
 import { numberMetadata } from "./numbered-buildings.mjs";
+import { registerPush } from "./push.mjs";
 
 const id = z.coerce.number().int().positive();
 const email = z
@@ -607,6 +608,7 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     }),
   );
   registerAdmin(app, db, requireUser, admin);
+  registerPush(app, db);
   registerConversations(app, db, requireUser, admin);
   app.use("/api", (req, res) =>
     res.status(404).json({ error: "API endpoint not found." }),
