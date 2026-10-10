@@ -35,6 +35,12 @@ self.addEventListener("fetch", (event) => {
     );
   }
 });
+function notificationUrl(value) {
+  return typeof value === "string" &&
+    /^\/\?view=conversations&room=[1-9][0-9]*$/.test(value)
+    ? value
+    : "/?view=announcements";
+}
 self.addEventListener("push", (event) => {
   let data = {};
   try {
@@ -48,7 +54,7 @@ self.addEventListener("push", (event) => {
       icon: "/icons/app-192.png",
       badge: "/icons/badge.png",
       tag: data.tag || "campus-update",
-      data: { url: "/?view=announcements" },
+      data: { url: notificationUrl(data.url) },
     }),
   );
 });
@@ -56,7 +62,10 @@ self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   event.waitUntil(
     (async () => {
-      const url = new URL("/?view=announcements", self.location.origin).href;
+      const url = new URL(
+        notificationUrl(event.notification.data?.url),
+        self.location.origin,
+      ).href;
       const windows = await self.clients.matchAll({
         type: "window",
         includeUncontrolled: true,

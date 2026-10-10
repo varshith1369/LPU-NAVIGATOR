@@ -2,6 +2,8 @@ import { z } from "zod";
 import { rateLimit } from "express-rate-limit";
 import { audit } from "./admin.mjs";
 import { PostgresRateStore } from "./rate-store.mjs";
+import { waitUntil } from "@vercel/functions";
+import { notifyChat } from "./push.mjs";
 const id = z.coerce.number().int().positive();
 export function registerConversations(app, db, requireUser, admin) {
   app.use("/api/conversations", requireUser, (req, res, next) => {
@@ -96,6 +98,11 @@ export function registerConversations(app, db, requireUser, admin) {
           error:
             "This conversation is closed. Ask an administrator to reopen it.",
         });
+      const delivery = notifyChat(db, req.room, req.user.id).catch(() =>
+        console.error("Chat notification delivery failed"),
+      );
+      if (process.env.VERCEL) waitUntil(delivery);
+      else await delivery;
       res.status(201).json(result);
     },
   );

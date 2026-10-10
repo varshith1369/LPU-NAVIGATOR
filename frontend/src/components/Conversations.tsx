@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { api, post, type User } from "../services/api";
+import ChatAlerts from "./ChatAlerts";
 export default function Conversations({ user }: { user: User | null }) {
   const messageList = useRef<HTMLDivElement>(null);
   const followLatest = useRef(true);
@@ -22,7 +23,13 @@ export default function Conversations({ user }: { user: User | null }) {
             (old) =>
               old ||
               String(
-                rows.find((r: any) => r.kind === "SUPPORT")?.id || rows[0]?.id,
+                rows.find(
+                  (r: any) =>
+                    String(r.id) ===
+                    new URLSearchParams(location.search).get("room"),
+                )?.id ||
+                  rows.find((r: any) => r.kind === "SUPPORT")?.id ||
+                  rows[0]?.id,
               ),
           );
         }
@@ -83,6 +90,7 @@ export default function Conversations({ user }: { user: User | null }) {
     <section className="content-panel">
       <div className="eyebrow">CONNECT WITH CAMPUS</div>
       <h2>Conversations</h2>
+      <ChatAlerts key={user.id} userId={user.id} />
       <p>
         Private support and a shared campus chat. Messages refresh every three
         seconds while this page is open.

@@ -68,7 +68,9 @@ export default function App() {
       ? "profile"
       : new URLSearchParams(location.search).get("view") === "announcements"
         ? "announcements"
-        : "explore",
+        : new URLSearchParams(location.search).get("view") === "conversations"
+          ? "conversations"
+          : "explore",
   );
   const [historical, setHistorical] = useState(false);
   const [query, setQuery] = useState("");

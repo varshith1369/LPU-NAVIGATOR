@@ -54,6 +54,23 @@ test("service worker displays push, opens Updates, and never caches API or priva
   await work;
   assert.ok(closed);
   assert.equal(opened[0], "https://campus.test/?view=announcements");
+  handlers.push({
+    data: {
+      json: () => ({
+        title: "Private support",
+        url: "/?view=conversations&room=123",
+      }),
+    },
+    waitUntil: (p) => (work = p),
+  });
+  await work;
+  assert.equal(shown[1][1].data.url, "/?view=conversations&room=123");
+  handlers.notificationclick({
+    notification: { data: shown[1][1].data, close() {} },
+    waitUntil: (p) => (work = p),
+  });
+  await work;
+  assert.equal(opened[1], "https://campus.test/?view=conversations&room=123");
   handlers.fetch({
     request: { mode: "cors", url: "https://campus.test/api/profile" },
     respondWith: () => assert.fail("Private API must not be cached"),

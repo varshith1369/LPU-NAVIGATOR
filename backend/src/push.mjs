@@ -1,5 +1,6 @@
 import webpush from "web-push";
 import { z } from "zod";
+import { hash } from "./security.mjs";
 
 export function allowedPushEndpoint(value) {
   try {
@@ -39,7 +40,44 @@ export function pushConfig() {
       }
     : null;
 }
-export function registerPush(app, db) {
+export function registerPush(app, db, requireUser) {
+  const chatSettings = subscription.extend({
+    support_alerts: z.boolean(),
+    campus_alerts: z.boolean(),
+  });
+  app.post("/api/push/chat/status", requireUser, async (req, res) => {
+    const s = subscription.parse(req.body);
+    const row = (
+      await db.query(
+        `SELECT support_alerts,campus_alerts FROM push_subscriptions
+      WHERE endpoint=$1 AND auth=$2 AND user_id=$3 AND session_hash=$4`,
+        [s.endpoint, s.keys.auth, req.user.id, hash(req.cookies.session)],
+      )
+    ).rows[0];
+    res.json(row ?? { support_alerts: false, campus_alerts: false });
+  });
+  app.put("/api/push/chat", requireUser, async (req, res) => {
+    const s = chatSettings.parse(req.body);
+    const result = await db.query(
+      `UPDATE push_subscriptions SET user_id=$3,session_hash=$4,support_alerts=$5,campus_alerts=$6
+      WHERE endpoint=$1 AND auth=$2 RETURNING support_alerts,campus_alerts`,
+      [
+        s.endpoint,
+        s.keys.auth,
+        req.user.id,
+        hash(req.cookies.session),
+        s.support_alerts,
+        s.campus_alerts,
+      ],
+    );
+    if (!result.rows.length)
+      return res
+        .status(404)
+        .json({
+          error: "Enable device notifications in Install & alerts first.",
+        });
+    res.json(result.rows[0]);
+  });
   app.get("/api/push/config", (req, res) =>
     res.json({ publicKey: pushConfig()?.publicKey ?? null }),
   );
@@ -55,12 +93,10 @@ export function registerPush(app, db) {
       [s.endpoint, s.keys.p256dh, s.keys.auth],
     );
     if (!result.rows.length)
-      return res
-        .status(409)
-        .json({
-          error:
-            "Remove this browser subscription and enable notifications again.",
-        });
+      return res.status(409).json({
+        error:
+          "Remove this browser subscription and enable notifications again.",
+      });
     res.status(201).json({ enabled: true });
   });
   app.delete("/api/push/subscriptions", async (req, res) => {
@@ -71,6 +107,60 @@ export function registerPush(app, db) {
     );
     res.json({ enabled: false });
   });
+}
+
+export async function notifyChat(
+  db,
+  room,
+  senderId,
+  send = webpush.sendNotification.bind(webpush),
+) {
+  const vapidDetails = pushConfig();
+  if (!vapidDetails) return;
+  const campus = room.kind === "CAMPUS";
+  // No private message text, email or sender name is exposed on a lock screen.
+  const payload = JSON.stringify({
+    title: campus ? "New campus chat message" : "New private support message",
+    body: "Open Campus Navigator to read your messages.",
+    tag: `chat-${room.id}`,
+    url: `/?view=conversations&room=${room.id}`,
+  });
+  let cursor = "";
+  const deadline = Date.now() + 45000;
+  while (Date.now() < deadline) {
+    const { rows } = await db.query(
+      `SELECT s.endpoint,s.p256dh,s.auth FROM push_subscriptions s
+      JOIN users u ON u.id=s.user_id AND u.active
+      JOIN auth_tokens t ON t.user_id=u.id AND t.token_hash=s.session_hash
+        AND t.purpose='REFRESH' AND t.revoked_at IS NULL AND t.expires_at>now()
+      WHERE s.endpoint>$1 AND u.id<>$2 AND
+      (($3 AND s.campus_alerts) OR (NOT $3 AND s.support_alerts AND (u.id=$4 OR u.role='ADMIN')))
+      ORDER BY s.endpoint LIMIT 25`,
+      [cursor, senderId, campus, room.owner_id],
+    );
+    if (!rows.length) break;
+    await Promise.all(
+      rows.map(async (s) => {
+        if (!allowedPushEndpoint(s.endpoint)) return;
+        try {
+          await send(
+            { endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } },
+            payload,
+            { vapidDetails, TTL: 60, timeout: 4000 },
+          );
+        } catch (error) {
+          if ([404, 410].includes(error.statusCode))
+            await db.query(
+              "DELETE FROM push_subscriptions WHERE endpoint=$1 AND auth=$2",
+              [s.endpoint, s.auth],
+            );
+          else
+            console.error("Chat push failed:", error.statusCode ?? error.name);
+        }
+      }),
+    );
+    cursor = rows.at(-1).endpoint;
+  }
 }
 
 // Only new announcements that are already active are broadcast. Scheduled

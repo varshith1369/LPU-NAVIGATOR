@@ -608,7 +608,7 @@ export function createApp(db, { config = configuration(), limit = true } = {}) {
     }),
   );
   registerAdmin(app, db, requireUser, admin);
-  registerPush(app, db);
+  registerPush(app, db, requireUser);
   registerConversations(app, db, requireUser, admin);
   app.use("/api", (req, res) =>
     res.status(404).json({ error: "API endpoint not found." }),

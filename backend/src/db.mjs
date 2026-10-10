@@ -29,6 +29,7 @@ export async function connectDatabase({ memory = false } = {}) {
 }
 
 export async function migrate(db) {
+  // Additive migrations preserve existing subscriptions and account data.
   // Deployment runs this separately before serving traffic.
   const exists = await db.query(
     "SELECT to_regclass('public.locations') AS name",
@@ -52,7 +53,18 @@ export async function migrate(db) {
       "utf8",
     ),
   );
-  await db.exec(readFileSync(new URL("../../database/schema/004_push.sql", import.meta.url), "utf8"));
+  await db.exec(
+    readFileSync(
+      new URL("../../database/schema/004_push.sql", import.meta.url),
+      "utf8",
+    ),
+  );
+  await db.exec(
+    readFileSync(
+      new URL("../../database/schema/005_chat_push.sql", import.meta.url),
+      "utf8",
+    ),
+  );
 }
 
 export async function seedHistorical(db) {

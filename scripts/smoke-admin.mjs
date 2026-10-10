@@ -46,11 +46,21 @@ w.ResizeObserver = class {
 };
 w.SVGSVGElement.prototype.createSVGRect = () => ({});
 w.confirm = () => true;
+const chatSettings = { support_alerts: false, campus_alerts: true };
+w.Notification = { permission: "granted" };
+Object.defineProperty(w.navigator, "serviceWorker", { value: {
+  register: async () => ({}),
+  getRegistration: async () => ({ pushManager: { getSubscription: async () => ({
+    toJSON: () => ({ endpoint: "https://fcm.googleapis.com/test", keys: {auth:"test",p256dh:"test"} }),
+  }) } }),
+} });
 w.fetch = async (path, options = {}) => {
   if (path.endsWith("/csrf")) return Response.json({ token: "test-csrf" });
+  if (path === "/api/push/chat/status") return Response.json(chatSettings);
   if (options.method && options.method !== "GET") {
     const body = JSON.parse(options.body ?? "{}");
     writes.push({ path, body, method: options.method });
+    if (path === "/api/push/chat") Object.assign(chatSettings, { support_alerts: body.support_alerts, campus_alerts: body.campus_alerts });
     if (path === "/api/admin/announcements")
       dashboard.announcements.push({ ...body, id: 1 });
     if (path.endsWith("/messages"))
@@ -130,6 +140,17 @@ try {
   button("Chat").click();
   await pause();
   await pause();
+  const switches = w.document.querySelectorAll('.chat-alerts input[type="checkbox"]');
+  assert.equal(switches[0].checked, false);
+  assert.equal(switches[1].checked, true);
+  switches[0].click(); switches[1].click();
+  await pause();
+  button("Save chat notification settings").click();
+  await pause();
+  assert.equal(writes.at(-1).path, "/api/push/chat");
+  assert.equal(chatSettings.support_alerts, true);
+  assert.equal(chatSettings.campus_alerts, false);
+  assert.ok(w.document.querySelector('.chat-alerts').textContent.includes('Saved.'));
   await fill(
     w.document.querySelector(".chat-layout textarea"),
     "Hello support",
